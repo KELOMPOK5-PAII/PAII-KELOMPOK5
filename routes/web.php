@@ -21,3 +21,12 @@ Route::get('/akomodasi/asrama','App\Http\Controllers\AsramaController@index');
 Route::get('/f', function () {
     return view('fasilitas');
 });
+
+
+Route::get('/login', function () {
+    return view('/Admin/login');
+});
+Route::get('/Admin/login', 'Admin/LoginController@index');
+
+
+

@@ -33,8 +33,8 @@
                         </div>
             </div>
     </div>
-    
-  
+
+
   <!--Navbar-->
   <ul class="nav justify-content-center">
         <li class=" nav-item"><a class="nav-link" aria-current="page" href="{{asset('/')}}">Beranda</a></li>
@@ -69,7 +69,7 @@
         <hr class="my-4">
 
     @yield('container')
-    
+
 <!-- Footer -->
 <section id="footer" class="bg-dark text-light">
     <br><br>
