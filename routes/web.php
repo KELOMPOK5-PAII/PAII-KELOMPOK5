@@ -32,3 +32,7 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard'
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
 
+
+Auth::routes();
+
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
