@@ -20,9 +20,16 @@
     <!-- Custom styles for this template-->
     <link href="{{ url('sbadmin/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+    <style>
+  body {
+    background-image: url("foto/del.jpg");
+    background-size:cover
+  }
+</style>
+
 </head>
 
-    <body>
+<body>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
