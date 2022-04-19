@@ -47,16 +47,16 @@
         <div class="container" style=  "margin-bottom:50px;">
             <div class="row">
                 <div class="col">
-                    <img src="{{ asset('foto/Logo_del.jpg') }}" width="200" class="rounded mx-auto d-block" alt="..." >
-                    <button type="button" class="btn btn-secondary" style= "margin-top: -30px;">Secondary</button>
+                    <img src="{{ asset('foto/OT.jpg') }}" width="300" height="350" class="rounded mx-auto d-block" alt="..." >
+                    <button type="button" class="btn btn-secondary" style= "margin-top: -30px; background: #26231B; "> Open Theater</button>
                 </div>
                 <div class="col">
-                    <img src="{{ asset('foto/Logo_del.jpg') }}" width="200" class="rounded mx-auto d-block" alt="..." >
-                    <button type="button" class="btn btn-secondary" style= "margin-top: -30px;">Secondary</button>
+                    <img src="{{ asset('foto/Plaza.jpg') }}" width="300" height="350" class="rounded mx-auto d-block" alt="..." >
+                    <button type="button" class="btn btn-secondary" style= "margin-top: -30px; background: #26231B; ">&nbsp;Plaza</button>
                 </div>
                 <div class="col">
-                    <img src="{{ asset('foto/Logo_del.jpg') }}" width="200" class="rounded mx-auto d-block" alt="..." >
-                    <button type="button" class="btn btn-secondary" style= "margin-top: -30px;">Secondary</button>
+                    <img src="{{ asset('foto/EH.jpg') }}" width="300" height="350" class="rounded mx-auto d-block" alt="..." >
+                    <button type="button" class="btn btn-secondary" style= "margin-top: -30px; background: #26231B;">Entrance Hall</button>
                 </div>
             </div>
         </div>
