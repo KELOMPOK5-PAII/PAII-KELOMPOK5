@@ -1,1 +1,1 @@
-<h1>DASHBOARD TEST</h1>
+@extends('layouts.main2')

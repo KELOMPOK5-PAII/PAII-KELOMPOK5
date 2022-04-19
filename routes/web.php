@@ -36,3 +36,5 @@ Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('acti
 Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+Route::get('/profil', [App\Http\Controllers\UserController::class, 'index'])->name('profil');
