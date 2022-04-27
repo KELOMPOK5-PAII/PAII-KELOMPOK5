@@ -1,7 +1,6 @@
-
-
 body {
   font-family: "poppins",sans-serif;
+  font-family: Poppins-Regular;
 }
 /*---------------------
     Navbar
@@ -11,5 +10,11 @@ li a:hover {
 	color:#0000;
 	text-decoration:underline;
   }
+
+  
+.nav1 .nav-link {
+  color: #000000;
+}
+
 
 

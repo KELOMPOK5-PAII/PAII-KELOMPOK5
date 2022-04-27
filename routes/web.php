@@ -15,9 +15,15 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+/*User*/
 Route::get('/','App\Http\Controllers\HomeController@home');
+
 Route::get('/akomodasi','App\Http\Controllers\AkomodasiController@index');
 Route::get('/akomodasi/asrama','App\Http\Controllers\AsramaController@index');
+Route::get('/akomodasi/kantin','App\Http\Controllers\KantinController@index');
+
+Route::get('/perpustakaan','App\Http\Controllers\PerpusController@index');
+Route::get('/ruangterbuka','App\Http\Controllers\RuangTerbukaController@index');
 
 
 Route::get('/f', function () {
@@ -25,6 +31,7 @@ Route::get('/f', function () {
 });
 
 
+/*Admin */
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 

@@ -35,7 +35,7 @@
               <h5 class="card-title ">{{$a->namaasrama}}</h5>
               
               <!-- Button trigger modal -->
-              <center><button type="button" class="btn d-flex justify-content-center text-white" style= "background: #26231B; " data-bs-toggle="modal" data-bs-target="#exampleModal{{$a->id}}">Selengkapnya</button></center>
+              <center><button type="button" class="btn d-flex justify-content-center text-white" style= "background: #26231B;" data-bs-toggle="modal" data-bs-target="#exampleModal{{$a->id}}">Selengkapnya</button></center>
               <!-- Modal -->
               <div class="modal fade" id="exampleModal{{$a->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">

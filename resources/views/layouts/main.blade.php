@@ -13,7 +13,7 @@
   </head>
   <body>
     <!--Jumbotron-->
-    <div class="jumbotron">
+    <div class="jumbotron" >
                     <div class="row">
                         <div class="col-2">
                         <img src="{{ asset('foto/Logo Fasilitas.png') }}" width="150" class="rounded mx-auto d-block" alt="...">
@@ -33,24 +33,25 @@
                         </div>
             </div>
     </div>
+    
 
-
-  <!--Navbar-->
+<!--Navbar-->
+<div class="nav1">
   <ul class="nav justify-content-center">
         <li class=" nav-item"><a class="nav-link" aria-current="page" href="{{asset('/')}}">Beranda</a></li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" href="{{('/fasilitas')}}">Fasilitas</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{asset('/akomodasi')}}">Akomodasi</a></li>
-                        <li><a class="dropdown-item" href="{{asset('/')}}">Laboratorium</a></li>
-                        <li><a class="dropdown-item" href="{{asset('/')}}">Gedung</a></li>
-                        <li><a class="dropdown-item" href="{{asset('/')}}">Ruang Terbuka</a></li>
-                        <li><a class="dropdown-item" href="{{asset('/')}}">Perpustakaan</a></li>
-                        <li><a class="dropdown-item" href="{{asset('/')}}">Koperasi</a></li>
-                        <li><a class="dropdown-item" href="{{asset('/')}}">Klinik</a></li>
-                        <li><a class="dropdown-item" href="{{asset('/')}}">Post Satpam</a></li>
-                        <li><a class="dropdown-item" href="{{asset('/')}}">Parkiran</a></li>
-                        <li><a class="dropdown-item" href="{{asset('/')}}">Hiburan dan Olahraga</a></li>
+                        <li><a class="dropdown-item" href="{{asset('/laboratorium')}}">Laboratorium</a></li>
+                        <li><a class="dropdown-item" href="{{asset('/gedung')}}">Gedung</a></li>
+                        <li><a class="dropdown-item" href="{{asset('/ruangterbuka')}}">Ruang Terbuka</a></li>
+                        <li><a class="dropdown-item" href="{{asset('/perpustakaan')}}">Perpustakaan</a></li>
+                        <li><a class="dropdown-item" href="{{asset('/koperasi')}}">Koperasi</a></li>
+                        <li><a class="dropdown-item" href="{{asset('/klinik')}}">Klinik</a></li>
+                        <li><a class="dropdown-item" href="{{asset('/postsatpam')}}">Post Satpam</a></li>
+                        <li><a class="dropdown-item" href="{{asset('/parkiran')}}">Parkiran</a></li>
+                        <li><a class="dropdown-item" href="{{asset('/hiburandanolahraga')}}">Hiburan dan Olahraga</a></li>
                     </ul>
             </li>
             <li class="nav-item">
@@ -63,13 +64,15 @@
                 <a class="nav-link" href="{{asset('/saran')}}">Saran</a>
             </li>
             <li class="nav-item">
-                <a class="btn btn-outline-secondary" href="{{route('login')}}">Login Admin</a>
+                <a class="btn btn-outline-secondary" href="{{asset('/login')}}">Login Admin</a>
             </li>
         </ul>
+</div>
         <hr class="my-4">
 
-    @yield('container')
 
+@yield('container')
+    
 <!-- Footer -->
 <section id="footer" class="bg-dark text-light">
     <br><br>
@@ -94,14 +97,11 @@
     </div>
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2022 Copyright:
-        <a class="text-reset fw-bold">Sistem Informasi Fasilitas IT Del</a>
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
     </div>
     <!-- Copyright -->
 </section>
-
-
-
 
     <!-- Optional JavaScript; choose one of the two! -->
 
