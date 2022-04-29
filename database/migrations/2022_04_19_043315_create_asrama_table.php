@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('asrama', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('foto')->nullable();
+            $table->string('gambar')->nullable();
             $table->string('namaasrama')->nullable();
             $table->string('lokasi')->nullable();
             $table->string('jenisasrama')->nullable();
-            $table->string('fasilitas')->nullable();
-            $table->string('gambar')->nullable();
-            $table->string('deskripsi')->nullable();
+            $table->string('fasilitas',2000)->nullable();
+            $table->string('gambar1')->nullable();
+            $table->string('deskripsi',2000)->nullable();
         });
     }
 

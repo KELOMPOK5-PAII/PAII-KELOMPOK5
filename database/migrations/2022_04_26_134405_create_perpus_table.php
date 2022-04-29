@@ -14,9 +14,9 @@ class CreatePerpusTable extends Migration
     public function up()
     {
         Schema::create('perpus', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('judul')->nullable();
-            $table->string('deskripsi')->nullable();
+            $table->string('deskripsi',2000)->nullable();
             $table->string('gambar')->nullable();
         });
     }

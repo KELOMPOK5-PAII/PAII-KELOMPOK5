@@ -14,12 +14,12 @@ class CreateKantinTable extends Migration
     public function up()
     {
         Schema::create('kantin', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('namakantin')->nullable();
-            $table->string('jammakan')->nullable();
-            $table->string('perlengkapan')->nullable();
-            $table->string('peraturan')->nullable();
-            $table->string('deskripsi')->nullable();
+            $table->string('jammakan',2000)->nullable();
+            $table->string('perlengkapan',2000)->nullable();
+            $table->string('peraturan',2000)->nullable();
+            $table->string('deskripsi',2000)->nullable();
             $table->string('gambar')->nullable();
             $table->string('gambar1');
             $table->string('gambar2');

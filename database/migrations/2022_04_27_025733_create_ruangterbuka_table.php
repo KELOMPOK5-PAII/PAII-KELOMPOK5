@@ -14,9 +14,9 @@ class CreateRuangterbukaTable extends Migration
     public function up()
     {
         Schema::create('ruangterbuka', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('namart')->nullable();
-            $table->string('deskripsi')->nullable();
+            $table->string('deskripsi',2000)->nullable();
             $table->string('gambar')->nullable();
             $table->string('gambar1');
             $table->string('gambar2');
