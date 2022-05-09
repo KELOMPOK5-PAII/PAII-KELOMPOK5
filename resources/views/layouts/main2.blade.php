@@ -20,6 +20,31 @@
 
     <!-- Custom styles for this page -->
     <link href="{{ url('sbadmin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+<style type="text/css">
+.dropdown:hover > .dropdown-menu, .dropright:hover > .dropdown.menu {
+    display: block;
+
+}
+
+
+.dropdown-menu li {
+position: relative;
+}
+.dropdown-menu .dropdown-submenu {
+display: none;
+position: absolute;
+left: 100%;
+top: -7px;
+}
+.dropdown-menu .dropdown-submenu-left {
+right: 100%;
+left: auto;
+}
+.dropdown-menu > li:hover > .dropdown-submenu {
+display: block;
+}
+</style>
+
 
 </head>
 
@@ -45,34 +70,100 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/dashboard') }}">
-                <i class="fa fa-home" aria-hidden="true"></i>
-                    <span>Dashboard</span></a>
-            </li>
+                <a class="nav-link" href="{{ url('/dashboard') }}" id="navbarDropdownMenuLink" role="button"
+                 data-mdb-toggle="dropdown" aria-expanded="false">
+                 <i class="fa fa-home" aria-hidden="true"></i>
+                    <span>Dashboard</span>
+        </a>
 
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fa fa-university" aria-hidden="true"></i>
-                    <span>Fasilitas</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-color.html">Akomodasi</a>
-                        <a class="collapse-item" href="utilities-border.html">Laboratorium</a>
-                        <a class="collapse-item" href="utilities-animation.html">Gedung</a>
-                        <a class="collapse-item" href="utilities-other.html">Ruang Terbuka</a>
-                        <a class="collapse-item" href="utilities-other.html">Perpustakaan</a>
-                        <a class="collapse-item" href="utilities-other.html">Koperasi</a>
-                        <a class="collapse-item" href="utilities-other.html">Klinik</a>
-                        <a class="collapse-item" href="utilities-other.html">Pos Satpam</a>
-                        <a class="collapse-item" href="utilities-other.html">Parkiran</a>
-                        <a class="collapse-item" href="utilities-other.html">Hiburan dan Olahraga</a>
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+          data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa fa-university" aria-hidden="true"></i>
+          <span>Fasilitas</span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item" href="{{ url('/AdminAkomodasi')}}">
+              Akomodasi &raquo;
+            </a>
+            <ul class="dropdown-menu dropdown-submenu">
+              <li>
+              <li>
+                <a class="dropdown-item" href="{{ url('/AdminAsrama')}}">Asrama</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Kantin</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Rumah Dosen</a>
+              </li>
+                <li>
+                <a class="dropdown-item" href="#">Rumah Tamu</a>
+              </li>
+              </li>
+            </ul>
 
-                    </div>
-                </div>
-            </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              Perpustakaan
+            </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="#">
+              Koperasi
+            </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="#">
+              Klinik
+            </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="#">
+              Pos Satpam
+            </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="#">
+              Parkiran
+            </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="#">
+             Hiburan dan Olahraga
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              Audiotorium
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+             Laboratorium
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              Gedung
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+             Ruang Terbuka
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
 
 
             <li class="nav-item">
@@ -117,7 +208,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
@@ -126,7 +217,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -163,12 +254,12 @@
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="/profil">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                                    Profil
                                 </a>
 
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Keluar
                                 </a>
                             </div>
                         </li>
@@ -185,22 +276,18 @@
 
             </div>
             <!-- End of Main Content -->
-
+            <br><br><br>
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <footer class="fixed-bottom bg-dark">
                 <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
+                    <div class="copyright text-center my-auto text-light">
                         <span>Copyright &copy; Sistem Informasi Fasilitas IT Del <?php echo date('Y'); ?></span>
                     </div>
                 </div>
             </footer>
             <!-- End of Footer -->
 
-        </div>
-        <!-- End of Content Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -212,15 +299,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Anda yakin akan keluar?</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="{{ url('/')}}">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <a class="btn btn-primary" href="/">Keluar</a>
                 </div>
             </div>
         </div>
