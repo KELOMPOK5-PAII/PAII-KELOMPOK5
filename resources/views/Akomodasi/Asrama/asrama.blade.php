@@ -30,12 +30,12 @@
         @foreach( $asrama as $a)
         <div class ="col d-flex justify-content-center mb-5" >
           <div class="card" >
-            <img src="{{asset('Gambar/Asrama')}}/{{ $a->foto }}" class="rounded" width="400" height="200">
+            <img src="{{asset('Gambar/Asrama')}}/{{ $a->gambar }}" class="rounded" width="400" height="200">
             <div class="card-body ">
               <h5 class="card-title ">{{$a->namaasrama}}</h5>
               
               <!-- Button trigger modal -->
-              <center><button type="button" class="btn d-flex justify-content-center text-white" style= "background: #26231B; " data-bs-toggle="modal" data-bs-target="#exampleModal{{$a->id}}">Selengkapnya</button></center>
+              <center><button type="button" class="btn d-flex justify-content-center text-white" style= "background: #26231B;" data-bs-toggle="modal" data-bs-target="#exampleModal{{$a->id}}">Selengkapnya</button></center>
               <!-- Modal -->
               <div class="modal fade" id="exampleModal{{$a->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -48,7 +48,7 @@
                     <div class="modal-body" style="text-align: left;">
                       <table class="table table-hover" cellpadding="10" >
                          <tr>
-                            <center><img src="{{asset('Gambar/Asrama')}}/{{ $a->gambar }}" class="rounded" width="400" height="250" style= "margin-bottom:30px;" ></center>
+                            <center><img src="{{asset('Gambar/Asrama')}}/{{ $a->gambar1 }}" class="rounded" width="400" height="250" style= "margin-bottom:30px;" ></center>
                          </tr>
                          <tr>
                             <td>Nama Asrama</td>

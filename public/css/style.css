@@ -1,6 +1,13 @@
+
 /* body {
   font-family: "poppins",sans-serif;
 } */
+
+body {
+  font-family: "poppins",sans-serif;
+  font-family: Poppins-Regular;
+}
+
 /*---------------------
     Navbar
 -----------------------*/
@@ -10,10 +17,18 @@ li a:hover {
 	text-decoration:underline;
   }
 
+
 .hero {
     border-radius: 5px;
     background-color: rgba(231, 231, 231, 0.7);
 }
+
+
+.nav1 .nav-link {
+  color: #000000;
+}
+
+
 
 .table thead th {
     background-color: #63696b;
