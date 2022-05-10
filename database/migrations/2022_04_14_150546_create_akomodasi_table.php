@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('judul')->nullable();
             $table->string('foto')->nullable();
             $table->string('link')->nullable();
+            $table->timestamps();
         });
     }
 
