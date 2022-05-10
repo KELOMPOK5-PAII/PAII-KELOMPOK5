@@ -66,10 +66,10 @@
 
                 <tr id="top">
                     <th>ID</th>
-                    <th>Nama Asrama</th>
+                    <th>Nama</th>
                     <th>Foto</th>
                     <th>Lokasi</th>
-                    <th>Jenis Asrama</th>
+                    <th>Jenis</th>
                     <th>Fasilitas</th>
                     <th>Gambar</th>
                     <th>Deskripsi</th>
@@ -83,12 +83,13 @@
                     <td>{{ $data->firstItem() + $i }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($asrama->namaasrama, 80, $end='...') }}</td>
                     <td><img width="60px" name="foto" src="{{asset('foto')}}/{{ $asrama->foto }}" alt=" foto"></td>
-                    <td>{{ \Illuminate\Support\Str::limit($asrama->lokasi, 80, $end='...') }}</td>
-                    <td>{{ \Illuminate\Support\Str::limit($asrama->jenisasrama, 80, $end='...') }}</td>
-                    <td>{{ \Illuminate\Support\Str::limit($asrama->fasilitas, 80, $end='...') }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($asrama->lokasi, 130, $end='...') }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($asrama->jenisasrama, 130, $end='...') }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($asrama->fasilitas, 120, $end='...') }}</td>
                     <td><img width="60px" name="gambar" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar }}" alt=" gambar"></td>
-                    <td>{{ \Illuminate\Support\Str::limit($asrama->deskripsi, 80, $end='...') }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($asrama->deskripsi, 120, $end='...') }}</td>
                     <td>
+                        <a href="/AdminAsrama/detail/{{ $asrama->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalAsrama{{ $asrama->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a><br><br>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminAsrama/ubah/{{ $asrama->id }}"><i class="far fa-edit btn btn-success"></i></a><br><br>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="#" class="delete" data-id="{{ $asrama->id }}" data-judul="{{ $asrama->namaasrama}}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
                     </td>
@@ -97,6 +98,7 @@
               @endforeach
             </tbody>
         </table>
+
         <br>
         <div class="item rounded-3 fs-6">
             &nbsp;Menampilkan
@@ -111,6 +113,67 @@
         <div class="pagination mt-3">
             {{ $data->links() }}
         </div>
+
+    </div>
+
+ <!-- Modal -->
+ @foreach ($data as $asrama)
+        <div class="modal fade" id="ModalAsrama{{ $asrama->id }}" tabindex="-1" aria-labelledby="exampleModalLabelBuku" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">Detail {{ $asrama->namaasrama }}</h3>
+                    </div>
+                    <div class="modal-body row">
+                        <div id="img-hover-zoom" class="col-md-4 img-dtl">
+                            <img width="100%" src="{{asset('foto')}}/{{ $asrama->foto }}" alt="not found">
+                        </div>
+                        <div class="col-md-8 rounded-2">
+                            <table id="tengah" class="table table-light table-hover">
+                                <tr>
+                                    <td>ID</td>
+                                    <td>:</td>
+                                    <td>{{ $asrama->id }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Nama</td>
+                                    <td>:</td>
+                                    <td>{{ $asrama->namaasrama }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Lokasi</td>
+                                    <td>:</td>
+                                    <td>{{ $asrama->lokasi }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Jenis</td>
+                                    <td>:</td>
+                                    <td>{{ $asrama->jenisasrama }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Fasilitas</td>
+                                    <td>:</td>
+                                    <td>{{ $asrama->fasilitas }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Deskripsi</td>
+                                    <td>:</td>
+                                    <td>{{ $asrama->deskripsi }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        @endforeach
+
+
 
         <script
   src="https://code.jquery.com/jquery-3.6.0.slim.js"

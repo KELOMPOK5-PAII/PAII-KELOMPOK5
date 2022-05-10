@@ -19,6 +19,18 @@ class AkomodasiController extends Controller
         return view('Akomodasi.akomodasi',['akomodasi' => $akomodasi]);
     }
 
+    public function tampil(Request $request)
+    {
+        if($request->has('cari')) {
+            $data = akomodasi::where('id', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
+            ->paginate(5);
+        } else {
+            $data = akomodasi::paginate(5);
+        }
+        return view('akomodasi.index', ['data'=>$data]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +38,7 @@ class AkomodasiController extends Controller
      */
     public function create()
     {
-        //
+        return view('akomodasi.tambah');
     }
 
     /**
@@ -37,7 +49,33 @@ class AkomodasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'judul'=>'required',
+            'link'=>'required',
+            'foto' => 'required',
+        ]);
+
+        if ($request->file('foto')==NULL) {
+            akomodasi::create([
+                'judul' => $request->judul,
+                'link' => $request->link,
+                'foto' => $request->foto
+            ]);
+        } else {
+            $judul = $request->judul;
+            $link = $request->link;
+            $foto = $request->file('foto');
+            $NamaFoto = time().'.'.$foto->extension();
+            $foto->move(public_path('foto'),$NamaFoto);
+
+            $akomodasi = new akomodasi();
+            $akomodasi->judul = $judul;
+            $akomodasi->link = $link;
+            $akomodasi->foto = $NamaFoto;
+            $akomodasi->save();
+        }
+        alert()->success('Success','Data Berhasil Ditambahkan!');
+        return redirect('/akomodasi');
     }
 
     /**
@@ -48,7 +86,7 @@ class AkomodasiController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -59,9 +97,9 @@ class AkomodasiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $akomodasi = akomodasi::find($id);
+        return view('akomodasi.ubah', ['akomodasi' => $akomodasi]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -71,7 +109,38 @@ class AkomodasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'judul' => 'required',
+        ]);
+
+        if ($request->file('foto')==NULL) {
+            $akomodasi = akomodasi::find($id);
+            $akomodasi->id = $request->id;
+            $akomodasi->judul = $request->judul;
+            $foto = $request->foto;
+
+            $akomodasi->save();
+            alert()->success('Success','Data Berhasil Diubah!');
+            return redirect('/akomodasi');
+
+        } else {
+            $foto = $request->file('foto');
+            $NamaFoto = time().'.'.$foto->extension();
+            $foto->move(public_path('foto'), $NamaFoto);
+
+            $id = $request->id;
+            $judul = $request->judul;
+
+            $akomodasi = akomodasi::find($id);
+            $akomodasi->id = $request->id;
+            $akomodasi->judul = $request->judul;
+
+            $akomodasi->foto = $NamaFoto;
+
+            $akomodasi->save();
+            alert()->success('Success','Data Berhasil Diubah!');
+            return redirect('/akomodasi');
+        }
     }
 
     /**
@@ -82,6 +151,8 @@ class AkomodasiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $akomodasi = akomodasi::find($id);
+        $akomodasi->delete();
+        return back();
     }
 }

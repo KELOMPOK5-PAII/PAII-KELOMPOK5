@@ -34,6 +34,7 @@
             #info{
                 float:right;
 
+
             }
         </style>
 </head>
@@ -74,7 +75,7 @@
                 <tr id="test">
                     <td>{{ $data->firstItem() + $i }}</td>
                     <td>{{ $akomodasi->judul }}</td>
-                    <td><img width="60px" class="pop" name="foto" src="{{asset('foto')}}/{{ $akomodasi->foto }}" alt=" foto"></td>
+                    <td><img width="60px" class="pop" name="foto" src="{{asset('Gambar/Akomodasi')}}/{{ $akomodasi->foto }}" alt=" foto"></td>
                     <td>{{ $akomodasi->link }}</td>
                     <td>
                         <a href="/AdminAkomodasi/detail/{{ $akomodasi->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalAkomodasi{{ $akomodasi->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a>
@@ -86,6 +87,23 @@
               @endforeach
             </tbody>
         </table>
+
+
+        <br>
+        <div class="item rounded-3 fs-6">
+            &nbsp;Menampilkan
+            {{ $data->firstItem() }}
+            -
+            {{ $data->lastItem() }}
+            dari
+            {{ $data->total() }}
+            entri data
+        </div>
+
+        <div class="pagination mt-3">
+            {{ $data->links() }}
+        </div>
+
 </div>
 
         <!-- Modal -->
@@ -97,8 +115,8 @@
                         <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">Detail {{ $akomodasi->judul }}</h3>
                     </div>
                     <div class="modal-body row">
-                        <div class="col-md-4 img-dtl">
-                            <img width="100%" src="{{asset('foto')}}/{{ $akomodasi->foto }}" alt="not found">
+                        <div id="img-hover-zoom" class="col-md-4 img-dtl">
+                            <img width="100%" src="{{asset('Gambar/Akomodasi')}}/{{ $akomodasi->foto }}" alt="not found">
                         </div>
                         <div class="col-md-8 rounded-2">
                             <table id="tengah" class="table table-light table-hover">
@@ -130,21 +148,6 @@
 
         @endforeach
 
-
-        <br>
-        <div class="item rounded-3 fs-6">
-            &nbsp;Menampilkan
-            {{ $data->firstItem() }}
-            -
-            {{ $data->lastItem() }}
-            dari
-            {{ $data->total() }}
-            entri data
-        </div>
-
-        <div class="pagination mt-3">
-            {{ $data->links() }}
-        </div>
 
         <script
   src="https://code.jquery.com/jquery-3.6.0.slim.js"

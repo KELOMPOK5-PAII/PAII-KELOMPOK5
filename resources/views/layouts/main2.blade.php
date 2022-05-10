@@ -126,7 +126,7 @@ display: block;
             </ul>
 
           <li>
-            <a class="dropdown-item" href="{{ url('/AdminPerpustakaan')}}">
+            <a class="dropdown-item" href="{{ url('/AdminPerpus')}}">
             <b> Perpustakaan</b>
             </a>
           </li>
@@ -301,7 +301,7 @@ display: block;
             <footer class="fixed-bottom bg-dark">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto text-light">
-                        <span>Copyright &copy; Sistem Informasi Fasilitas IT Del <?php echo date('Y'); ?></span>
+                        <span>Copyright &copy; Sistem Informasi Fasilitas IT Del <?php echo date('Y'); ?> - Kelompok 5</span>
                     </div>
                 </div>
             </footer>

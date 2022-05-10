@@ -101,12 +101,13 @@ Route::get('/AdminRumahTamu/hapus/{id}', [App\Http\Controllers\AdminRumahTamuCon
 Route::get('/AdminRumahTamu/ubah/{id}', [App\Http\Controllers\AdminRumahTamuController::class, 'edit'])->name('profil')->middleware('auth');
 Route::post('/AdminRumahTamu/update/{id}', [App\Http\Controllers\AdminRumahTamuController::class, 'update'])->name('profil')->middleware('auth');
 
-Route::get('/AdminPerpustakaan', [App\Http\Controllers\AdminPerpustakaanController::class, 'index'])->name('profil')->middleware('auth');
-Route::get('/AdminPerpustakaan/tambah', [App\Http\Controllers\AdminPerpustakaanController::class, 'create'])->name('profil')->middleware('auth');
-Route::post('/AdminPerpustakaan/simpan', [App\Http\Controllers\AdminPerpustakaanController::class, 'store'])->name('profil')->middleware('auth');
-Route::get('/AdminPerpustakaan/hapus/{id}', [App\Http\Controllers\AdminPerpustakaanController::class, 'destroy'])->name('profil')->middleware('auth');
-Route::get('/AdminPerpustakaan/ubah/{id}', [App\Http\Controllers\AdminPerpustakaanController::class, 'edit'])->name('profil')->middleware('auth');
-Route::post('/AdminPerpustakaan/update/{id}', [App\Http\Controllers\AdminPerpustakaanController::class, 'update'])->name('profil')->middleware('auth');
+
+Route::get('/AdminPerpus', [App\Http\Controllers\PerpusController::class, 'tampil'])->name('profil')->middleware('auth');
+Route::get('/AdminPerpus/tambah', [App\Http\Controllers\PerpusController::class, 'create'])->name('profil')->middleware('auth');
+Route::post('/AdminPerpus/simpan', [App\Http\Controllers\PerpusController::class, 'store'])->name('profil')->middleware('auth');
+Route::get('/AdminPerpus/hapus/{id}', [App\Http\Controllers\PerpusController::class, 'destroy'])->name('profil')->middleware('auth');
+Route::get('/AdminPerpus/ubah/{id}', [App\Http\Controllers\PerpusController::class, 'edit'])->name('profil')->middleware('auth');
+Route::post('/AdminPerpus/update/{id}', [App\Http\Controllers\PerpusController::class, 'update'])->name('profil')->middleware('auth');
 
 Route::get('/AdminKoperasi', [App\Http\Controllers\AdminKoperasiController::class, 'index'])->name('profil')->middleware('auth');
 Route::get('/AdminKoperasi/tambah', [App\Http\Controllers\AdminKoperasiController::class, 'create'])->name('profil')->middleware('auth');
@@ -143,12 +144,13 @@ Route::get('/AdminHiburanOlahraga/hapus/{id}', [App\Http\Controllers\AdminHibura
 Route::get('/AdminHiburanOlahraga/ubah/{id}', [App\Http\Controllers\AdminHiburanOlahragaController::class, 'edit'])->name('profil')->middleware('auth');
 Route::post('/AdminHiburanOlahraga/update/{id}', [App\Http\Controllers\AdminHiburanOlahragaController::class, 'update'])->name('profil')->middleware('auth');
 
-Route::get('/AdminAudiotorium', [App\Http\Controllers\AdminAudiotoriumController::class, 'index'])->name('profil')->middleware('auth');
-Route::get('/AdminAudiotorium/tambah', [App\Http\Controllers\AdminAudiotoriumController::class, 'create'])->name('profil')->middleware('auth');
-Route::post('/AdminAudiotorium/simpan', [App\Http\Controllers\AdminAudiotoriumController::class, 'store'])->name('profil')->middleware('auth');
-Route::get('/AdminAudiotorium/hapus/{id}', [App\Http\Controllers\AdminAudiotoriumController::class, 'destroy'])->name('profil')->middleware('auth');
-Route::get('/AdminAudiotorium/ubah/{id}', [App\Http\Controllers\AdminAudiotoriumController::class, 'edit'])->name('profil')->middleware('auth');
-Route::post('/AdminAudiotorium/update/{id}', [App\Http\Controllers\AdminAudiotoriumController::class, 'update'])->name('profil')->middleware('auth');
+Route::get('/AdminAudiotorium', [App\Http\Controllers\AuditController::class, 'index'])->name('profil')->middleware('auth');
+Route::get('/AdminAudiotorium', [App\Http\Controllers\AuditController::class, 'tampil'])->name('profil')->middleware('auth');
+Route::get('/AdminAudiotorium/tambah', [App\Http\Controllers\AuditController::class, 'create'])->name('profil')->middleware('auth');
+Route::post('/AdminAudiotorium/simpan', [App\Http\Controllers\AuditController::class, 'store'])->name('profil')->middleware('auth');
+Route::get('/AdminAudiotorium/hapus/{id}', [App\Http\Controllers\AuditController::class, 'destroy'])->name('profil')->middleware('auth');
+Route::get('/AdminAudiotorium/ubah/{id}', [App\Http\Controllers\AuditController::class, 'edit'])->name('profil')->middleware('auth');
+Route::post('/AdminAudiotorium/update/{id}', [App\Http\Controllers\AuditController::class, 'update'])->name('profil')->middleware('auth');
 
 Route::get('/AdminLaboratorium', [App\Http\Controllers\AdminLaboratoriumController::class, 'index'])->name('profil')->middleware('auth');
 Route::get('/AdminLaboratorium/tambah', [App\Http\Controllers\AdminLaboratoriumController::class, 'create'])->name('profil')->middleware('auth');

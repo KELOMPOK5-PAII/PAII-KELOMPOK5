@@ -31,7 +31,7 @@
 
                     <div class="form-group mt-3">
                         <label>Foto</label><br>
-                        <img src="{{asset('foto')}}/{{ $AdminAkomodasi->foto }}" alt="Foto akomodasi" style="max-width:100px; margin-top:20px;"><br>
+                        <img src="{{asset('Gambar/Akomodasi')}}/{{ $AdminAkomodasi->foto }}" alt="Foto akomodasi" style="max-width:100px; margin-top:20px;"><br>
                         <input type="file" name="foto"  value=" {{ $AdminAkomodasi->foto }}">
 
                     </div>

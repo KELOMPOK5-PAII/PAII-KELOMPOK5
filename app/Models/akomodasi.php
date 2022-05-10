@@ -9,6 +9,6 @@ class akomodasi extends Model
 {
     use HasFactory;
     protected $table = 'akomodasi';
-    protected $fillable = ['id', 'judul', 'foto'];
+    protected $fillable = ['id', 'judul', 'foto', 'link'];
     protected $primaryKey = 'id';
 }

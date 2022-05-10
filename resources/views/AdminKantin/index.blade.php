@@ -82,17 +82,17 @@
                     <td> {{ \Illuminate\Support\Str::limit($kantin->deskripsi, 80, $end='...') }}</td>
                     <td><img width="60px" name="gambar" src="{{asset('Gambar')}}/{{ $kantin->gambar }}" alt=" gambar"></td>
                     <td>
+                        <a href="/AdminKantin/detail/{{ $kantin->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalKantin{{ $kantin->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a><br><br>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminKantin/ubah/{{ $kantin->id }}"><i class="far fa-edit btn btn-success"></i></a><br><br>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="#" class="delete" data-id="{{ $kantin->id }}" data-judul="{{ $kantin->namakantin}}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
-
-
-
                     </td>
                 </tr>
                 <?php $i++ ?>
               @endforeach
             </tbody>
         </table>
+
+
         <br>
         <div class="item rounded-3 fs-6">
             &nbsp;Menampilkan
@@ -107,6 +107,65 @@
         <div class="pagination mt-3">
             {{ $data->links() }}
         </div>
+<!-- Modal -->
+@foreach ($data as $kantin)
+       <div class="modal fade" id="ModalKantin{{ $kantin->id }}" tabindex="-1" aria-labelledby="exampleModalLabelBuku" aria-hidden="true">
+           <div class="modal-dialog modal-dialog-centered modal-lg">
+               <div class="modal-content">
+                   <div class="modal-header">
+                       <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">Detail {{ $kantin->namakantin }}</h3>
+                   </div>
+                   <div class="modal-body row">
+                       <div id="img-hover-zoom" class="col-md-4 img-dtl">
+                           <img width="100%" src="{{asset('Gambar')}}/{{ $kantin->gambar }}" alt="not found">
+                       </div>
+                       <div class="col-md-8 rounded-2">
+                           <table id="tengah" class="table table-light table-hover">
+                               <tr>
+                                   <td>ID</td>
+                                   <td>:</td>
+                                   <td>{{ $kantin->id }}</td>
+                               </tr>
+                               <tr>
+                                   <td>Nama Kantin</td>
+                                   <td>:</td>
+                                   <td>{{ $kantin->namakantin }}</td>
+                               </tr>
+                               <tr>
+                                   <td>Jam Makan</td>
+                                   <td>:</td>
+                                   <td>{{ $kantin->jammakan }}</td>
+                               </tr>
+                               <tr>
+                                   <td>Perlengkapan</td>
+                                   <td>:</td>
+                                   <td>{{ $kantin->perlengkapan }}</td>
+                               </tr>
+                               <tr>
+                                   <td>Peraturan</td>
+                                   <td>:</td>
+                                   <td>{{ $kantin->peraturan }}</td>
+                               </tr>
+                               <tr>
+                                   <td>Deskripsi</td>
+                                   <td>:</td>
+                                   <td>{{ $kantin->deskripsi }}</td>
+                               </tr>
+                           </table>
+                       </div>
+                   <div class="modal-footer">
+                       <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                   </div>
+               </div>
+           </div>
+       </div>
+       </div>
+
+
+       @endforeach
+
+
+
 
         <script
   src="https://code.jquery.com/jquery-3.6.0.slim.js"
