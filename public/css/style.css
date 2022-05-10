@@ -3,10 +3,7 @@
   font-family: "poppins",sans-serif;
 } */
 
-body {
-  font-family: "poppins",sans-serif;
-  font-family: Poppins-Regular;
-}
+
 
 /*---------------------
     Navbar
@@ -31,7 +28,7 @@ li a:hover {
 
 
 .table thead th {
-    background-color: #63696b;
+    background-color: #826F66;
 }
 .item {
     background-color: rgba(255, 255, 255, 0.7);
@@ -44,4 +41,10 @@ text-align: center;
 
 #teks{
     color: rgb(129, 129, 129);
+}
+
+.potong{
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
 }

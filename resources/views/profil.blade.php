@@ -1,22 +1,23 @@
 @extends('layouts.main2')
 @section('content')
 
-<!DOCTYPE html>
-<html lang="en">
-
+  <!DOCTYPE html>
+<html>
 <head>
-<style>
-
+  <title></title>
+  <style>
+  #db{
+    text-align: left;
+}
 </style>
-
 </head>
+<body>
+<div class="container">
 
-
-<div class="container-fluid">
-  <div class="row" >
-    <div class="col col-lg-4">
+  <center><br><br>
+  <div class="col col-lg-4" id="db">
       <div class="card card-primary card-outline">
-        <div class="card-body box-profile" >
+<div class="card-body box-profile" >
           <div class="text-center">
           <img class="img-profile rounded-circle" src="{{ url('sbadmin/img/undraw_profile.svg')}}" width="50px" height="50px">
           </div>
@@ -43,17 +44,7 @@
           <!-- <a href="{{ URL::to('admin/setting') }}" class="btn btn-primary btn-block">Setting</a> -->
         </div>
       </div>
-    </div>
-
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+</body>
+</html>
 
 @endsection

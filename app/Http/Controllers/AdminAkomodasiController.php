@@ -106,14 +106,12 @@ class AdminAkomodasiController extends Controller
     {
         $request->validate([
             'judul' => 'required',
-            'link' => 'required',
         ]);
 
         if ($request->file('foto')==NULL) {
             $AdminAkomodasi = AdminAkomodasi::find($id);
             $AdminAkomodasi->id = $request->id;
             $AdminAkomodasi->judul = $request->judul;
-            $AdminAkomodasi->link = $request->link;
             $foto = $request->foto;
 
             $AdminAkomodasi->save();
@@ -127,12 +125,11 @@ class AdminAkomodasiController extends Controller
 
             $id = $request->id;
             $judul = $request->judul;
-            $link = $request->link;
 
             $AdminAkomodasi = AdminAkomodasi::find($id);
             $AdminAkomodasi->id = $request->id;
             $AdminAkomodasi->judul = $request->judul;
-            $AdminAkomodasi->link = $request->tahun;
+
             $AdminAkomodasi->foto = $NamaFoto;
 
             $AdminAkomodasi->save();

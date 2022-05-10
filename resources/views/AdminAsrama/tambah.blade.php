@@ -52,7 +52,7 @@
 
                 <div class="form-group mt-3">
                     <label>Fasilitas</label>
-                    <input type="text" name="fasilitas" class="form-control @error('fasilitas') is-invalid @enderror" value="{{ old('fasilitas') }}" autocomplete="off">
+                    <textarea cols="30" rows="6" type="text" name="fasilitas" class="form-control @error('fasilitas') is-invalid @enderror" value="{{ old('fasilitas') }}" autocomplete="off"></textarea>
                     @error('fasilitas')
                             <div class="alert-danger mt-1">{{  $message }}</div>
                     @enderror
@@ -68,7 +68,7 @@
 
                 <div class="form-group mt-3">
                     <label>Deskripsi</label>
-                    <input type="text" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" value="{{ old('deskripsi') }}" autocomplete="off">
+                    <textarea cols="30" rows="6" type="text" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" value="{{ old('deskripsi') }}" autocomplete="off"></textarea>
                     @error('deskripsi')
                             <div class="alert-danger mt-1">{{  $message }}</div>
                     @enderror

@@ -20,12 +20,18 @@
 
     <!-- Custom styles for this page -->
     <link href="{{ url('sbadmin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="{{asset('css/style.css')}}"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 <style type="text/css">
 .dropdown:hover > .dropdown-menu, .dropright:hover > .dropdown.menu {
     display: block;
 
 }
+body {
+    font-family: 'Poppins', sans-serif;
 
+}
 
 .dropdown-menu li {
 position: relative;
@@ -43,6 +49,20 @@ left: auto;
 .dropdown-menu > li:hover > .dropdown-submenu {
 display: block;
 }
+
+#accordionSidebar {
+    font-family: 'Poppins', sans-serif;
+    font-style: bold;
+    background-image: linear-gradient(#302828, #826F66);
+}
+
+#multi {
+    background-image: linear-gradient(#826F66);
+    font-style: bold;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 </style>
 
 
@@ -54,7 +74,7 @@ display: block;
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/dashboard') }}">
@@ -73,7 +93,7 @@ display: block;
                 <a class="nav-link" href="{{ url('/dashboard') }}" id="navbarDropdownMenuLink" role="button"
                  data-mdb-toggle="dropdown" aria-expanded="false">
                  <i class="fa fa-home" aria-hidden="true"></i>
-                    <span>Dashboard</span>
+                    <span><b>Dashboard</b></span>
         </a>
 
 
@@ -81,83 +101,83 @@ display: block;
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
           data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa fa-university" aria-hidden="true"></i>
-          <span>Fasilitas</span>
+          <span><b>Fasilitas</b></span>
         </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <ul id="multi" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <li>
             <a class="dropdown-item" href="{{ url('/AdminAkomodasi')}}">
-              Akomodasi &raquo;
+              <b> Akomodasi &raquo; </b>
             </a>
             <ul class="dropdown-menu dropdown-submenu">
               <li>
               <li>
-                <a class="dropdown-item" href="{{ url('/AdminAsrama')}}">Asrama</a>
+                <a class="dropdown-item" href="{{ url('/AdminAsrama')}}"><b>Asrama</b></a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Kantin</a>
+                <a class="dropdown-item" href="{{ url('/AdminKantin')}}"><b>Kantin</b></a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Rumah Dosen</a>
+                <a class="dropdown-item" href="{{ url('/AdminRumahDosen')}}"><b>Rumah Dosen</b></a>
               </li>
                 <li>
-                <a class="dropdown-item" href="#">Rumah Tamu</a>
+                <a class="dropdown-item" href="{{ url('/AdminRumahTamu')}}"><b>Rumah Tamu</b></a>
               </li>
               </li>
             </ul>
 
           <li>
-            <a class="dropdown-item" href="#">
-              Perpustakaan
+            <a class="dropdown-item" href="{{ url('/AdminPerpustakaan')}}">
+            <b> Perpustakaan</b>
             </a>
           </li>
 
           <li>
-            <a class="dropdown-item" href="#">
-              Koperasi
+            <a class="dropdown-item" href="{{ url('/AdminKoperasi')}}">
+            <b>     Koperasi</b>
             </a>
           </li>
 
           <li>
-            <a class="dropdown-item" href="#">
-              Klinik
+            <a class="dropdown-item" href="{{ url('/AdminKlinik')}}">
+            <b>  Klinik</b>
             </a>
           </li>
 
           <li>
-            <a class="dropdown-item" href="#">
-              Pos Satpam
+            <a class="dropdown-item" href="{{ url('/AdminPosSatpam')}}">
+            <b>  Pos Satpam</b>
             </a>
           </li>
 
           <li>
-            <a class="dropdown-item" href="#">
-              Parkiran
+            <a class="dropdown-item" href="{{ url('/AdminParkiran')}}">
+            <b>  Parkiran</b>
             </a>
           </li>
 
           <li>
-            <a class="dropdown-item" href="#">
-             Hiburan dan Olahraga
+            <a class="dropdown-item" href="{{ url('/AdminParkiranOlahraga')}}">
+            <b>  Hiburan dan Olahraga</b>
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
-              Audiotorium
+            <a class="dropdown-item" href="{{ url('/AdminAudiotorium')}}">
+            <b>  Audiotorium</b>
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
-             Laboratorium
+            <a class="dropdown-item" href="{{ url('/AdminLaboratorium')}}">
+            <b>Laboratorium</b></b>
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
-              Gedung
+            <a class="dropdown-item" href="{{ url('/AdminGedung')}}">
+            <b>Gedung</b>
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
-             Ruang Terbuka
+            <a class="dropdown-item" href="{{ url('/AdminRuangTerbuka')}}">
+            <b> Ruang Terbuka</b>
             </a>
           </li>
 
@@ -167,21 +187,21 @@ display: block;
 
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/about') }}">
+                <a class="nav-link" href="{{ url('/AdminDenah')}}">
                 <i class="fa fa-map-signs" aria-hidden="true"></i>
-                    <span>Denah</span></a>
+                    <span><b>Denah</b></span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/about') }}">
+                <a class="nav-link" href="{{ url('/AdminPerkembangan')}}">
                 <i class="fa fa-industry" aria-hidden="true"></i>
-                    <span>Perkembangan Fasilitas di IT Del</span></a>
+                    <span><b>Perkembangan Fasilitas di IT Del</b></span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/about') }}">
+                <a class="nav-link" href="{{ url('/AdminSaran')}}">
                 <i class="fa fa-comments" aria-hidden="true"></i>
-                    <span>Saran</span></a>
+                    <span><b>Saran</span></b></a>
             </li>
 
 
@@ -247,7 +267,7 @@ display: block;
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }} </span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><b>{{ Auth::user()->name }}</b> </span>
                                 <img class="img-profile rounded-circle" src="{{ url('sbadmin/img/undraw_profile.svg')}}">
                             </a>
                             <!-- Dropdown - User Information -->

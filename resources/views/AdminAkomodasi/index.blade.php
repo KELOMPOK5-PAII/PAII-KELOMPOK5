@@ -25,8 +25,11 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <style type="text/css">
-            th, td{
+            #test{
                 text-align:center;
+            }
+            #tengah{
+                text-align:justify;
             }
             #info{
                 float:right;
@@ -37,6 +40,7 @@
 
 @section('content')
 @include('sweetalert::alert')
+
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
 <div class="container">
 
@@ -66,12 +70,13 @@
             <tbody>
             <?php $i=0 ?>
                 @foreach ($data as $akomodasi)
-                <tr>
+                <tr id="test">
                     <td>{{ $data->firstItem() + $i }}</td>
                     <td>{{ $akomodasi->judul }}</td>
                     <td><img width="60px" name="foto" src="{{asset('foto')}}/{{ $akomodasi->foto }}" alt=" foto"></td>
                     <td>{{ $akomodasi->link }}</td>
                     <td>
+                        <a href="/AdminAkomodasi/detail/{{ $akomodasi->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalAkomodasi{{ $akomodasi->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminAkomodasi/ubah/{{ $akomodasi->id }}"><i class="far fa-edit btn btn-success"></i></a>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="#" class="delete" data-id="{{ $akomodasi->id }}" data-judul="{{ $akomodasi->judul}}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
                     </td>
@@ -80,6 +85,51 @@
               @endforeach
             </tbody>
         </table>
+</div>
+
+        <!-- Modal -->
+        @foreach ($data as $akomodasi)
+        <div class="modal fade" id="ModalAkomodasi{{ $akomodasi->id }}" tabindex="-1" aria-labelledby="exampleModalLabelBuku" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">DETAIL AKOMODASI</h3>
+                    </div>
+                    <div class="modal-body row">
+                        <div class="col-md-4 img-dtl">
+                            <img width="100%" src="{{asset('foto')}}/{{ $akomodasi->foto }}" alt="not found">
+                        </div>
+                        <div class="col-md-8 rounded-2">
+                            <table id="tengah" class="table table-light table-hover">
+                                <tr>
+                                    <td>ID</td>
+                                    <td>:</td>
+                                    <td>{{ $akomodasi->id }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Judul</td>
+                                    <td>:</td>
+                                    <td>{{ $akomodasi->judul }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Link</td>
+                                    <td>:</td>
+                                    <td>{{ $akomodasi->link }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        @endforeach
+
+
         <br>
         <div class="item rounded-3 fs-6">
             &nbsp;Menampilkan

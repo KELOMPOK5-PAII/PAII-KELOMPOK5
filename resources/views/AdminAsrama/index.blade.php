@@ -31,8 +31,11 @@
 
 
 <style type="text/css">
-            th, td{
+            th{
                 text-align:center;
+            }
+            td{
+                text-align:justify;
             }
             #info{
                 float:right;
@@ -43,6 +46,7 @@
 
 @section('content')
 @include('sweetalert::alert')
+
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
 <div class="container">
 
@@ -77,16 +81,16 @@
                 @foreach ($data as $asrama)
                 <tr>
                     <td>{{ $data->firstItem() + $i }}</td>
-                    <td>{{ $asrama->namaasrama }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($asrama->namaasrama, 80, $end='...') }}</td>
                     <td><img width="60px" name="foto" src="{{asset('foto')}}/{{ $asrama->foto }}" alt=" foto"></td>
-                    <td>{{ $asrama->lokasi }}</td>
-                    <td>{{ $asrama->jenisasrama }}</td>
-                    <td>{{ $asrama->fasilitas }}</td>
-                    <td><img width="60px" name="gambar" src="{{asset('gambar')}}/{{ $asrama->gambar }}" alt=" gambar"></td>
-                    <td>{{ $asrama->deskripsi }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($asrama->lokasi, 80, $end='...') }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($asrama->jenisasrama, 80, $end='...') }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($asrama->fasilitas, 80, $end='...') }}</td>
+                    <td><img width="60px" name="gambar" src="{{asset('Gambar')}}/{{ $asrama->gambar }}" alt=" gambar"></td>
+                    <td>{{ \Illuminate\Support\Str::limit($asrama->deskripsi, 80, $end='...') }}</td>
                     <td>
-                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminAsrama/ubah/{{ $asrama->id }}"><i class="far fa-edit btn btn-success"></i></a>
-                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="#" class="delete" data-id="{{ $asrama->id }}" data-judul="{{ $asrama->judul}}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
+                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminAsrama/ubah/{{ $asrama->id }}"><i class="far fa-edit btn btn-success"></i></a><br><br>
+                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="#" class="delete" data-id="{{ $asrama->id }}" data-judul="{{ $asrama->namaasrama}}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
                     </td>
                 </tr>
                 <?php $i++ ?>

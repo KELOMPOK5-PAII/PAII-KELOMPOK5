@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\AdminAsrama;
 use Alert;
-
+use Illuminate\Support\Str;
 
 class AdminAsramaController extends Controller
 {
@@ -21,8 +21,6 @@ class AdminAsramaController extends Controller
             ->orWhere('namaasrama', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('lokasi', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('jenisasrama', 'LIKE', '%'.$request->cari.'%')
-
-
             ->paginate(5);
         } else {
             $data = AdminAsrama::paginate(5);
@@ -58,7 +56,7 @@ class AdminAsramaController extends Controller
             'deskripsi'=>'required',
         ]);
 
-        if ($request->file('foto'||'gambar')==NULL) {
+        if ($request->file('foto')==NULL) {
             AdminAsrama::create([
                 'namaasrama' => $request->namaasrama,
                 'foto' => $request->foto,
@@ -141,7 +139,7 @@ class AdminAsramaController extends Controller
             'deskripsi'=>'required',
         ]);
 
-        if ($request->file('foto'||'gambar')==NULL) {
+        if ($request->file('foto')==NULL) {
             $AdminAsrama = AdminAsrama::find($id);
             $AdminAsrama->id = $request->id;
             $AdminAsrama->namaasrama = $request->namaasrama;

@@ -6,7 +6,13 @@
 
 <head>
 <style>
-
+.box{
+    position: absolute
+    left: 50%
+    margin-left: 375px}
+#db{
+    text-align: left;
+}
 </style>
 
 </head>
@@ -14,7 +20,18 @@
 
 
 
-    <div class="card" style="max-width: 750px;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+
+</head>
+<body>
+
+        <div class="container">
+  <center><br><br>
+  <div class="card" style="max-width: 850px;" id="db">
 	<div class="row no-gutters">
 		<div class="col-lg-4">
         <div class="card card-primary card-outline">
@@ -35,16 +52,9 @@
 
 			</div>
 		</div>
-	</div>
+  <br>
 </div>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+</body>
+</html>
 
 @endsection

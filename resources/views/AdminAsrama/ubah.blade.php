@@ -48,8 +48,8 @@
                     </div>
 
                     <div class="form-group mt-3">
-                        <label>Fasilitas</label>
-                        <input type="text" name="fasilitas" class="form-control @error('fasilitas') is-invalid @enderror" value="{{ $AdminAsrama->fasilitas }}">
+                        <label for="fasilitas">Fasilitas</label>
+                        <textarea name="fasilitas" id="fasilitas" cols="30" rows="6" class="form-control @error('fasilitas') is-invalid @enderror">{{ $AdminAsrama->fasilitas }}</textarea>
                         @error('fasilitas')
                             <div class="invalid-feedback">{{  $message }}</div>
                         @enderror
@@ -62,8 +62,8 @@
                     </div>
 
                     <div class="form-group mt-3">
-                        <label>Deskripsi</label>
-                        <input type="text" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" value="{{ $AdminAsrama->deskripsi }}">
+                        <label for="deskripsi">Deskripsi</label>
+                        <textarea name="deskripsi" id="deskripsi" cols="30" rows="6" class="form-control @error('deskripsi') is-invalid @enderror">{{ $AdminAsrama->deskripsi }}</textarea>
                         @error('deskripsi')
                             <div class="invalid-feedback">{{  $message }}</div>
                         @enderror

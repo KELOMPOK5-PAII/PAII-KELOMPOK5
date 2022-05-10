@@ -28,13 +28,6 @@
 
                     </div>
 
-                    <div class="form-group mt-3">
-                        <label>Link</label>
-                        <input type="text" name="link" class="form-control @error('link') is-invalid @enderror" value="{{ $AdminAkomodasi->link }}">
-                        @error('link')
-                            <div class="invalid-feedback">{{  $message }}</div>
-                        @enderror
-                    </div>
 
                     <div class="form-group mt-3">
                         <label>Foto</label><br>
