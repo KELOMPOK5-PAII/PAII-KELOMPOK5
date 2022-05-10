@@ -33,6 +33,7 @@
             }
             #info{
                 float:right;
+
             }
         </style>
 </head>
@@ -73,7 +74,7 @@
                 <tr id="test">
                     <td>{{ $data->firstItem() + $i }}</td>
                     <td>{{ $akomodasi->judul }}</td>
-                    <td><img width="60px" name="foto" src="{{asset('foto')}}/{{ $akomodasi->foto }}" alt=" foto"></td>
+                    <td><img width="60px" class="pop" name="foto" src="{{asset('foto')}}/{{ $akomodasi->foto }}" alt=" foto"></td>
                     <td>{{ $akomodasi->link }}</td>
                     <td>
                         <a href="/AdminAkomodasi/detail/{{ $akomodasi->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalAkomodasi{{ $akomodasi->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a>
@@ -93,7 +94,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">DETAIL AKOMODASI</h3>
+                        <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">Detail {{ $akomodasi->judul }}</h3>
                     </div>
                     <div class="modal-body row">
                         <div class="col-md-4 img-dtl">
@@ -186,7 +187,6 @@
        });
 
    </script>
-
 
 
   </body>

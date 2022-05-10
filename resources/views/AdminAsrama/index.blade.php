@@ -86,7 +86,7 @@
                     <td>{{ \Illuminate\Support\Str::limit($asrama->lokasi, 80, $end='...') }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($asrama->jenisasrama, 80, $end='...') }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($asrama->fasilitas, 80, $end='...') }}</td>
-                    <td><img width="60px" name="gambar" src="{{asset('Gambar')}}/{{ $asrama->gambar }}" alt=" gambar"></td>
+                    <td><img width="60px" name="gambar" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar }}" alt=" gambar"></td>
                     <td>{{ \Illuminate\Support\Str::limit($asrama->deskripsi, 80, $end='...') }}</td>
                     <td>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminAsrama/ubah/{{ $asrama->id }}"><i class="far fa-edit btn btn-success"></i></a><br><br>
