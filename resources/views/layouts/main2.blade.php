@@ -21,6 +21,51 @@
     <!-- Custom styles for this page -->
     <link href="{{ url('sbadmin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
+    <!-- <link rel="stylesheet" href="{{asset('css/style.css')}}"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<style type="text/css">
+.dropdown:hover > .dropdown-menu, .dropright:hover > .dropdown.menu {
+    display: block;
+
+}
+body {
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.dropdown-menu li {
+position: relative;
+}
+.dropdown-menu .dropdown-submenu {
+display: none;
+position: absolute;
+left: 100%;
+top: -7px;
+}
+.dropdown-menu .dropdown-submenu-left {
+right: 100%;
+left: auto;
+}
+.dropdown-menu > li:hover > .dropdown-submenu {
+display: block;
+}
+
+#accordionSidebar {
+    font-family: 'Poppins', sans-serif;
+    font-style: bold;
+    background-image: linear-gradient(#302828, #826F66);
+}
+
+#multi {
+    background-image: linear-gradient(#826F66);
+    font-style: bold;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+</style>
+
+
 </head>
 
 <body id="page-top">
@@ -29,7 +74,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/dashboard') }}">
@@ -45,52 +90,118 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/dashboard') }}">
-                <i class="fa fa-home" aria-hidden="true"></i>
-                    <span>Dashboard</span></a>
-            </li>
+                <a class="nav-link" href="{{ url('/dashboard') }}" id="navbarDropdownMenuLink" role="button"
+                 data-mdb-toggle="dropdown" aria-expanded="false">
+                 <i class="fa fa-home" aria-hidden="true"></i>
+                    <span><b>Dashboard</b></span>
+        </a>
 
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+          data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa fa-university" aria-hidden="true"></i>
+          <span><b>Fasilitas</b></span>
+        </a>
+        <ul id="multi" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item" href="{{ url('/AdminAkomodasi')}}">
+              <b> Akomodasi &raquo; </b>
+            </a>
+            <ul class="dropdown-menu dropdown-submenu">
+              <li>
+              <li>
+                <a class="dropdown-item" href="{{ url('/AdminAsrama')}}"><b>Asrama</b></a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{{ url('/AdminKantin')}}"><b>Kantin</b></a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{{ url('/AdminRumahDosen')}}"><b>Rumah Dosen</b></a>
+              </li>
+                <li>
+                <a class="dropdown-item" href="{{ url('/AdminRumahTamu')}}"><b>Rumah Tamu</b></a>
+              </li>
+              </li>
+            </ul>
+
+          <li>
+            <a class="dropdown-item" href="{{ url('/AdminPerpustakaan')}}">
+            <b> Perpustakaan</b>
+            </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="{{ url('/AdminKoperasi')}}">
+            <b>     Koperasi</b>
+            </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="{{ url('/AdminKlinik')}}">
+            <b>  Klinik</b>
+            </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="{{ url('/AdminPosSatpam')}}">
+            <b>  Pos Satpam</b>
+            </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="{{ url('/AdminParkiran')}}">
+            <b>  Parkiran</b>
+            </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="{{ url('/AdminParkiranOlahraga')}}">
+            <b>  Hiburan dan Olahraga</b>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="{{ url('/AdminAudiotorium')}}">
+            <b>  Audiotorium</b>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="{{ url('/AdminLaboratorium')}}">
+            <b>Laboratorium</b></b>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="{{ url('/AdminGedung')}}">
+            <b>Gedung</b>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="{{ url('/AdminRuangTerbuka')}}">
+            <b> Ruang Terbuka</b>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+
+
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fa fa-university" aria-hidden="true"></i>
-                    <span>Fasilitas</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-color.html">Akomodasi</a>
-                        <a class="collapse-item" href="utilities-border.html">Laboratorium</a>
-                        <a class="collapse-item" href="utilities-animation.html">Gedung</a>
-                        <a class="collapse-item" href="utilities-other.html">Ruang Terbuka</a>
-                        <a class="collapse-item" href="utilities-other.html">Perpustakaan</a>
-                        <a class="collapse-item" href="utilities-other.html">Koperasi</a>
-                        <a class="collapse-item" href="utilities-other.html">Klinik</a>
-                        <a class="collapse-item" href="utilities-other.html">Pos Satpam</a>
-                        <a class="collapse-item" href="utilities-other.html">Parkiran</a>
-                        <a class="collapse-item" href="utilities-other.html">Hiburan dan Olahraga</a>
-
-                    </div>
-                </div>
-            </li>
-
-
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/about') }}">
+                <a class="nav-link" href="{{ url('/AdminDenah')}}">
                 <i class="fa fa-map-signs" aria-hidden="true"></i>
-                    <span>Denah</span></a>
+                    <span><b>Denah</b></span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/about') }}">
+                <a class="nav-link" href="{{ url('/AdminPerkembangan')}}">
                 <i class="fa fa-industry" aria-hidden="true"></i>
-                    <span>Perkembangan Fasilitas di IT Del</span></a>
+                    <span><b>Perkembangan Fasilitas di IT Del</b></span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/about') }}">
+                <a class="nav-link" href="{{ url('/AdminSaran')}}">
                 <i class="fa fa-comments" aria-hidden="true"></i>
-                    <span>Saran</span></a>
+                    <span><b>Saran</span></b></a>
             </li>
 
 
@@ -117,7 +228,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
@@ -126,7 +237,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -156,19 +267,19 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }} </span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><b>{{ Auth::user()->name }}</b> </span>
                                 <img class="img-profile rounded-circle" src="{{ url('sbadmin/img/undraw_profile.svg')}}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="/profil">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                                    Profil
                                 </a>
 
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Keluar
                                 </a>
                             </div>
                         </li>
@@ -185,22 +296,18 @@
 
             </div>
             <!-- End of Main Content -->
-
+            <br><br><br>
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <footer class="fixed-bottom bg-dark">
                 <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
+                    <div class="copyright text-center my-auto text-light">
                         <span>Copyright &copy; Sistem Informasi Fasilitas IT Del <?php echo date('Y'); ?></span>
                     </div>
                 </div>
             </footer>
             <!-- End of Footer -->
 
-        </div>
-        <!-- End of Content Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -212,15 +319,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Anda yakin akan keluar?</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="{{ url('/')}}">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <a class="btn btn-primary" href="/">Keluar</a>
                 </div>
             </div>
         </div>

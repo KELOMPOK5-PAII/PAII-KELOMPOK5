@@ -64,6 +64,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{asset('/saran')}}">Saran</a>
             </li>
+
             <li class="nav-item">
                 <a class="btn btn-outline-secondary" href="{{asset('/login')}}">Login Admin</a>
             </li>

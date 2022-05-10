@@ -48,7 +48,7 @@ class AkomodasiController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**
