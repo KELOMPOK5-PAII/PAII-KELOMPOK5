@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('fasilitas',2000)->nullable();
             $table->string('gambar1')->nullable();
             $table->string('deskripsi',2000)->nullable();
+            $table->timestamps();
         });
     }
 

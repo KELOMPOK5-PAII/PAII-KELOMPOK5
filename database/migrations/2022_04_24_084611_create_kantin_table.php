@@ -22,8 +22,7 @@ class CreateKantinTable extends Migration
             $table->string('deskripsi',2000)->nullable();
             $table->string('gambar')->nullable();
             $table->string('gambar1');
-            $table->string('gambar2');
-            $table->string('gambar3');
+            $table->timestamps();
         });
     }
 

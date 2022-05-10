@@ -42,15 +42,16 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" href="{{('/fasilitas')}}">Fasilitas</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{asset('/akomodasi')}}">Akomodasi</a></li>
+                    <li><a class="dropdown-item" href="{{asset('/akomodasi')}}">Akomodasi</a></li>
                         <li><a class="dropdown-item" href="{{asset('/laboratorium')}}">Laboratorium</a></li>
                         <li><a class="dropdown-item" href="{{asset('/gedung')}}">Gedung</a></li>
                         <li><a class="dropdown-item" href="{{asset('/ruangterbuka')}}">Ruang Terbuka</a></li>
                         <li><a class="dropdown-item" href="{{asset('/perpustakaan')}}">Perpustakaan</a></li>
                         <li><a class="dropdown-item" href="{{asset('/koperasi')}}">Koperasi</a></li>
                         <li><a class="dropdown-item" href="{{asset('/klinik')}}">Klinik</a></li>
-                        <li><a class="dropdown-item" href="{{asset('/postsatpam')}}">Post Satpam</a></li>
-                        <li><a class="dropdown-item" href="{{asset('/parkiran')}}">Parkiran</a></li>
+                        <li><a class="dropdown-item" href="{{asset('/auditorium')}}">Auditorium</a></li>
+                        <li><a class="dropdown-item" href="{{asset('/possatpam')}}">Pos Satpam</a></li>
+                        <li><a class="dropdown-item" href="{{asset('/parkirandantransportasi')}}">Parkiran dan Transportasi</a></li>
                         <li><a class="dropdown-item" href="{{asset('/hiburandanolahraga')}}">Hiburan dan Olahraga</a></li>
                     </ul>
             </li>

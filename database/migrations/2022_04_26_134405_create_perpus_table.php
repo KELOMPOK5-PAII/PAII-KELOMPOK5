@@ -18,6 +18,7 @@ class CreatePerpusTable extends Migration
             $table->string('judul')->nullable();
             $table->string('deskripsi',2000)->nullable();
             $table->string('gambar')->nullable();
+            $table->timestamps();
         });
     }
 

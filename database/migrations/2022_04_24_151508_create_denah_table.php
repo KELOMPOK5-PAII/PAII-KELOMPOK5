@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateDenahTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('gedung_b_a_a_k_s', function (Blueprint $table) {
-            $table->id();
+        Schema::create('denah', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('kode')->nullable();
+            $table->string('penjelasan',2000)->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gedung_b_a_a_k_s');
+        Schema::dropIfExists('denah');
     }
-};
+}
