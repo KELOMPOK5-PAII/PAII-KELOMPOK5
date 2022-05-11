@@ -23,6 +23,22 @@ class RuangTerbukaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function tampil(Request $request)
+    {
+        if($request->has('cari')) {
+            $data = ruangterbuka::where('id', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
+
+
+            ->paginate(5);
+        } else {
+            $data = ruangterbuka::paginate(5);
+        }
+        return view('AdminPerpus.index', ['data'=>$data]);
+    }
+
     public function create()
     {
         //

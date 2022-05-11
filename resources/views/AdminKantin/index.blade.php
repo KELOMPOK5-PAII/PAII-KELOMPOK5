@@ -75,11 +75,11 @@
                 @foreach ($data as $kantin)
                 <tr name="potong">
                     <td>{{ $data->firstItem() + $i }}</td>
-                    <td>{{ \Illuminate\Support\Str::limit($kantin->namakantin, 80, $end='...') }}</td>
-                    <td>{{ \Illuminate\Support\Str::limit($kantin->jammakan, 80, $end='...') }}</td>
-                    <td>{{ \Illuminate\Support\Str::limit($kantin->perlengkapan, 80, $end='...') }}</td>
-                    <td>{{ \Illuminate\Support\Str::limit($kantin->peraturan, 80, $end='...') }}</td>
-                    <td> {{ \Illuminate\Support\Str::limit($kantin->deskripsi, 80, $end='...') }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($kantin->namakantin, 130, $end='...') }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($kantin->jammakan, 130, $end='...') }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($kantin->perlengkapan, 130, $end='...') }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($kantin->peraturan, 130, $end='...') }}</td>
+                    <td> {{ \Illuminate\Support\Str::limit($kantin->deskripsi, 130, $end='...') }}</td>
                     <td><img width="60px" name="gambar" src="{{asset('Gambar')}}/{{ $kantin->gambar }}" alt=" gambar"></td>
                     <td>
                         <a href="/AdminKantin/detail/{{ $kantin->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalKantin{{ $kantin->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a><br><br>

@@ -15,11 +15,11 @@
             <h5><a href="/AdminPerpus" class="badge badge-pill badge-secondary">Kembali</a><br><br></h5>
 
             <div class="hero rounded-3 px-5 pb-5 pt-5">
-                <form enctype="multipart/form-data" action="/AdminPerpus/update/{{ $Perpus->id }}" method="post">
+                <form enctype="multipart/form-data" action="/AdminPerpus/update/{{ $perpus->id }}" method="post">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label>Judul</label>
-                        <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" value="{{ $Perpus->judul }}">
+                        <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" value="{{ $perpus->judul }}">
                         @error('judul')
                             <div class="invalid-feedback">{{  $message }}</div>
                         @enderror
@@ -28,7 +28,7 @@
 
                     <div class="form-group mt-3">
                         <label for="peraturan">Deskripsi</label>
-                        <textarea name="deskripsi" id="deskripsi" cols="30" rows="6" class="form-control @error('deskripsi') is-invalid @enderror">{{ $Perpus->deskripsi }}</textarea>
+                        <textarea name="deskripsi" id="deskripsi" cols="30" rows="6" class="form-control @error('deskripsi') is-invalid @enderror">{{ $perpus->deskripsi }}</textarea>
                         @error('deskripsi')
                             <div class="invalid-feedback">{{  $message }}</div>
                         @enderror
@@ -37,8 +37,8 @@
 
                     <div class="form-group mt-3">
                         <label>Gambar</label><br>
-                        <img src="{{asset('Gambar/Perpus')}}/{{ $Perpus->gambar }}" alt="Gambar perpustakaan" style="max-width:100px; margin-top:20px;"><br>
-                        <input type="file" name="gambar"  value=" {{ $Perpus->gambar }}">
+                        <img src="{{asset('Gambar/Perpus')}}/{{ $perpus->gambar }}" alt="Gambar perpustakaan" style="max-width:100px; margin-top:20px;"><br>
+                        <input type="file" name="gambar"  value=" {{ $perpus->gambar }}">
 
                     </div>
                     <div class="form-group mt-3">

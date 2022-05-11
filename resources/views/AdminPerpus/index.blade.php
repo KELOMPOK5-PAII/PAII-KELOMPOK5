@@ -167,7 +167,7 @@
    <script>
        $('.delete').click( function(){
            var perpusid = $(this).attr('data-id');
-           var perpusudul = $(this).attr('data-judul');
+           var perpusjudul = $(this).attr('data-judul');
         swal({
   title: "Konfirmasi",
   text: "Hapus Data "+perpusjudul+" ?",

@@ -33,7 +33,7 @@
                         </div>
             </div>
     </div>
-    
+
 
 <!--Navbar-->
 <div class="nav1">
@@ -66,7 +66,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="btn btn-outline-secondary" href="{{asset('/login')}}">Login Admin</a>
+                <a class="btn btn-outline-secondary" href="{{ route('login') }}">Login Admin</a>
             </li>
         </ul>
 </div>
@@ -74,7 +74,7 @@
 
 
 @yield('container')
-    
+
 <!-- Footer -->
 <section id="footer" class="bg-dark text-light">
     <br><br>
