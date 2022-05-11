@@ -25,6 +25,7 @@
                         @enderror
                     </div>
 
+
                     <div class="form-group mt-3">
                         <label for="deskripsi">Deskripsi</label>
                         <textarea name="deskripsi" id="deskripsi" cols="30" rows="6" class="form-control @error('deskripsi') is-invalid @enderror">{{ $ruangterbuka->deskripsi }}</textarea>
@@ -36,7 +37,7 @@
 
                     <div class="form-group mt-3">
                         <label>Gambar 1</label><br>
-                        <img src="{{asset('Gambar/Ruang Terbuka')}}/{{ $ruangterbuka->gambar }}" alt="Gambar ruang terbuka" style="max-width:100px; margin-top:20px;"><br>
+                        <img src="{{asset('Gambar/Ruangan Terbuka')}}/{{ $ruangterbuka->gambar }}" alt="Gambar ruang terbuka" style="max-width:100px; margin-top:20px;"><br>
                         <input type="file" name="gambar"  value=" {{ $ruangterbuka->gambar }}">
 
                     </div>
@@ -44,7 +45,7 @@
 
                     <div class="form-group mt-3">
                         <label>Gambar 2</label><br>
-                        <img src="{{asset('Gambar/Ruang Terbuka')}}/{{ $ruangterbuka->gambar1 }}" alt="Gambar ruang terbuka" style="max-width:100px; margin-top:20px;"><br>
+                        <img src="{{asset('Gambar/Ruangan Terbuka')}}/{{ $ruangterbuka->gambar1 }}" alt="Gambar ruang terbuka" style="max-width:100px; margin-top:20px;"><br>
                         <input type="file" name="gambar1"  value=" {{ $ruangterbuka->gambar1 }}">
 
                     </div>

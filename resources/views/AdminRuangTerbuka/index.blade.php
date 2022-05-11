@@ -75,8 +75,8 @@
                     <td>{{ $data->firstItem() + $i }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($ruangterbuka->namart, 500, $end='...') }}</td>
                     <td> {{ \Illuminate\Support\Str::limit($ruangterbuka->deskripsi, 500, $end='...') }}</td>
-                    <td><img width="60px" name="gambar" src="{{asset('Gambar/Ruang Terbuka')}}/{{ $ruangterbuka->gambar }}" alt=" gambar"></td>
-                    <td><img width="60px" name="gambar1" src="{{asset('Gambar/Ruang Terbuka')}}/{{ $ruangterbuka->gambar1 }}" alt=" gambar1"></td>
+                    <td><img width="60px" name="gambar" src="{{asset('Gambar/Ruangan Terbuka')}}/{{ $ruangterbuka->gambar }}" alt=" gambar"></td>
+                    <td><img width="60px" name="gambar1" src="{{asset('Gambar/Ruangan Terbuka')}}/{{ $ruangterbuka->gambar1 }}" alt=" gambar1"></td>
                     <td>
                         <a href="/AdminRuangTerbuka/detail/{{ $ruangterbuka->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalRuangTerbuka{{ $ruangterbuka->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a><br><br>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminRuangTerbuka/ubah/{{ $ruangterbuka->id }}"><i class="far fa-edit btn btn-success"></i></a><br><br>
@@ -114,8 +114,11 @@
                        <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">Detail {{ $ruangterbuka->judul }}</h3>
                    </div>
                    <div class="modal-body row">
-                       <div id="img-hover-zoom" class="col-md-4 img-dtl">
-                           <img width="100%" src="{{asset('Gambar/Ruang Terbuka')}}/{{ $ruangterbuka->gambar }}" alt="not found">
+                       <div  class="col-md-4 img-dtl">
+                       <div id="img-hover-zoom">
+                           <img width="100%" src="{{asset('Gambar/Ruangan Terbuka')}}/{{ $ruangterbuka->gambar }}" alt="not found"></div>
+                           <div id="img-hover-zoom">
+                           <img width="100%" src="{{asset('Gambar/Ruangan Terbuka')}}/{{ $ruangterbuka->gambar1 }}" alt="not found"></div>
                        </div>
                        <div class="col-md-8 rounded-2">
                            <table id="tengah" class="table table-light table-hover">
@@ -127,7 +130,7 @@
                                <tr>
                                    <td>Nama</td>
                                    <td>:</td>
-                                   <td>{{ $ruangterbuka->judul }}</td>
+                                   <td>{{ $ruangterbuka->namart }}</td>
                                </tr>
                                <tr>
                                    <td>Deskripsi</td>

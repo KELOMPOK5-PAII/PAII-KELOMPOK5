@@ -5,7 +5,7 @@
             }
         </style>
  <link rel="stylesheet" href="{{asset('css/style.css')}}">
-@section('title','AUDITORIUM | Ubah')
+@section('title','Auditorium | Ubah')
 
 @section('content')
 

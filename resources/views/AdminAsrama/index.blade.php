@@ -125,9 +125,11 @@
                         <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">Detail {{ $asrama->namaasrama }}</h3>
                     </div>
                     <div class="modal-body row">
-                        <div id="img-hover-zoom" class="col-md-4 img-dtl">
-                            <img width="100%" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar }}" alt="not found"><br><br>
-                            <img width="100%" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar1 }}" alt="not found">
+                        <div class="col-md-4 img-dtl">
+                        <div id="img-hover-zoom">
+                            <img width="100%" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar }}" alt="not found"></div>
+                            <div id="img-hover-zoom">
+                            <img width="100%" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar1 }}" alt="not found"></div>
                         </div>
 
                         <div class="col-md-8 rounded-2">

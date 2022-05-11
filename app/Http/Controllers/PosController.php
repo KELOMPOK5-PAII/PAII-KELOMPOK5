@@ -23,9 +23,24 @@ class PosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function tampil(Request $request)
+    {
+        if($request->has('cari')) {
+            $judul = pos::where('id', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
+
+
+            ->paginate(5);
+        } else {
+            $data = pos::paginate(5);
+        }
+        return view('AdminPosSatpam.index', ['data'=>$data]);
+    }
+
     public function create()
     {
-        //
+        return view('AdminPosSatpam.tambah');
     }
 
     /**
@@ -36,7 +51,34 @@ class PosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'judul'=>'required',
+            'deskripsi'=>'required',
+            'gambar' => 'required',
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            pos::create([
+                'judul'=>$request->judul,
+                'deskripsi'=>$request->deskripsi,
+                'gambar' =>$request->gambar
+            ]);
+        } else {
+            $judul = $request->judul;
+            $deskripsi = $request->deskripsi;
+
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/Pos'),$NamaGambar);
+
+            $pos = new pos();
+            $pos->judul = $judul;
+            $pos->deskripsi = $deskripsi;
+            $pos->gambar = $gambar;
+            $pos->save();
+        }
+        alert()->success('Success','Data Berhasil Ditambahkan!');
+        return redirect('/AdminPosSatpam');
     }
 
     /**
@@ -58,9 +100,9 @@ class PosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pos = pos::find($id);
+        return view('AdminPosSatpam.ubah', ['pos' => $pos]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -70,7 +112,42 @@ class PosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'judul'=>'required',
+            'deskripsi'=>'required',
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            $pos = pos::find($id);
+            $pos->id = $request->id;
+            $pos->judul = $request->judul;
+            $pos->deskripsi = $request->deskripsi;
+            $gambar = $request->gambar;
+
+            $pos->save();
+            alert()->success('Success','Data Berhasil Diubah!');
+            return redirect('/AdminPosSatpam');
+
+        } else {
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/Pos'), $NamaGambar);
+
+            $id = $request->id;
+            $judul = $request->judul;
+            $deskripsi = $request->deskripsi;
+
+            $pos = pos::find($id);
+            $pos->judul = $request->judul;
+            $pos->deskripsi = $request->deskripsi;
+
+            $pos->gambar = $NamaGambar;
+
+            $pos->save();
+
+        }
+        alert()->success('Success','Data Berhasil Diubah!');
+        return redirect('/AdminPosSatpam');
     }
 
     /**
@@ -81,6 +158,9 @@ class PosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pos = pos::find($id);
+        $pos->delete();
+
+        return back();
     }
 }

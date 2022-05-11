@@ -72,11 +72,11 @@ class RuangTerbukaController extends Controller
 
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
-            $gambar->move(public_path('Gambar/Ruang Terbuka'),$NamaGambar);
+            $gambar->move(public_path('Gambar/Ruangan Terbuka'),$NamaGambar);
 
             $gambar1 = $request->file('gambar1');
             $NamaGambar1= time().'.'.$gambar1->extension();
-            $gambar1->move(public_path('Gambar/Ruang Terbuka'),$NamaGambar1);
+            $gambar1->move(public_path('Gambar/Ruangan Terbuka'),$NamaGambar1);
 
             $ruangterbuka = new ruangterbuka();
             $ruangterbuka->namart = $namart;
@@ -140,11 +140,11 @@ class RuangTerbukaController extends Controller
         } else {
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
-            $gambar->move(public_path('Gambar/Ruang Terbuka'), $NamaGambar);
+            $gambar->move(public_path('Gambar/Ruangan Terbuka'), $NamaGambar);
 
             $gambar1 = $request->file('gambar1');
             $NamaGambar1 = time().'.'.$gambar1->extension();
-            $gambar1->move(public_path('Gambar/Ruang Terbuka'), $NamaGambar1);
+            $gambar1->move(public_path('Gambar/Ruangan Terbuka'), $NamaGambar1);
 
             $id = $request->id;
             $namart = $request->namart;
