@@ -81,13 +81,13 @@
                 @foreach ($data as $asrama)
                 <tr>
                     <td>{{ $data->firstItem() + $i }}</td>
-                    <td>{{ \Illuminate\Support\Str::limit($asrama->namaasrama, 80, $end='...') }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($asrama->namaasrama, 130, $end='...') }}</td>
                     <td><img width="60px" name="foto" src="{{asset('foto')}}/{{ $asrama->foto }}" alt=" foto"></td>
                     <td>{{ \Illuminate\Support\Str::limit($asrama->lokasi, 130, $end='...') }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($asrama->jenisasrama, 130, $end='...') }}</td>
-                    <td>{{ \Illuminate\Support\Str::limit($asrama->fasilitas, 120, $end='...') }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($asrama->fasilitas, 130, $end='...') }}</td>
                     <td><img width="60px" name="gambar" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar }}" alt=" gambar"></td>
-                    <td>{{ \Illuminate\Support\Str::limit($asrama->deskripsi, 120, $end='...') }}</td>
+                    <td>{{ \Illuminate\Support\Str::limit($asrama->deskripsi, 130, $end='...') }}</td>
                     <td>
                         <a href="/AdminAsrama/detail/{{ $asrama->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalAsrama{{ $asrama->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a><br><br>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminAsrama/ubah/{{ $asrama->id }}"><i class="far fa-edit btn btn-success"></i></a><br><br>

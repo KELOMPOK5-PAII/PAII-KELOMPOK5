@@ -124,7 +124,6 @@ class AdminKantinController extends Controller
             'perlengkapan'=>'required',
             'peraturan'=>'required',
             'deskripsi'=>'required',
-            'gambar' => 'required',
         ]);
 
         if ($request->file('gambar')==NULL) {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\perpus;
+use Alert;
 
 class PerpusController extends Controller
 {
@@ -37,6 +38,12 @@ class PerpusController extends Controller
         }
         return view('AdminPerpus.index', ['data'=>$data]);
     }
+
+        /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
 
     public function create()
     {
@@ -115,16 +122,16 @@ class PerpusController extends Controller
         $request->validate([
             'judul'=>'required',
             'deskripsi'=>'required',
-            'gambar' => 'required',
         ]);
 
         if ($request->file('gambar')==NULL) {
             $perpus = Perpus::find($id);
             $perpus->id = $request->id;
+            $perpus->judul = $request->judul;
             $perpus->deskripsi = $request->deskripsi;
             $gambar = $request->gambar;
 
-            $Perpus->save();
+            $perpus->save();
             alert()->success('Success','Data Berhasil Diubah!');
             return redirect('/AdminPerpus');
 
@@ -144,9 +151,10 @@ class PerpusController extends Controller
             $perpus->gambar = $NamaGambar;
 
             $perpus->save();
-            alert()->success('Success','Data Berhasil Diubah!');
-            return redirect('/AdminPerpus');
+
         }
+        alert()->success('Success','Data Berhasil Diubah!');
+        return redirect('/AdminPerpus');
     }
 
     /**
@@ -162,7 +170,5 @@ class PerpusController extends Controller
 
         return back();
     }
-
-
 
 }

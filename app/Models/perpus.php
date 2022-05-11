@@ -9,6 +9,6 @@ class perpus extends Model
 {
     use HasFactory;
     protected $table = 'perpus';
-    protected $fillable = ['id','judul','deskripsi','gambar','penjelasangambar'];
+    protected $fillable = ['id','judul','deskripsi','gambar'];
     protected $primaryKey = 'id';
 }
