@@ -152,7 +152,7 @@ display: block;
           </li>
 
           <li>
-            <a class="dropdown-item" href="{{ url('/AdminParkiran')}}">
+            <a class="dropdown-item" href="#">
               <b> Parkiran dan Transportasi &raquo; </b>
             </a>
             <ul class="dropdown-menu dropdown-submenu">
