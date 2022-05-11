@@ -18,6 +18,7 @@ class CreateRuangterbukaTable extends Migration
             $table->string('namart')->nullable();
             $table->string('deskripsi',2000)->nullable();
             $table->string('gambar')->nullable();
+            $table->string('gambar1');
             $table->timestamps();
         });
     }

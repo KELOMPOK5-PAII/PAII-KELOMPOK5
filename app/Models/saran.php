@@ -9,6 +9,6 @@ class saran extends Model
 {
     use HasFactory;
     protected $table = 'saran';
-    protected $fillable = ['nama','saran'];
+    protected $fillable = ['id','nama','saran'];
     protected $primaryKey = 'id';
 }
