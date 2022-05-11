@@ -199,7 +199,7 @@ display: block;
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/AdminSaran')}}">
+                <a class="nav-link" href="{{ url('/datasaran')}}">
                 <i class="fa fa-comments" aria-hidden="true"></i>
                     <span><b>Saran</span></b></a>
             </li>

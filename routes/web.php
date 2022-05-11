@@ -40,10 +40,6 @@ Route::get('/parkirandantransportasi','App\Http\Controllers\ParkirandanTransport
 Route::get('/saran', 'App\Http\Controllers\SaranController@index');
 Route::post('/saran/simpan', 'App\Http\Controllers\SaranController@store');
 
-//pengguna
-Route::get('/datasaran', 'App\Http\Controllers\SaranController@tampil');
-Route::get('/datasaran/hapus/{id}', 'App\Http\Controllers\SaranController@destroy');
-Route::post('/saran/simpan', 'App\Http\Controllers\SaranController@store');
 
 
 Route::get('/f', function () {
@@ -190,9 +186,7 @@ Route::get('/AdminPerkembangan/hapus/{id}', [App\Http\Controllers\AdminPerkemban
 Route::get('/AdminPerkembangan/ubah/{id}', [App\Http\Controllers\AdminPerkembanganController::class, 'edit'])->name('profil')->middleware('auth');
 Route::post('/AdminPerkembangan/update/{id}', [App\Http\Controllers\AdminPerkembanganController::class, 'update'])->name('profil')->middleware('auth');
 
-Route::get('/AdminSaran', [App\Http\Controllers\SaranController::class, 'tampil'])->name('profil')->middleware('auth');
-Route::get('/AdminSaran/tambah', [App\Http\Controllers\SaranController::class, 'create'])->name('profil')->middleware('auth');
-Route::post('/AdminSaran/simpan', [App\Http\Controllers\SaranController::class, 'store'])->name('profil')->middleware('auth');
-Route::get('/AdminSaran/hapus/{id}', [App\Http\Controllers\SaranController::class, 'destroy'])->name('profil')->middleware('auth');
-Route::get('/AdminSaran/ubah/{id}', [App\Http\Controllers\SaranController::class, 'edit'])->name('profil')->middleware('auth');
-Route::post('/AdminSaran/update/{id}', [App\Http\Controllers\SaranController::class, 'update'])->name('profil')->middleware('auth');
+Route::get('/datasaran', 'App\Http\Controllers\SaranController@tampil')->name('profil')->middleware('auth');
+Route::get('/datasaran/tambah', [App\Http\Controllers\SaranController::class, 'create'])->name('profil')->middleware('auth');
+Route::post('/datasaran/simpan', [App\Http\Controllers\SaranController::class, 'store'])->name('profil')->middleware('auth');
+Route::get('/datasaran/hapus/{id}', [App\Http\Controllers\SaranController::class, 'destroy'])->name('profil')->middleware('auth');

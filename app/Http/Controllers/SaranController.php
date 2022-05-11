@@ -31,7 +31,7 @@ class SaranController extends Controller
      */
     public function create()
     {
-        //
+        return view('Saran.datasaran');
     }
 
     /**
@@ -51,8 +51,8 @@ class SaranController extends Controller
             'nama' => $request->nama,
             'saran' => $request->saran
         ]);
-
-        return redirect('/saran')->with('success', 'Saran Anda Berhasil Di Masukkan!');
+        alert()->success('Success','Saran Berhasil Dikirim');
+        return redirect('/saran');
     }
 
     /**
@@ -99,6 +99,6 @@ class SaranController extends Controller
     {
         $saran = saran::find($id);
         $saran->delete();
-        return redirect('/datasaran')->with('success', 'Data Telah Dihapus!');
+        return back();
     }
 }
