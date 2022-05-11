@@ -76,7 +76,7 @@ class PerpusController extends Controller
 
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
-            $gambar->move(public_path('gambar'),$NamaGambar);
+            $gambar->move(public_path('Gambar/Perpus'),$NamaGambar);
 
             $perpus = new Perpus();
             $perpus->judul = $judul;
@@ -138,7 +138,7 @@ class PerpusController extends Controller
         } else {
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
-            $gambar->move(public_path('gambar'), $NamaGambar);
+            $gambar->move(public_path('Gambar/Perpus'), $NamaGambar);
 
             $id = $request->id;
             $judul = $request->judul;

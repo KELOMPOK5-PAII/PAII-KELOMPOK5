@@ -16,7 +16,7 @@ class DenahController extends Controller
     {
         $denah = denah::all();
         return view('Denah.denah',['denah' => $denah]);
-    
+
     }
 
     /**

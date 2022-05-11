@@ -66,7 +66,8 @@
                     <th>Perlengkapan</th>
                     <th>Peraturan</th>
                     <th>Deskripsi</th>
-                    <th>Gambar</th>
+                    <th>Gambar 1</th>
+                    <th>Gambar 2</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -80,7 +81,8 @@
                     <td>{{ \Illuminate\Support\Str::limit($kantin->perlengkapan, 130, $end='...') }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($kantin->peraturan, 130, $end='...') }}</td>
                     <td> {{ \Illuminate\Support\Str::limit($kantin->deskripsi, 130, $end='...') }}</td>
-                    <td><img width="60px" name="gambar" src="{{asset('Gambar')}}/{{ $kantin->gambar }}" alt=" gambar"></td>
+                    <td><img width="60px" name="gambar" src="{{asset('Gambar/Kantin')}}/{{ $kantin->gambar }}" alt=" gambar"></td>
+                    <td><img width="60px" name="gambar1" src="{{asset('Gambar/Kantin')}}/{{ $kantin->gambar1 }}" alt=" gambar1"></td>
                     <td>
                         <a href="/AdminKantin/detail/{{ $kantin->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalKantin{{ $kantin->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a><br><br>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminKantin/ubah/{{ $kantin->id }}"><i class="far fa-edit btn btn-success"></i></a><br><br>
@@ -117,7 +119,8 @@
                    </div>
                    <div class="modal-body row">
                        <div id="img-hover-zoom" class="col-md-4 img-dtl">
-                           <img width="100%" src="{{asset('Gambar')}}/{{ $kantin->gambar }}" alt="not found">
+                           <img width="100%" src="{{asset('Gambar/Kantin')}}/{{ $kantin->gambar }}" alt="not found"><br><br>
+                           <img width="100%" src="{{asset('Gambar/Kantin')}}/{{ $kantin->gambar1 }}" alt="not found">
                        </div>
                        <div class="col-md-8 rounded-2">
                            <table id="tengah" class="table table-light table-hover">

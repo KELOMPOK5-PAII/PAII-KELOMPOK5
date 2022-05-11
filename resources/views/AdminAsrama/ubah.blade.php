@@ -26,9 +26,9 @@
                     </div>
 
                     <div class="form-group mt-3">
-                        <label>Foto</label><br>
-                        <img src="{{asset('foto')}}/{{ $AdminAsrama->foto }}" alt="Foto asrama" style="max-width:100px; margin-top:20px;"><br>
-                        <input type="file" name="foto"  value=" {{ $AdminAsrama->foto }}">
+                        <label>Gambar 1</label><br>
+                        <img src="{{asset('Gambar/Asrama')}}/{{ $AdminAsrama->gambar }}" alt="Gambar asrama" style="max-width:100px; margin-top:20px;"><br>
+                        <input type="file" name="gambar"  value=" {{ $AdminAsrama->gambar }}">
                     </div>
 
                     <div class="form-group mt-3">
@@ -56,9 +56,9 @@
                     </div>
 
                     <div class="form-group mt-3">
-                        <label>Gambar</label><br>
-                        <img src="{{asset('gambar')}}/{{ $AdminAsrama->gambar }}" alt="Gambar asrama" style="max-width:100px; margin-top:20px;"><br>
-                        <input type="file" name="gambar"  value=" {{ $AdminAsrama->gambar }}">
+                        <label>Gambar 2</label><br>
+                        <img src="{{asset('Gambar/Asrama')}}/{{ $AdminAsrama->gambar1 }}" alt="Gambar asrama" style="max-width:100px; margin-top:20px;"><br>
+                        <input type="file" name="gambar1"  value=" {{ $AdminAsrama->gambar1 }}">
                     </div>
 
                     <div class="form-group mt-3">

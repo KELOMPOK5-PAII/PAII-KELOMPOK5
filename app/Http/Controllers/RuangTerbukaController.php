@@ -29,19 +29,19 @@ class RuangTerbukaController extends Controller
     {
         if($request->has('cari')) {
             $data = ruangterbuka::where('id', 'LIKE', '%'.$request->cari.'%')
-            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('namart', 'LIKE', '%'.$request->cari.'%')
 
 
             ->paginate(5);
         } else {
             $data = ruangterbuka::paginate(5);
         }
-        return view('AdminPerpus.index', ['data'=>$data]);
+        return view('AdminRuangTerbuka.index', ['data'=>$data]);
     }
 
     public function create()
     {
-        //
+        return view('AdminRuangTerbuka.tambah');
     }
 
     /**
@@ -52,7 +52,41 @@ class RuangTerbukaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'namart'=>'required',
+            'deskripsi'=>'required',
+            'gambar' => 'required',
+            'gambar1' => 'required',
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            ruangterbuka::create([
+                'namart'=>$request->namart,
+                'deskripsi'=>$request->deskripsi,
+                'gambar' =>$request->gambar,
+                'gambar1' =>$request->gambar1
+            ]);
+        } else {
+            $namart = $request->namart;
+            $deskripsi = $request->deskripsi;
+
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/Ruang Terbuka'),$NamaGambar);
+
+            $gambar1 = $request->file('gambar1');
+            $NamaGambar1= time().'.'.$gambar1->extension();
+            $gambar1->move(public_path('Gambar/Ruang Terbuka'),$NamaGambar1);
+
+            $ruangterbuka = new ruangterbuka();
+            $ruangterbuka->namart = $namart;
+            $ruangterbuka->deskripsi = $deskripsi;
+            $ruangterbuka->gambar = $gambar;
+            $ruangterbuka->gambar1 = $gambar1;
+            $ruangterbuka->save();
+        }
+        alert()->success('Success','Data Berhasil Ditambahkan!');
+        return redirect('/AdminRuangTerbuka');
     }
 
     /**
@@ -74,9 +108,9 @@ class RuangTerbukaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ruangterbuka = ruangterbuka::find($id);
+        return view('AdminRuangTerbuka.ubah', ['ruangterbuka' => $ruangterbuka]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -86,7 +120,48 @@ class RuangTerbukaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'namart'=>'required',
+            'deskripsi'=>'required',
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            $ruangterbuka = ruangterbuka::find($id);
+            $ruangterbuka->id = $request->id;
+            $ruangterbuka->namart = $request->namart;
+            $ruangterbuka->deskripsi = $request->deskripsi;
+            $gambar = $request->gambar;
+            $gambar1 = $request->gambar1;
+
+            $ruangterbuka->save();
+            alert()->success('Success','Data Berhasil Diubah!');
+            return redirect('/AdminRuangTerbuka');
+
+        } else {
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/Ruang Terbuka'), $NamaGambar);
+
+            $gambar1 = $request->file('gambar1');
+            $NamaGambar1 = time().'.'.$gambar1->extension();
+            $gambar1->move(public_path('Gambar/Ruang Terbuka'), $NamaGambar1);
+
+            $id = $request->id;
+            $namart = $request->namart;
+            $deskripsi = $request->deskripsi;
+
+            $ruangterbuka = ruangterbuka::find($id);
+            $ruangterbuka->namart = $request->namart;
+            $ruangterbuka->deskripsi = $request->deskripsi;
+
+            $ruangterbuka->gambar = $NamaGambar;
+            $ruangterbuka->gambar1 = $NamaGambar1;
+
+            $ruangterbuka->save();
+
+        }
+        alert()->success('Success','Data Berhasil Diubah!');
+        return redirect('/AdminRuangTerbuka');
     }
 
     /**
@@ -97,6 +172,9 @@ class RuangTerbukaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ruangterbuka = ruangterbuka::find($id);
+        $ruangterbuka->delete();
+
+        return back();
     }
 }

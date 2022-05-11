@@ -10,7 +10,7 @@ class AdminAsrama extends Model
     use HasFactory;
     protected $table = 'asrama';
 
-    protected $fillable = ['id', 'namaasrama', 'foto', 'lokasi', 'jenisasrama', 'fasilitas', 'gambar', 'deskripsi'];
+    protected $fillable = ['id', 'namaasrama', 'gambar', 'lokasi', 'jenisasrama', 'fasilitas', 'gambar1', 'deskripsi'];
 
     protected $primaryKey = 'id';
 }
