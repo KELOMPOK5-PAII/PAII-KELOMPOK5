@@ -44,7 +44,7 @@
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
 <div class="container">
 
-        <center><h2 id="teks">DATA AUDIOTORIUM IT DEL</h2></center><br><br>
+        <center><h2 id="teks">DATA AUDITORIUM IT DEL</h2></center><br><br>
         <div class="info1"> <h4><a href="/AdminAudiotorium/tambah" class="btn btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Tambah Data</a></h4></div>
         <br>
 

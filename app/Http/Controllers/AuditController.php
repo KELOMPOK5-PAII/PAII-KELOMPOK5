@@ -70,7 +70,7 @@ class AuditController extends Controller
 
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
-            $gambar->move(public_path('Gambar/Audiotorium'),$NamaGambar);
+            $gambar->move(public_path('Gambar/Auditorium'),$NamaGambar);
 
             $audit = new audit();
             $audit->judul = $judul;
@@ -79,7 +79,7 @@ class AuditController extends Controller
             $audit->save();
         }
         alert()->success('Success','Data Berhasil Ditambahkan!');
-        return redirect('/AdminAudiotorium');
+        return redirect('/AdminAuditorium');
     }
 
     /**
@@ -132,7 +132,7 @@ class AuditController extends Controller
         } else {
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
-            $gambar->move(public_path('Gambar/Audiotorium'), $NamaGambar);
+            $gambar->move(public_path('Gambar/Auditorium'), $NamaGambar);
 
             $id = $request->id;
             $judul = $request->judul;

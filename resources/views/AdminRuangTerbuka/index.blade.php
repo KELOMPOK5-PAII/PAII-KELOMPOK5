@@ -111,7 +111,7 @@
            <div class="modal-dialog modal-dialog-centered modal-lg">
                <div class="modal-content">
                    <div class="modal-header">
-                       <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">Detail {{ $ruangterbuka->judul }}</h3>
+                       <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">Detail {{ $ruangterbuka->namart }}</h3>
                    </div>
                    <div class="modal-body row">
                        <div  class="col-md-4 img-dtl">
