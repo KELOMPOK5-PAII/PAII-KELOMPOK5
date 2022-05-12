@@ -18,6 +18,21 @@ class RumahTamuController extends Controller
         return view('Akomodasi.RumahTamu.rumahtamu',['rumahtamu' => $rumahtamu]);
     }
 
+    public function tampil(Request $request)
+    {
+        if($request->has('cari')) {
+            $judul = rumahtamu::where('id', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
+
+
+            ->paginate(5);
+        } else {
+            $data = rumahtamu::paginate(5);
+        }
+        return view('AdminRumahTamu.index', ['data'=>$data]);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +40,7 @@ class RumahTamuController extends Controller
      */
     public function create()
     {
-        //
+        return view('AdminRumahTamu.tambah');
     }
 
     /**
@@ -36,7 +51,34 @@ class RumahTamuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'judul'=>'required',
+            'deskripsi'=>'required',
+            'gambar' => 'required',
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            rumahtamu::create([
+                'judul'=>$request->judul,
+                'deskripsi'=>$request->deskripsi,
+                'gambar' =>$request->gambar
+            ]);
+        } else {
+            $judul = $request->judul;
+            $deskripsi = $request->deskripsi;
+
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/RumahTamu'),$NamaGambar);
+
+            $rumahtamu = new rumahtamu();
+            $rumahtamu->judul = $judul;
+            $rumahtamu->deskripsi = $deskripsi;
+            $rumahtamu->gambar = $gambar;
+            $rumahtamu->save();
+        }
+        alert()->success('Success','Data Berhasil Ditambahkan!');
+        return redirect('/AdminRumahTamu');
     }
 
     /**
@@ -58,9 +100,9 @@ class RumahTamuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $rumahtamu = rumahtamu::find($id);
+        return view('AdminRumahTamu.ubah', ['rumahtamu' => $rumahtamu]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -70,7 +112,42 @@ class RumahTamuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'judul'=>'required',
+            'deskripsi'=>'required',
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            $rumahtamu = rumahtamu::find($id);
+            $rumahtamu->id = $request->id;
+            $rumahtamu->judul = $request->judul;
+            $rumahtamu->deskripsi = $request->deskripsi;
+            $gambar = $request->gambar;
+
+            $rumahtamu->save();
+            alert()->success('Success','Data Berhasil Diubah!');
+            return redirect('/AdminRumahTamu');
+
+        } else {
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/RumahTamu'), $NamaGambar);
+
+            $id = $request->id;
+            $judul = $request->judul;
+            $deskripsi = $request->deskripsi;
+
+            $rumahtamu = rumahtamu::find($id);
+            $rumahtamu->judul = $request->judul;
+            $rumahtamu->deskripsi = $request->deskripsi;
+
+            $rumahtamu->gambar = $NamaGambar;
+
+            $rumahtamu->save();
+
+        }
+        alert()->success('Success','Data Berhasil Diubah!');
+        return redirect('/AdminRumahTamu');
     }
 
     /**
@@ -81,6 +158,9 @@ class RumahTamuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $rumahtamu = rumahtamu::find($id);
+        $rumahtamu->delete();
+
+        return back();
     }
 }

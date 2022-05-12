@@ -59,11 +59,19 @@
 
 
                     <div class="form-group mt-3">
-                        <label>Gambar</label><br>
-                        <img src="{{asset('gambar')}}/{{ $AdminKantin->gambar }}" alt="Gambar kantin" style="max-width:100px; margin-top:20px;"><br>
+                        <label>Gambar 1</label><br>
+                        <img src="{{asset('Gambar/Kantin')}}/{{ $AdminKantin->gambar }}" alt="Gambar kantin" style="max-width:100px; margin-top:20px;"><br>
                         <input type="file" name="gambar"  value=" {{ $AdminKantin->gambar }}">
 
                     </div>
+
+                    <div class="form-group mt-3">
+                        <label>Gambar 2</label><br>
+                        <img src="{{asset('Gambar/Kantin')}}/{{ $AdminKantin->gambar1 }}" alt="Gambar kantin" style="max-width:100px; margin-top:20px;"><br>
+                        <input type="file" name="gambar1"  value=" {{ $AdminKantin->gambar1 }}">
+
+                    </div>
+
                     <div class="form-group mt-3">
                     <br><br>
                         <button type="submit" class="btn btn-success">Ubah</button>

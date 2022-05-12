@@ -61,7 +61,7 @@ class AdminAkomodasiController extends Controller
             $link = $request->link;
             $foto = $request->file('foto');
             $NamaFoto = time().'.'.$foto->extension();
-            $foto->move(public_path('foto'),$NamaFoto);
+            $foto->move(public_path('Gambar/Akomodasi'),$NamaFoto);
 
             $AdminAkomodasi = new AdminAkomodasi();
             $AdminAkomodasi->judul = $judul;
@@ -121,7 +121,7 @@ class AdminAkomodasiController extends Controller
         } else {
             $foto = $request->file('foto');
             $NamaFoto = time().'.'.$foto->extension();
-            $foto->move(public_path('foto'), $NamaFoto);
+            $foto->move(public_path('Gambar/Akomodasi'), $NamaFoto);
 
             $id = $request->id;
             $judul = $request->judul;

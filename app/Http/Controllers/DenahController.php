@@ -16,9 +16,23 @@ class DenahController extends Controller
     {
         $denah = denah::all();
         return view('Denah.denah',['denah' => $denah]);
-    
+
     }
 
+
+    public function tampil(Request $request)
+    {
+        if($request->has('cari')) {
+            $data = denah::where('id', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('penjelasan', 'LIKE', '%'.$request->cari.'%')
+
+
+            ->paginate(5);
+        } else {
+            $data = denah::paginate(5);
+        }
+        return view('AdminDenah.index', ['data'=>$data]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +40,7 @@ class DenahController extends Controller
      */
     public function create()
     {
-        //
+        return view('AdminDenah.tambah');
     }
 
     /**
@@ -37,7 +51,18 @@ class DenahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kode'=>'required',
+            'penjelasan'=>'required',
+        ]);
+
+            denah::create([
+                'kode'=>$request->kode,
+                'penjelasan'=>$request->penjelasan,
+            ]);
+
+        alert()->success('Success','Data Berhasil Ditambahkan!');
+        return redirect('/AdminDenah');
     }
 
     /**
@@ -59,9 +84,9 @@ class DenahController extends Controller
      */
     public function edit($id)
     {
-        //
+        $denah = denah::find($id);
+        return view('AdminDenah.ubah', ['denah' => $denah]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -71,7 +96,23 @@ class DenahController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'kode'=>'required',
+            'penjelasan'=>'required',
+        ]);
+
+            $denah = denah::find($id);
+            $denah->id = $request->id;
+            $denah->kode = $request->kode;
+            $denah->penjelasan = $request->penjelasan;
+
+            $denah->save();
+            alert()->success('Success','Data Berhasil Diubah!');
+            return redirect('/AdminDenah');
+
+
+        alert()->success('Success','Data Berhasil Diubah!');
+        return redirect('/AdminDenah');
     }
 
     /**
@@ -82,6 +123,10 @@ class DenahController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $denah = denah::find($id);
+        $denah->delete();
+
+        return back();
     }
+
 }

@@ -18,6 +18,20 @@ class LaboratoriumController extends Controller
         return view('Laboratorium.laboratorium',['laboratorium' => $laboratorium]);
     }
 
+    public function tampil(Request $request)
+    {
+        if($request->has('cari')) {
+            $data = laboratorium::where('id', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('namalab', 'LIKE', '%'.$request->cari.'%')
+
+
+            ->paginate(5);
+        } else {
+            $data = laboratorium::paginate(5);
+        }
+        return view('AdminLaboratorium.index', ['data'=>$data]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +39,7 @@ class LaboratoriumController extends Controller
      */
     public function create()
     {
-        //
+        return view('AdminLaboratorium.tambah');
     }
 
     /**
@@ -36,7 +50,41 @@ class LaboratoriumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'namalab'=>'required',
+            'deskripsi'=>'required',
+            'gambar' => 'required',
+            'gambar1' => 'required',
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            laboratorium::create([
+                'namalab'=>$request->namalab,
+                'deskripsi'=>$request->deskripsi,
+                'gambar' =>$request->gambar,
+                'gambar1' =>$request->gambar1
+            ]);
+        } else {
+            $namalab = $request->namalab;
+            $deskripsi = $request->deskripsi;
+
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/Lab'),$NamaGambar);
+
+            $gambar1 = $request->file('gambar1');
+            $NamaGambar1= time().'.'.$gambar1->extension();
+            $gambar1->move(public_path('Gambar/Lab'),$NamaGambar1);
+
+            $laboratorium = new laboratorium();
+            $laboratorium->laboratorium = $laboratorium;
+            $laboratorium->deskripsi = $deskripsi;
+            $laboratorium->gambar = $gambar;
+            $laboratorium->gambar1 = $gambar1;
+            $laboratorium->save();
+        }
+        alert()->success('Success','Data Berhasil Ditambahkan!');
+        return redirect('/AdminLaboratorium');
     }
 
     /**
@@ -58,9 +106,9 @@ class LaboratoriumController extends Controller
      */
     public function edit($id)
     {
-        //
+        $laboratorium = laboratorium::find($id);
+        return view('AdminLaboratorium.ubah', ['laboratorium' => $laboratorium]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -70,7 +118,48 @@ class LaboratoriumController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'namalab'=>'required',
+            'deskripsi'=>'required',
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            $laboratorium = laboratorium::find($id);
+            $laboratorium->id = $request->id;
+            $laboratorium->namalab = $request->laboratorium;
+            $laboratorium->deskripsi = $request->laboratorium;
+            $gambar = $request->gambar;
+            $gambar1 = $request->gambar1;
+
+            $laboratorium->save();
+            alert()->success('Success','Data Berhasil Diubah!');
+            return redirect('/AdminLaboratorium');
+
+        } else {
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/Lab'), $NamaGambar);
+
+            $gambar1 = $request->file('gambar1');
+            $NamaGambar1 = time().'.'.$gambar1->extension();
+            $gambar1->move(public_path('Gambar/Lab'), $NamaGambar1);
+
+            $id = $request->id;
+            $namalab = $request->namalab;
+            $deskripsi = $request->deskripsi;
+
+            $laboratorium = laboratorium::find($id);
+            $laboratorium->namalab = $request->namalab;
+            $laboratorium->deskripsi = $request->deskripsi;
+
+            $laboratorium->gambar = $NamaGambar;
+            $laboratorium->gambar1 = $NamaGambar1;
+
+            $laboratorium->save();
+
+        }
+        alert()->success('Success','Data Berhasil Diubah!');
+        return redirect('/AdminLaboratorium');
     }
 
     /**
@@ -81,6 +170,9 @@ class LaboratoriumController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $laboratorium = laboratorium::find($id);
+        $laboratorium->delete();
+
+        return back();
     }
 }

@@ -18,6 +18,22 @@ class KlinikController extends Controller
         return view('Klinik.klinik',['klinik' => $klinik]);
     }
 
+
+
+    public function tampil(Request $request)
+    {
+        if($request->has('cari')) {
+            $judul = klinik::where('id', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
+
+
+            ->paginate(5);
+        } else {
+            $data = klinik::paginate(5);
+        }
+        return view('AdminKlinik.index', ['data'=>$data]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +41,7 @@ class KlinikController extends Controller
      */
     public function create()
     {
-        //
+        return view('AdminKlinik.tambah');
     }
 
     /**
@@ -36,7 +52,34 @@ class KlinikController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'judul'=>'required',
+            'deskripsi'=>'required',
+            'gambar' => 'required',
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            klinik::create([
+                'judul'=>$request->judul,
+                'deskripsi'=>$request->deskripsi,
+                'gambar' =>$request->gambar
+            ]);
+        } else {
+            $judul = $request->judul;
+            $deskripsi = $request->deskripsi;
+
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/Klinik'),$NamaGambar);
+
+            $klinik = new klinik();
+            $klinik->judul = $judul;
+            $klinik->deskripsi = $deskripsi;
+            $klinik->gambar = $gambar;
+            $klinik->save();
+        }
+        alert()->success('Success','Data Berhasil Ditambahkan!');
+        return redirect('/AdminKlinik');
     }
 
     /**
@@ -58,9 +101,9 @@ class KlinikController extends Controller
      */
     public function edit($id)
     {
-        //
+        $klinik = klinik::find($id);
+        return view('AdminKlinik.ubah', ['klinik' => $klinik]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -70,7 +113,42 @@ class KlinikController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'judul'=>'required',
+            'deskripsi'=>'required',
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            $klinik = klinik::find($id);
+            $klinik->id = $request->id;
+            $klinik->judul = $request->judul;
+            $klinik->deskripsi = $request->deskripsi;
+            $gambar = $request->gambar;
+
+            $klinik->save();
+            alert()->success('Success','Data Berhasil Diubah!');
+            return redirect('/AdminKlinik');
+
+        } else {
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/Klinik'), $NamaGambar);
+
+            $id = $request->id;
+            $judul = $request->judul;
+            $deskripsi = $request->deskripsi;
+
+            $klinik = klinik::find($id);
+            $klinik->judul = $request->judul;
+            $klinik->deskripsi = $request->deskripsi;
+
+            $klinik->gambar = $NamaGambar;
+
+            $klinik->save();
+
+        }
+        alert()->success('Success','Data Berhasil Diubah!');
+        return redirect('/AdminKlinik');
     }
 
     /**
@@ -81,6 +159,10 @@ class KlinikController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $klinik = klinik::find($id);
+        $klinik->delete();
+
+        return back();
     }
 }
+

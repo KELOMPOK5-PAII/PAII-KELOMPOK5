@@ -78,8 +78,8 @@
                     <td><img width="60px" class="pop" name="foto" src="{{asset('Gambar/Akomodasi')}}/{{ $akomodasi->foto }}" alt=" foto"></td>
                     <td>{{ $akomodasi->link }}</td>
                     <td>
-                        <a href="/AdminAkomodasi/detail/{{ $akomodasi->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalAkomodasi{{ $akomodasi->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a>
-                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminAkomodasi/ubah/{{ $akomodasi->id }}"><i class="far fa-edit btn btn-success"></i></a>
+                        <a href="/AdminAkomodasi/detail/{{ $akomodasi->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalAkomodasi{{ $akomodasi->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a><br><br>
+                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminAkomodasi/ubah/{{ $akomodasi->id }}"><i class="far fa-edit btn btn-success"></i></a><br><br>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="#" class="delete" data-id="{{ $akomodasi->id }}" data-judul="{{ $akomodasi->judul}}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
                     </td>
                 </tr>

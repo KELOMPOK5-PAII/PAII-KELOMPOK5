@@ -23,9 +23,25 @@ class KoperasiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function tampil(Request $request)
+    {
+        if($request->has('cari')) {
+            $judul = koperasi::where('id', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
+
+
+            ->paginate(5);
+        } else {
+            $data = koperasi::paginate(5);
+        }
+        return view('AdminKoperasi.index', ['data'=>$data]);
+    }
+
+
     public function create()
     {
-        //
+        return view('AdminKoperasi.tambah');
     }
 
     /**
@@ -36,7 +52,34 @@ class KoperasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'judul'=>'required',
+            'deskripsi'=>'required',
+            'gambar' => 'required',
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            koperasi::create([
+                'judul'=>$request->judul,
+                'deskripsi'=>$request->deskripsi,
+                'gambar' =>$request->gambar
+            ]);
+        } else {
+            $judul = $request->judul;
+            $deskripsi = $request->deskripsi;
+
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/Koperasi'),$NamaGambar);
+
+            $koperasi = new koperasi();
+            $koperasi->judul = $judul;
+            $koperasi->deskripsi = $deskripsi;
+            $koperasi->gambar = $gambar;
+            $koperasi->save();
+        }
+        alert()->success('Success','Data Berhasil Ditambahkan!');
+        return redirect('/AdminKoperasi');
     }
 
     /**
@@ -58,9 +101,9 @@ class KoperasiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $koperasi = koperasi::find($id);
+        return view('AdminKoperasi.ubah', ['koperasi' => $koperasi]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -70,7 +113,42 @@ class KoperasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'judul'=>'required',
+            'deskripsi'=>'required',
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            $koperasi = koperasi::find($id);
+            $koperasi->id = $request->id;
+            $koperasi->judul = $request->judul;
+            $koperasi->deskripsi = $request->deskripsi;
+            $gambar = $request->gambar;
+
+            $koperasi->save();
+            alert()->success('Success','Data Berhasil Diubah!');
+            return redirect('/AdminKoperasi');
+
+        } else {
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/Koperasi'), $NamaGambar);
+
+            $id = $request->id;
+            $judul = $request->judul;
+            $deskripsi = $request->deskripsi;
+
+            $koperasi = koperasi::find($id);
+            $koperasi->judul = $request->judul;
+            $koperasi->deskripsi = $request->deskripsi;
+
+            $koperasi->gambar = $NamaGambar;
+
+            $koperasi->save();
+
+        }
+        alert()->success('Success','Data Berhasil Diubah!');
+        return redirect('/AdminKoperasi');
     }
 
     /**
@@ -81,6 +159,9 @@ class KoperasiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $koperasi = koperasi::find($id);
+        $koperasi->delete();
+
+        return back();
     }
 }

@@ -103,7 +103,7 @@ display: block;
           data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa fa-university" aria-hidden="true"></i>
           <span><b>Fasilitas</b></span>
         </a>
-        <ul id="multi" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <ul  class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <li>
             <a class="dropdown-item" href="{{ url('/AdminAkomodasi')}}">
               <b> Akomodasi &raquo; </b>
@@ -123,7 +123,9 @@ display: block;
                 <a class="dropdown-item" href="{{ url('/AdminRumahTamu')}}"><b>Rumah Tamu</b></a>
               </li>
               </li>
+
             </ul>
+
 
           <li>
             <a class="dropdown-item" href="{{ url('/AdminPerpus')}}">
@@ -150,10 +152,21 @@ display: block;
           </li>
 
           <li>
-            <a class="dropdown-item" href="{{ url('/AdminParkiran')}}">
-            <b>  Parkiran</b>
+            <a class="dropdown-item" href="#">
+              <b> Parkiran dan Transportasi &raquo; </b>
             </a>
-          </li>
+            <ul class="dropdown-menu dropdown-submenu">
+              <li>
+              <li>
+                <a class="dropdown-item" href="{{ url('/AdminParkiran')}}"><b>Parkiran</b></a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{{ url('/AdminTransportasi')}}"><b>Transportasi</b></a>
+              </li>
+              </li>
+
+            </ul>
+
 
           <li>
             <a class="dropdown-item" href="{{ url('/AdminParkiranOlahraga')}}">
@@ -181,7 +194,7 @@ display: block;
             </a>
           </li>
 
-        </ul>
+          </ul>
       </li>
 
 

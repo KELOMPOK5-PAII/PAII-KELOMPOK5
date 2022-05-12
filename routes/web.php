@@ -89,7 +89,7 @@ Route::post('/AdminKantin/update/{id}', [App\Http\Controllers\AdminKantinControl
 
 Route::get('/AdminRumahDosen', [App\Http\Controllers\RumahDosenController::class, 'tampil'])->name('profil')->middleware('auth');
 Route::get('/AdminRumahDosen/tambah', [App\Http\Controllers\RumahDosenController::class, 'create'])->name('profil')->middleware('auth');
-Route::post('/AdminKanAdminRumahDosentin/simpan', [App\Http\Controllers\RumahDosenController::class, 'store'])->name('profil')->middleware('auth');
+Route::post('/AdminRumahDosen/simpan', [App\Http\Controllers\RumahDosenController::class, 'store'])->name('profil')->middleware('auth');
 Route::get('/AdminRumahDosen/hapus/{id}', [App\Http\Controllers\RumahDosenController::class, 'destroy'])->name('profil')->middleware('auth');
 Route::get('/AdminRumahDosen/ubah/{id}', [App\Http\Controllers\RumahDosenController::class, 'edit'])->name('profil')->middleware('auth');
 Route::post('/AdminRumahDosen/update/{id}', [App\Http\Controllers\RumahDosenController::class, 'update'])->name('profil')->middleware('auth');
@@ -136,6 +136,14 @@ Route::get('/AdminParkiran/hapus/{id}', [App\Http\Controllers\ParkirandanTranspo
 Route::get('/AdminParkiran/ubah/{id}', [App\Http\Controllers\ParkirandanTransportasiController::class, 'edit'])->name('profil')->middleware('auth');
 Route::post('/AdminParkiran/update/{id}', [App\Http\Controllers\ParkirandanTransportasiController::class, 'update'])->name('profil')->middleware('auth');
 
+Route::get('/AdminTransportasi', [App\Http\Controllers\ParkirandanTransportasiController::class, 'tampil2'])->name('profil')->middleware('auth');
+Route::get('/AdminTransportasi/tambah', [App\Http\Controllers\ParkirandanTransportasiController::class, 'create2'])->name('profil')->middleware('auth');
+Route::post('/AdminTransportasi/simpan', [App\Http\Controllers\ParkirandanTransportasiController::class, 'store2'])->name('profil')->middleware('auth');
+Route::get('/AdminTransportasi/hapus/{id}', [App\Http\Controllers\ParkirandanTransportasiController::class, 'destroy2'])->name('profil')->middleware('auth');
+Route::get('/AdminTransportasi/ubah/{id}', [App\Http\Controllers\ParkirandanTransportasiController::class, 'edit2'])->name('profil')->middleware('auth');
+Route::post('/AdminTransportasi/update/{id}', [App\Http\Controllers\ParkirandanTransportasiController::class, 'update2'])->name('profil')->middleware('auth');
+
+
 Route::get('/AdminHiburanOlahraga', [App\Http\Controllers\AdminHiburanOlahragaController::class, 'tampil'])->name('profil')->middleware('auth');
 Route::get('/AdminHiburanOlahraga/tambah', [App\Http\Controllers\AdminHiburanOlahragaController::class, 'create'])->name('profil')->middleware('auth');
 Route::post('/AdminHiburanOlahraga/simpan', [App\Http\Controllers\AdminHiburanOlahragaController::class, 'store'])->name('profil')->middleware('auth');
@@ -143,7 +151,6 @@ Route::get('/AdminHiburanOlahraga/hapus/{id}', [App\Http\Controllers\AdminHibura
 Route::get('/AdminHiburanOlahraga/ubah/{id}', [App\Http\Controllers\AdminHiburanOlahragaController::class, 'edit'])->name('profil')->middleware('auth');
 Route::post('/AdminHiburanOlahraga/update/{id}', [App\Http\Controllers\AdminHiburanOlahragaController::class, 'update'])->name('profil')->middleware('auth');
 
-Route::get('/AdminAudiotorium', [App\Http\Controllers\AuditController::class, 'tampil'])->name('profil')->middleware('auth');
 Route::get('/AdminAudiotorium', [App\Http\Controllers\AuditController::class, 'tampil'])->name('profil')->middleware('auth');
 Route::get('/AdminAudiotorium/tambah', [App\Http\Controllers\AuditController::class, 'create'])->name('profil')->middleware('auth');
 Route::post('/AdminAudiotorium/simpan', [App\Http\Controllers\AuditController::class, 'store'])->name('profil')->middleware('auth');

@@ -67,11 +67,11 @@
                 <tr id="top">
                     <th>ID</th>
                     <th>Nama</th>
-                    <th>Foto</th>
+                    <th>Gambar 1</th>
                     <th>Lokasi</th>
                     <th>Jenis</th>
                     <th>Fasilitas</th>
-                    <th>Gambar</th>
+                    <th>Gambar 2</th>
                     <th>Deskripsi</th>
                     <th>Aksi</th>
                 </tr>
@@ -82,11 +82,11 @@
                 <tr>
                     <td>{{ $data->firstItem() + $i }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($asrama->namaasrama, 130, $end='...') }}</td>
-                    <td><img width="60px" name="foto" src="{{asset('foto')}}/{{ $asrama->foto }}" alt=" foto"></td>
+                    <td><img width="60px" name="gambar" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar }}" alt=" gambar"></td>
                     <td>{{ \Illuminate\Support\Str::limit($asrama->lokasi, 130, $end='...') }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($asrama->jenisasrama, 130, $end='...') }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($asrama->fasilitas, 130, $end='...') }}</td>
-                    <td><img width="60px" name="gambar" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar }}" alt=" gambar"></td>
+                    <td><img width="60px" name="gambar1" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar1 }}" alt=" gambar1"></td>
                     <td>{{ \Illuminate\Support\Str::limit($asrama->deskripsi, 130, $end='...') }}</td>
                     <td>
                         <a href="/AdminAsrama/detail/{{ $asrama->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalAsrama{{ $asrama->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a><br><br>
@@ -125,9 +125,13 @@
                         <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">Detail {{ $asrama->namaasrama }}</h3>
                     </div>
                     <div class="modal-body row">
-                        <div id="img-hover-zoom" class="col-md-4 img-dtl">
-                            <img width="100%" src="{{asset('foto')}}/{{ $asrama->foto }}" alt="not found">
+                        <div class="col-md-4 img-dtl">
+                        <div id="img-hover-zoom">
+                            <img width="100%" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar }}" alt="not found"></div>
+                            <div id="img-hover-zoom">
+                            <img width="100%" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar1 }}" alt="not found"></div>
                         </div>
+
                         <div class="col-md-8 rounded-2">
                             <table id="tengah" class="table table-light table-hover">
                                 <tr>

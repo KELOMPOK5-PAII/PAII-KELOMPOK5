@@ -48,30 +48,30 @@ class AdminAsramaController extends Controller
     {
         $request->validate([
             'namaasrama'=>'required',
-            'foto' => 'required',
+            'gambar' => 'required',
             'lokasi'=>'required',
             'jenisasrama'=>'required',
             'fasilitas'=>'required',
-            'gambar'=>'required',
+            'gambar1'=>'required',
             'deskripsi'=>'required',
         ]);
 
         if ($request->file('foto')==NULL) {
             AdminAsrama::create([
                 'namaasrama' => $request->namaasrama,
-                'foto' => $request->foto,
+                'gambar' => $request->foto,
                 'lokasi' => $request->lokasi,
                 'jenisasrama' => $request->jenisasrama,
                 'fasilitas' => $request->fasilitas,
-                'gambar' => $request->gambar,
+                'gambar1' => $request->gambar,
                 'deskripsi' => $request->deskripsi
             ]);
         } else {
             $namaasrama = $request->namaasrama;
 
-            $foto = $request->file('foto');
-            $NamaFoto = time().'.'.$foto->extension();
-            $foto->move(public_path('foto'),$NamaFoto);
+            $gambar = $request->file('gambar');
+            $NamaFoto = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/Asrama'),$NamaFoto);
 
             $lokasi = $request->lokasi;
 
@@ -79,20 +79,20 @@ class AdminAsramaController extends Controller
 
             $fasilitas = $request->fasilitas;
 
-            $gambar = $request->file('gambar');
+            $gambar = $request->file('gambar1');
             $NamaGambar = time().'.'.$gambar->extension();
-            $gambar->move(public_path('gambar'),$NamaGambar);
+            $gambar->move(public_path('Gambar/Asrama'),$NamaGambar);
 
             $deskripsi = $request->deskripsi;
 
 
             $AdminAsrama = new AdminAsrama();
             $AdminAsrama->namaasrama = $namaasrama;
-            $AdminAsrama->foto = $NamaFoto;
+            $AdminAsrama->gambar = $NamaFoto;
             $AdminAsrama->lokasi = $lokasi;
             $AdminAsrama->jenisasrama = $jenisasrama;
             $AdminAsrama->fasilitas = $fasilitas;
-            $AdminAsrama->gambar = $NamaGambar;
+            $AdminAsrama->gambar1 = $NamaGambar;
             $AdminAsrama->deskripsi = $deskripsi;
             $AdminAsrama->save();
         }
@@ -139,7 +139,7 @@ class AdminAsramaController extends Controller
             'deskripsi'=>'required',
         ]);
 
-        if ($request->file('foto')==NULL) {
+        if ($request->file('gambar')==NULL) {
             $AdminAsrama = AdminAsrama::find($id);
             $AdminAsrama->id = $request->id;
             $AdminAsrama->namaasrama = $request->namaasrama;
@@ -148,8 +148,8 @@ class AdminAsramaController extends Controller
             $AdminAsrama->fasilitas = $request->fasilitas;
             $AdminAsrama->deskripsi = $request->deskripsi;
 
-            $foto = $request->foto;
             $gambar = $request->gambar;
+            $gambar1 = $request->gambar1;
 
 
             $AdminAsrama->save();
@@ -157,13 +157,13 @@ class AdminAsramaController extends Controller
             return redirect('/AdminAsrama');
 
         } else {
-            $foto = $request->file('foto');
-            $NamaFoto = time().'.'.$foto->extension();
-            $foto->move(public_path('foto'), $NamaFoto);
-
             $gambar = $request->file('gambar');
+            $NamaFoto = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/Asrama'), $NamaFoto);
+
+            $gambar1 = $request->file('gambar1');
             $NamaGambar = time().'.'.$gambar->extension();
-            $gambar->move(public_path('gambar'), $NamaGambar);
+            $gambar1->move(public_path('Gambar/Asrama'), $NamaGambar);
 
             $id = $request->id;
             $namaasrama = $request->namaasrama;
@@ -179,8 +179,8 @@ class AdminAsramaController extends Controller
             $AdminAsrama->jenisasrama = $request->jenisasrama;
             $AdminAsrama->fasilitas = $request->fasilitas;
             $AdminAsrama->deskripsi = $request->deskripsi;
-            $AdminAsrama->foto = $NamaFoto;
-            $AdminAsrama->gambar = $NamaGambar;
+            $AdminAsrama->gambar = $NamaFoto;
+            $AdminAsrama->gambar1 = $NamaGambar;
 
             $AdminAsrama->save();
             alert()->success('Success','Data Berhasil Diubah!');
