@@ -45,7 +45,7 @@
                       <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
-                    <div class="modal-body" style="text-align: left;">
+                    <div class="modal-body" style="text-align: justify;">
                       <table class="table table-hover" cellpadding="10" >
                          <tr>
                             <center><img src="{{asset('Gambar/Asrama')}}/{{ $a->gambar1 }}" class="rounded" width="400" height="250" style= "margin-bottom:30px;" ></center>

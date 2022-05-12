@@ -2,6 +2,14 @@
 @section('title', 'Laboratorium')
 @section('container')
 
+<div class="container" >
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+  <ol class="breadcrumb ">
+  <li class="breadcrumb-item"><a href="/" class="link-primary">Beranda</a></li>
+  <li class="breadcrumb-item active" aria-current="page">Laboratorium</li>
+  </ol>
+</nav>
+</div>
 
 <!--Jumbotron-->
 <div class="jumbotron jumbotron-fluid" style= "background: #26231B; margin-bottom:50px;"><br><br>  
@@ -27,7 +35,7 @@
             <div class="card-body ">
               <h5 class="card-title ">{{$l->namalab}}</h5>
               <!-- Button trigger modal -->
-              <center><button type="button" class="btn btn-info d-flex justify-content-center" style= "background: #26231B;" data-bs-toggle="modal" data-bs-target="#exampleModal{{$l->id}}">Selengkapnya</button></center>
+              <center><button type="button" class="btn d-flex justify-content-center text-white" style= "background: #26231B;" data-bs-toggle="modal" data-bs-target="#exampleModal{{$l->id}}">Selengkapnya</button></center>
               <!-- Modal -->
               <div class="modal fade" id="exampleModal{{$l->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -36,11 +44,12 @@
                       <h5 class="modal-title" id="exampleModalLabel">{{$l->namalab}}</h5>
                       <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body justify-right">
+                    <div class="modal-body"  style="text-align: justify;">
                       <table class="table table-hover" cellpadding="10">
                       <tr>
-                      <img src="{{asset('Gambar/Lab')}}/{{ $l->gambar1 }}" class="rounded" width="400" height="250" style= "margin-bottom:30px;" >
-                        </tr>
+                      <center><img src="{{asset('Gambar/Lab')}}/{{ $l->gambar1 }}" class="rounded" width="400" height="250" style= "margin-bottom:30px;" >
+</center>  
+                    </tr>
                         <tr>
                             <td>Nama Laboratorium</td>
                             <td>:</td>
