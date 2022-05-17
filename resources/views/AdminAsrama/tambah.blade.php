@@ -9,7 +9,7 @@
 
 @section('title','Asrama | Tambah')
 
-@section('content')
+@section('content')<body>
     <div class="container">
         <br>
         <center><h2 id="teks"><i class="fas fa-user-plus" aria-hidden="true"></i>&nbsp;TAMBAH ASRAMA</h2></center><br><br>

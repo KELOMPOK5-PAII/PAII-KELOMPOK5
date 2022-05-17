@@ -55,7 +55,7 @@ class ParkirandanTransportasiController extends Controller
         $request->validate([
             'judul'=>'required',
             'deskripsi'=>'required',
-            'gambar' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
         ]);
 
         if ($request->file('gambar')==NULL) {
@@ -78,7 +78,7 @@ class ParkirandanTransportasiController extends Controller
             $parkiran->gambar = $gambar;
             $parkiran->save();
         }
-        alert()->success('Success','Data Berhasil Ditambahkan!');
+        alert()->success('Sukses','Data Berhasil Ditambahkan!');
         return redirect('/AdminParkiran');
     }
 
@@ -126,7 +126,7 @@ class ParkirandanTransportasiController extends Controller
             $gambar = $request->gambar;
 
             $parkiran->save();
-            alert()->success('Success','Data Berhasil Diubah!');
+            alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminParkiran');
 
         } else {
@@ -147,7 +147,7 @@ class ParkirandanTransportasiController extends Controller
             $parkiran->save();
 
         }
-        alert()->success('Success','Data Berhasil Diubah!');
+        alert()->success('Sukses','Data Berhasil Diubah!');
         return redirect('/AdminParkiran');
     }
 
@@ -195,7 +195,7 @@ class ParkirandanTransportasiController extends Controller
         $request->validate([
             'judul'=>'required',
             'deskripsi'=>'required',
-            'gambar' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
         ]);
 
         if ($request->file('gambar')==NULL) {
@@ -218,7 +218,7 @@ class ParkirandanTransportasiController extends Controller
             $transportasi->gambar = $gambar;
             $transportasi->save();
         }
-        alert()->success('Success','Data Berhasil Ditambahkan!');
+        alert()->success('Sukses','Data Berhasil Ditambahkan!');
         return redirect('/AdminTransportasi');
     }
 
@@ -266,10 +266,14 @@ class ParkirandanTransportasiController extends Controller
             $gambar = $request->gambar;
 
             $transportasi->save();
-            alert()->success('Success','Data Berhasil Diubah!');
+            alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminTransportasi');
 
         } else {
+            $request->validate([
+                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+            ]);
+
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/Transportasi'), $NamaGambar);
@@ -287,7 +291,7 @@ class ParkirandanTransportasiController extends Controller
             $transportasi->save();
 
         }
-        alert()->success('Success','Data Berhasil Diubah!');
+        alert()->success('Sukses','Data Berhasil Diubah!');
         return redirect('/AdminTransportasi');
     }
 

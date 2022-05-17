@@ -61,7 +61,7 @@ class PerpusController extends Controller
         $request->validate([
             'judul'=>'required',
             'deskripsi'=>'required',
-            'gambar' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
         ]);
 
         if ($request->file('gambar')==NULL) {
@@ -84,7 +84,7 @@ class PerpusController extends Controller
             $perpus->gambar = $gambar;
             $perpus->save();
         }
-        alert()->success('Success','Data Berhasil Ditambahkan!');
+        alert()->success('Sukses','Data Berhasil Ditambahkan!');
         return redirect('/AdminPerpus');
     }
 
@@ -132,10 +132,14 @@ class PerpusController extends Controller
             $gambar = $request->gambar;
 
             $perpus->save();
-            alert()->success('Success','Data Berhasil Diubah!');
+            alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminPerpus');
 
         } else {
+            $request->validate([
+                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+            ]);
+
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/Perpus'), $NamaGambar);
@@ -153,7 +157,7 @@ class PerpusController extends Controller
             $perpus->save();
 
         }
-        alert()->success('Success','Data Berhasil Diubah!');
+        alert()->success('Sukses','Data Berhasil Diubah!');
         return redirect('/AdminPerpus');
     }
 

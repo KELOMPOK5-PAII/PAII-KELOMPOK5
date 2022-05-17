@@ -48,6 +48,7 @@
 @include('sweetalert::alert')
 
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
+<body>
 <div class="container">
 
         <center><h2 id="teks">DAFTAR ASRAMA IT DEL</h2></center><br><br>

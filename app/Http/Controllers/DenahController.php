@@ -61,7 +61,7 @@ class DenahController extends Controller
                 'penjelasan'=>$request->penjelasan,
             ]);
 
-        alert()->success('Success','Data Berhasil Ditambahkan!');
+        alert()->success('Sukses','Data Berhasil Ditambahkan!');
         return redirect('/AdminDenah');
     }
 
@@ -107,11 +107,11 @@ class DenahController extends Controller
             $denah->penjelasan = $request->penjelasan;
 
             $denah->save();
-            alert()->success('Success','Data Berhasil Diubah!');
+            alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminDenah');
 
 
-        alert()->success('Success','Data Berhasil Diubah!');
+        alert()->success('Sukses','Data Berhasil Diubah!');
         return redirect('/AdminDenah');
     }
 

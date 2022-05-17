@@ -8,7 +8,7 @@
 @section('title','Akomodasi | Ubah')
 
 @section('content')
-
+<body>
 <div class="container">
             <br>
             <center><h2 id="teks"><i class="far fa-edit" aria-hidden="true"></i>&nbsp; UBAH DATA AKOMODASI</h2></center><br><br>

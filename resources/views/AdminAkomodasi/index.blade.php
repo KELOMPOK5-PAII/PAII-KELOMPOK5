@@ -33,16 +33,17 @@
             }
             #info{
                 float:right;
-
-
             }
         </style>
+
+
 </head>
+
 @section('title','Akomodasi | Home')
 
 @section('content')
 @include('sweetalert::alert')
-
+<body>
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
 <div class="container">
 

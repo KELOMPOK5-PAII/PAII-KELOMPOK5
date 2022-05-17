@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\saran;
+use App\Models\fasilitas;
+use App\Models\perkembangan;
+use DB;
 
 class DashboardController extends Controller
 {
@@ -23,6 +27,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $fasilitas = fasilitas::count();
+        $saran = saran::count();
+
+        return view('dashboard', compact('fasilitas', 'saran'));
     }
+
+
 }

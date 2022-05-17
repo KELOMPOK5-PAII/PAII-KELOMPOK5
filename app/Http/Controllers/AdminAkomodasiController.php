@@ -47,7 +47,7 @@ class AdminAkomodasiController extends Controller
         $request->validate([
             'judul'=>'required',
             'link'=>'required',
-            'foto' => 'required',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
         ]);
 
         if ($request->file('foto')==NULL) {
@@ -69,7 +69,7 @@ class AdminAkomodasiController extends Controller
             $AdminAkomodasi->foto = $NamaFoto;
             $AdminAkomodasi->save();
         }
-        alert()->success('Success','Data Berhasil Ditambahkan!');
+        alert()->success('Sukses','Data Berhasil Ditambahkan!');
         return redirect('/AdminAkomodasi');
     }
 
@@ -115,10 +115,14 @@ class AdminAkomodasiController extends Controller
             $foto = $request->foto;
 
             $AdminAkomodasi->save();
-            alert()->success('Success','Data Berhasil Diubah!');
+            alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminAkomodasi');
 
         } else {
+           $request->validate([
+                'foto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+            ]);
+
             $foto = $request->file('foto');
             $NamaFoto = time().'.'.$foto->extension();
             $foto->move(public_path('Gambar/Akomodasi'), $NamaFoto);
@@ -133,7 +137,7 @@ class AdminAkomodasiController extends Controller
             $AdminAkomodasi->foto = $NamaFoto;
 
             $AdminAkomodasi->save();
-            alert()->success('Success','Data Berhasil Diubah!');
+            alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminAkomodasi');
         }
     }

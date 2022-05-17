@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-1 text-light" style= "margin-left:50px;">
                         <img class= "rounded" src="{{  asset('Gambar/Auditorium/Auditorium dalam (1).jpg') }}" width="500" height="300" ><br><br>
-                        <img class= "rounded" style= "margin-left:100px;" src="{{ asset('Gambar/Auditorium dalam (2).jpg') }}" width="300" height="200" >
+                        <img class= "rounded" style= "margin-left:100px;" src="{{ asset('Gambar/Auditorium/Auditorium dalam (2).jpg') }}" width="300" height="200" >
                     </div>
                     <div class="col-10 text-light" style= "margin-top:200px; padding-left:450px">
                         <H2>Auditorium</H2>

@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Login</title>
+    <link rel="shortcut icon" href="{{ url('foto/favicon.ico') }}">
+    <title>Masuk</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ url('sbadmin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -44,7 +44,7 @@
             <div class="col-lg">
             <div class="p-5">
             <div class="text-center">
-            <h1 class="h4 text-gray-900">LOGIN</h1>
+            <h1 class="h4 text-gray-900">MASUK</h1>
                                         <p>Sistem Informasi Fasilitas IT Del</p>
                                     </div>
 
@@ -56,7 +56,7 @@
 
                         <div class="form-group">
 
-                                <input id="email" type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus aria-describedby="emailHelp" placeholder="Enter Email Address..." required="">
+                                <input id="email" type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus aria-describedby="emailHelp" placeholder="Masukkan Email Anda..." required="">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -67,7 +67,7 @@
                             </div>
 
                             <div class="form-group">
-                                <input id="password" type="password" class="form-control form-control-user @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password" required="">
+                                <input id="password" type="password" class="form-control form-control-user @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Masukkan Password Anda..." required="">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -83,7 +83,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ __('Ingat saya') }}
                                     </label>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
 
 
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
-                                    {{ __('Login') }}
+                                    {{ __('Masuk') }}
                                 </button>
 
 

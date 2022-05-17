@@ -48,7 +48,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        
+
 <br>
 <div class="container" >
     <H1>Data Saran</H1>
@@ -69,7 +69,7 @@
                         <td>{{ $s->saran }}</td>
                         <td>
                             <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="#" class="delete" data-id="{{ $s->id }}" data-nama="{{ $s->nama}}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
-                   
+
                         </td>
                     </tr>
                     @endforeach

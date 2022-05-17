@@ -55,7 +55,7 @@ class KoperasiController extends Controller
         $request->validate([
             'judul'=>'required',
             'deskripsi'=>'required',
-            'gambar' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
         ]);
 
         if ($request->file('gambar')==NULL) {
@@ -78,7 +78,7 @@ class KoperasiController extends Controller
             $koperasi->gambar = $gambar;
             $koperasi->save();
         }
-        alert()->success('Success','Data Berhasil Ditambahkan!');
+        alert()->success('Sukses','Data Berhasil Ditambahkan!');
         return redirect('/AdminKoperasi');
     }
 
@@ -126,10 +126,14 @@ class KoperasiController extends Controller
             $gambar = $request->gambar;
 
             $koperasi->save();
-            alert()->success('Success','Data Berhasil Diubah!');
+            alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminKoperasi');
 
         } else {
+            $request->validate([
+                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+            ]);
+
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/Koperasi'), $NamaGambar);
@@ -147,7 +151,7 @@ class KoperasiController extends Controller
             $koperasi->save();
 
         }
-        alert()->success('Success','Data Berhasil Diubah!');
+        alert()->success('Sukses','Data Berhasil Diubah!');
         return redirect('/AdminKoperasi');
     }
 

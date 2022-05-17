@@ -51,16 +51,19 @@ class UserController extends Controller
     public function login_action(Request $request)
     {
         $request->validate([
+
             'username' => 'required',
             'password' => 'required',
         ]);
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+
+
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password, $request->get('remember')])) {
             $request->session()->regenerate();
             return redirect()->intended('/');
         }
 
         return back()->withErrors([
-            'password' => 'Wrong username or password',
+            'password' => 'Username atau password salah.',
         ]);
     }
 
@@ -90,5 +93,7 @@ class UserController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
+
+
 }
 

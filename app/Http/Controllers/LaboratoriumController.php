@@ -53,8 +53,8 @@ class LaboratoriumController extends Controller
         $request->validate([
             'namalab'=>'required',
             'deskripsi'=>'required',
-            'gambar' => 'required',
-            'gambar1' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+            'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
         ]);
 
         if ($request->file('gambar')==NULL) {
@@ -83,7 +83,7 @@ class LaboratoriumController extends Controller
             $laboratorium->gambar1 = $gambar1;
             $laboratorium->save();
         }
-        alert()->success('Success','Data Berhasil Ditambahkan!');
+        alert()->success('Sukses','Data Berhasil Ditambahkan!');
         return redirect('/AdminLaboratorium');
     }
 
@@ -132,10 +132,14 @@ class LaboratoriumController extends Controller
             $gambar1 = $request->gambar1;
 
             $laboratorium->save();
-            alert()->success('Success','Data Berhasil Diubah!');
+            alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminLaboratorium');
 
         } else {
+            $request->validate([
+                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+            ]);
+
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/Lab'), $NamaGambar);
@@ -158,7 +162,7 @@ class LaboratoriumController extends Controller
             $laboratorium->save();
 
         }
-        alert()->success('Success','Data Berhasil Diubah!');
+        alert()->success('Sukses','Data Berhasil Diubah!');
         return redirect('/AdminLaboratorium');
     }
 

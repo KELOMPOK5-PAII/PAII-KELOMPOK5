@@ -55,7 +55,7 @@ class RumahDosenController extends Controller
         $request->validate([
             'namarumahdosen'=>'required',
             'deskripsi'=>'required',
-            'gambar' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
         ]);
 
         if ($request->file('gambar')==NULL) {
@@ -78,7 +78,7 @@ class RumahDosenController extends Controller
             $rumahdosen->gambar = $gambar;
             $rumahdosen->save();
         }
-        alert()->success('Success','Data Berhasil Ditambahkan!');
+        alert()->success('Sukses','Data Berhasil Ditambahkan!');
         return redirect('/AdminRumahDosen');
     }
 
@@ -126,10 +126,14 @@ class RumahDosenController extends Controller
             $gambar = $request->gambar;
 
             $rumahdosen->save();
-            alert()->success('Success','Data Berhasil Diubah!');
+            alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminRumahDosen');
 
         } else {
+            $request->validate([
+                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+            ]);
+
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/RumahDosen'), $NamaGambar);
@@ -147,7 +151,7 @@ class RumahDosenController extends Controller
             $rumahdosen->save();
 
         }
-        alert()->success('Success','Data Berhasil Diubah!');
+        alert()->success('Sukses','Data Berhasil Diubah!');
         return redirect('/AdminRumahDosen');
     }
 

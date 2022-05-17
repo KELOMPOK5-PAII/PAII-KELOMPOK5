@@ -10,6 +10,7 @@
 @section('title','Akomodasi | Tambah')
 
 @section('content')
+<body>
     <div class="container">
         <br>
         <center><h2 id="teks"><i class="fas fa-user-plus" aria-hidden="true"></i>&nbsp;TAMBAH AKOMODASI</h2></center><br><br>

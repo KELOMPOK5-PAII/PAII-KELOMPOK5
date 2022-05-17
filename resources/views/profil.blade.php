@@ -22,17 +22,19 @@
           <img class="img-profile rounded-circle" src="{{ url('sbadmin/img/undraw_profile.svg')}}" width="50px" height="50px">
           </div>
           <h3 class="profile-username text-center">{{ Auth::user()->name }} </h3>
-          <p class="text-muted text-center">Member sejak : {{ Auth::user()->created_at }} </p>
+          <p class="text-muted text-center">Terdaftar sejak : {{ Auth::user()->created_at }} </p>
           <hr>
-          <strong>
 
+          <strong>
             <i class="fas fa-solid fa-user mr-2"></i>
-            Nama
+            Username
           </strong>
           <p class="text-muted">
-          {{ Auth::user()->name }}
+          {{ Auth::user()->username }}
           </p>
           <hr>
+
+
           <strong>
             <i class="fas fa-envelope mr-2"></i>
             Email
