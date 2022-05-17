@@ -17,6 +17,8 @@ class CreateGedungTable extends Migration
             $table->bigIncrements('id');
             $table->string('namagedung')->nullable();
             $table->string('deskripsi',2000)->nullable();
+            $table->string('aturan',2000)->nullable();
+            $table->string('jamoperasional',2000)->nullable();
             $table->string('gambar')->nullable();
             $table->string('gambar1')->nullable();
             $table->timestamps();

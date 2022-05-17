@@ -2,6 +2,15 @@
 @section('title', 'Klinik')
 @section('container')
 
+<div class="container" >
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+  <ol class="breadcrumb ">
+  <li class="breadcrumb-item"><a href="/" class="link-primary">Beranda</a></li>
+  <li class="breadcrumb-item active" aria-current="page">Klinik</li>
+  </ol>
+</nav>
+</div>
+
 <!--Jumbotron-->
         <div class="jumbotron jumbotron-fluid" style= "background:#887E7E; margin-bottom:20px;"><br><br>
         <div class="container px-4">
@@ -73,7 +82,6 @@
                         <ul>
                         <li>Menyediakan obat-obatan sehingga tidak perlu membeli obat lagi di tempat lain.  </li>
                         <li>Menyiapkan Pelayanan yang baik pada masyarakat maupun seluruh civitas del yang datang ke klink ini</li>
-                        <li>Klinik ini juga bekerja sama dengan Jamsostek sebagai PPK I untuk melayani pasien-pasien yang terdaftar sebagai tanggungan Jamsostek dalam wilayah ini.</li>
                         </ul>
                     </li>
                     </ul>
@@ -85,17 +93,17 @@
         </div>
 
         <br><br><br>
-        @foreach( $klinik as $p) 
+        @foreach( $klinik as $k) 
             <div class="container">
                 <div class="row">
                     <div class="col" style= "padding-top:60px;" >
-                    {{ $p->deskripsi }}
+                    {{ $k->deskripsi }}
                     </div>
                     <div class="col"  style= "padding-top:10px; padding-bottom:30px;">
-                    <img class="img-fluib" src="{{asset('Gambar/Perpus')}}/{{ $p->gambar }}" width="600" height="300" alt="{{ $p->judul }}">
+                    <img class="img-fluib" src="{{asset('Gambar/Klinik')}}/{{ $k->gambar }}" width="600" height="300" alt="{{ $k->judul }}">
                     <center>
                         <div class="card" style="width: 30rem; height: 3rem; color: white; border-style: outset; background: #26231B; margin-top:-20px;" >
-                                <p class="card-text" style= "font-size: 20px;">{{ $p->judul }}</p>
+                                <p class="card-text" style= "font-size: 20px;">{{ $k->judul }}</p>
                         </div>
                     </center>
                     </div>

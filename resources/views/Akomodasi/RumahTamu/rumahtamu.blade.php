@@ -64,7 +64,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="400" height="400" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><path fill="currentColor" fill-rule="evenodd" d="M16.445 6.168a1 1 0 0 1 1.11 0l6 4A1 1 0 0 1 24 11v8a1 1 0 0 1-1 1H11a1 1 0 0 1-1-1v-8a1 1 0 0 1 .445-.832l6-4ZM16 18h2v-4h-2v4Zm4 0v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5h-2v-6.465l5-3.333l5 3.333V18h-2Zm14.496-5.868a1 1 0 0 0-.992 0l-7 4A1 1 0 0 0 26 17v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V17a1 1 0 0 0-.504-.868l-7-4ZM37 26h3v-8.42l-6-3.428l-6 3.428V26h3v-6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6Zm-2 0v-5h-2v5h2Zm-11.553 2.106l-8-4a1 1 0 0 0-.894 0l-8 4A1 1 0 0 0 6 29v12a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V29a1 1 0 0 0-.553-.894ZM16 34v6h-2v-6h2Zm2-1v7h4V29.618l-7-3.5l-7 3.5V40h4v-7a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1Z" clip-rule="evenodd"/></svg>
                     </div>
                     <div class="col-9 text-dark" style= "margin-top:0px; padding-left:350px">
-                    <p style= "font-size: 20px; "> Institut Teknologi Del menyediakan akomodasi bagi tamu yang berkunjung.  Terdapat 6 unit Guest House, dilengkapi dengan furniture yang lengkap, dapur juga kamar mandi. Pemandangan indah panorama Danau Toba menambah keasrian fasilitas ini. Fasilitas ini diharapkan memberikan kenyamanan bagi tamu baik tamu akademis maupun non-akademis.</p>
+                    <p style= "font-size: 20px; "> Institut Teknologi Del menyediakan akomodasi bagi tamu yang berkunjung. Terdapat 6 unit Guest House yang disediakan IT Del untuk para tamu yang berkunjung. Pemandangan indah panorama Danau Toba menambah keasrian fasilitas ini. Fasilitas ini diharapkan memberikan kenyamanan bagi tamu baik tamu akademis maupun non-akademis.</p>
                     </div>
                 </div>
             </div>
@@ -96,5 +96,24 @@
             
             </div>
         </div>
+
+        <br><br>
+        @foreach( $rumahtamu as $rt) 
+            <div class="container">
+                <div class="row">
+                    <div class="col" style= "padding-top:60px;" >
+                    {{ $rt->deskripsi }}
+                    </div>
+                    <div class="col"  style= "padding-top:10px; padding-bottom:30px;">
+                    <img class="img-fluib" src="{{asset('Gambar/RumahTamu')}}/{{ $rt->gambar }}" width="600" height="300" alt="{{ $rt->judul }}">
+                    <center>
+                        <div class="card" style="width: 30rem; height: 3rem; color: white; border-style: outset; background: #26231B; margin-top:-20px;" >
+                                <p class="card-text" style= "font-size: 20px;">{{ $rt->judul }}</p>
+                        </div>
+                    </center>
+                    </div>
+                </div>
+            </div>
+        @endforeach
 
 @endsection

@@ -9,6 +9,6 @@ class gedung extends Model
 {
     use HasFactory;
     protected $table = 'gedung';
-    protected $fillable = ['id', 'namagedung','gambar', 'foto'];
+    protected $fillable = ['id', 'namagedung','gambar', 'gambar1','jamoperasional','aturan'];
     protected $primaryKey = 'id';
 }
