@@ -56,7 +56,7 @@
                     </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{asset('/perkembangan')}}">Perkembangan</a>
+                <a class="nav-link" href="{{asset('/perkembangan')}}">Perkembangan Fasilitas</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{asset('/denah')}}">Denah</a>
