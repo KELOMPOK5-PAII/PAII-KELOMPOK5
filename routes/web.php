@@ -34,6 +34,8 @@ Route::get('/klinik','App\Http\Controllers\KlinikController@index');
 Route::get('/possatpam','App\Http\Controllers\PosController@index');
 Route::get('/koperasi','App\Http\Controllers\KoperasiController@index');
 Route::get('/parkirandantransportasi','App\Http\Controllers\ParkirandanTransportasiController@index');
+Route::get('/hiburandanolahraga','App\Http\Controllers\HiburandanOlahragaController@index');
+Route::get('/perkembangan','App\Http\Controllers\PerkembanganController@index');
 
 //tampil untuk admin index untuk pengguna
 //tampil untuk pengguna index untuk admin OT

@@ -58,6 +58,16 @@
                                 <td>:</td>
                                 <td>{{$a->deskripsi}}</td>
                             </tr>
+                            <tr>
+                                <td>Peraturan</td>
+                                <td>:</td>
+                                <td>{{$a->aturan}}</td>
+                            </tr>
+                            <tr>
+                                <td>Jam Operasional</td>
+                                <td>:</td>
+                                <td>{{$a->jamoperasional}}</td>
+                            </tr>
                           </table>
                         </div>
                         <div class="modal-footer">

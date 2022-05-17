@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-    <section id="asrama" class="asrama m">
+    <section id="laboratorium" class="laboratorium m">
       <div class = "row row-cols-2 row-cols-md-3 text-md-center d-flex justify-content-center m-4">
         @foreach( $laboratorium as $l)
         <div class ="col d-flex justify-content-center mb-5" >

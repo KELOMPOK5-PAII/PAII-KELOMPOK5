@@ -84,8 +84,8 @@
             <img src="{{ asset('foto/Logo_del.jpg') }}" width="130" class="rounded mx-auto d-block" alt="...">
                 Institut Teknologi Del<br>Institut Teknologi Del Jl. Sisingamangaraja, Sitoluama Laguboti, Toba Samosir Sumatera Utara, Indonesia
             </div>
-            <div class="col"><H5>Link Terkait</H5>Institut Teknologi Del</div>
-            <div class="col"><h5>Bantuan</h5>Cara Melihat Denah</div>
+            <div class="col"><H5>Link Terkait</H5><a class="text-light" href=" https://www.del.ac.id/">Institut Teknologi Del</a></div>
+            <div class="col"><h5>Bantuan</h5><a class="text-light" href="{{asset('/denah')}}">Denah</a></div>
             <div class="col"><h5>Hubungi kami</h5>
                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="currentColor" d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608a17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42a18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>  +62 632 331116<br>
                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><g fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12c0-7 7-7 13-7s13 0 13 7c0 8-7-1-7-1H10s-7 9-7 1Zm8 2s-5 5-5 14h20c0-9-5-14-5-14H11Z"/><circle cx="16" cy="21" r="4"/></g></svg> +62 632 331116<br>
@@ -99,8 +99,8 @@
     </div>
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2021 Copyright:
-        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        © 2022 Copyright:
+        <a class="text-reset fw-bold" href="{{asset('/')}}">Sistem Informasi Fasilitas Insitut Teknologi Del</a>
     </div>
     <!-- Copyright -->
 </section>
