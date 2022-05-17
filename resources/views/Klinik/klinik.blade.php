@@ -82,7 +82,6 @@
                         <ul>
                         <li>Menyediakan obat-obatan sehingga tidak perlu membeli obat lagi di tempat lain.  </li>
                         <li>Menyiapkan Pelayanan yang baik pada masyarakat maupun seluruh civitas del yang datang ke klink ini</li>
-                        <li>Klinik ini juga bekerja sama dengan Jamsostek sebagai PPK I untuk melayani pasien-pasien yang terdaftar sebagai tanggungan Jamsostek dalam wilayah ini.</li>
                         </ul>
                     </li>
                     </ul>
@@ -94,17 +93,17 @@
         </div>
 
         <br><br><br>
-        @foreach( $klinik as $p) 
+        @foreach( $klinik as $k) 
             <div class="container">
                 <div class="row">
                     <div class="col" style= "padding-top:60px;" >
-                    {{ $p->deskripsi }}
+                    {{ $k->deskripsi }}
                     </div>
                     <div class="col"  style= "padding-top:10px; padding-bottom:30px;">
-                    <img class="img-fluib" src="{{asset('Gambar/Perpus')}}/{{ $p->gambar }}" width="600" height="300" alt="{{ $p->judul }}">
+                    <img class="img-fluib" src="{{asset('Gambar/Klinik')}}/{{ $k->gambar }}" width="600" height="300" alt="{{ $k->judul }}">
                     <center>
                         <div class="card" style="width: 30rem; height: 3rem; color: white; border-style: outset; background: #26231B; margin-top:-20px;" >
-                                <p class="card-text" style= "font-size: 20px;">{{ $p->judul }}</p>
+                                <p class="card-text" style= "font-size: 20px;">{{ $k->judul }}</p>
                         </div>
                     </center>
                     </div>
