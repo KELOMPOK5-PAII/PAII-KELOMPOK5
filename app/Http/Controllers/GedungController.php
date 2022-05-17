@@ -57,6 +57,8 @@ class GedungController extends Controller
         $request->validate([
             'namagedung'=>'required',
             'deskripsi'=>'required',
+            'jamoperasional' =>'required',
+            'aturan' => 'required',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
             'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
         ]);
@@ -65,12 +67,16 @@ class GedungController extends Controller
             gedung::create([
                 'namagedung'=>$request->namagedung,
                 'deskripsi'=>$request->deskripsi,
+                'jamoperasional' =>$request->jamoperasional,
+                'aturan' => $request->aturan,
                 'gambar' =>$request->gambar,
                 'gambar1' =>$request->gambar1
             ]);
         } else {
             $namagedung = $request->namagedung;
             $deskripsi = $request->deskripsi;
+            $jamoperasional = $request->jamoperasional;
+            $aturan = $request->aturan;
 
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
@@ -83,6 +89,8 @@ class GedungController extends Controller
             $gedung = new gedung();
             $gedung->namagedung = $namagedung;
             $gedung->deskripsi = $deskripsi;
+            $gedung->jamoperasional = $jamoperasional;
+            $gedung->aturan = $aturan;
             $gedung->gambar = $gambar;
             $gedung->gambar1 = $gambar1;
             $gedung->save();
@@ -125,6 +133,8 @@ class GedungController extends Controller
         $request->validate([
             'namagedung'=>'required',
             'deskripsi'=>'required',
+            'jamoperasional' =>'required',
+            'aturan' => 'required',
         ]);
 
         if ($request->file('gambar')==NULL) {
@@ -132,6 +142,8 @@ class GedungController extends Controller
             $gedung->id = $request->id;
             $gedung->namagedung = $request->namagedung;
             $gedung->deskripsi = $request->deskripsi;
+            $gedung->jamoperasional = $jamoperasional;
+            $gedung->aturan = $aturan;
             $gambar = $request->gambar;
             $gambar1 = $request->gambar1;
 
@@ -155,10 +167,14 @@ class GedungController extends Controller
             $id = $request->id;
             $namagedung = $request->namagedung;
             $deskripsi = $request->deskripsi;
+            $jamoperasional = $request->jamoperasional;
+            $aturan = $request->aturan;
 
             $gedung = gedung::find($id);
             $gedung->namagedung = $request->namagedung;
             $gedung->deskripsi = $request->deskripsi;
+            $gedung->jamoperasional = $request->jamoperasional;
+            $gedung->aturan = $request->aturan;
 
             $gedung->gambar = $NamaGambar;
             $gedung->gambar1 = $NamaGambar1;

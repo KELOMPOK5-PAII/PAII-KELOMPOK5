@@ -35,6 +35,22 @@
                     @enderror
                 </div>
 
+                <div class="form-group mt-3">
+                    <label>Jam Operasional</label>
+                    <textarea cols="30" rows="6" type="text" name="jamoperasional" class="form-control @error('jamoperasional') is-invalid @enderror" value="{{ old('jamoperasional') }}" autocomplete="off"></textarea>
+                    @error('jamoperasional')
+                            <div class="alert-danger mt-1">{{  $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-group mt-3">
+                    <label>Aturan</label>
+                    <textarea cols="30" rows="6" type="text" name="aturan" class="form-control @error('aturan') is-invalid @enderror" value="{{ old('aturan') }}" autocomplete="off"></textarea>
+                    @error('aturan')
+                            <div class="alert-danger mt-1">{{  $message }}</div>
+                    @enderror
+                </div>
+
 
                 <div class="form-group mt-3">
                     <label>Gambar 1</label><br>

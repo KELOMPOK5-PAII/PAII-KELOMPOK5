@@ -36,6 +36,23 @@
 
 
                     <div class="form-group mt-3">
+                        <label for="deskripsi">Jam Operasional</label>
+                        <textarea name="jamoperasional" id="jamoperasional" cols="30" rows="6" class="form-control @error('jamoperasional') is-invalid @enderror">{{ $gedung->jamoperasional }}</textarea>
+                        @error('jamoperasional')
+                            <div class="invalid-feedback">{{  $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="deskripsi">Aturan</label>
+                        <textarea name="aturan" id="aturan" cols="30" rows="6" class="form-control @error('aturan') is-invalid @enderror">{{ $gedung->aturan }}</textarea>
+                        @error('aturan')
+                            <div class="invalid-feedback">{{  $message }}</div>
+                        @enderror
+                    </div>
+
+
+                    <div class="form-group mt-3">
                         <label>Gambar 1</label><br>
                         <img src="{{asset('Gambar/Gedung')}}/{{ $gedung->gambar }}" alt="Gambar gedung" style="max-width:100px; margin-top:20px;"><br>
                         <input type="file" name="gambar"  value=" {{ $gedung->gambar }}">

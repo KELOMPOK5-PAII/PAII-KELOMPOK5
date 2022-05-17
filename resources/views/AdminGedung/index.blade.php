@@ -63,6 +63,8 @@
                     <th>ID</th>
                     <th>Nama</th>
                     <th>Deskripsi</th>
+                    <th>Jam Operasional</th>
+                    <th>Aturan</th>
                     <th>Gambar 1</th>
                     <th>Gambar 2</th>
                     <th>Aksi</th>
@@ -75,6 +77,8 @@
                     <td>{{ $data->firstItem() + $i }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($gedung->namagedung, 500, $end='...') }}</td>
                     <td> {{ \Illuminate\Support\Str::limit($gedung->deskripsi, 500, $end='...') }}</td>
+                    <td> {{ \Illuminate\Support\Str::limit($gedung->jamoperasional, 500, $end='...') }}</td>
+                    <td> {{ \Illuminate\Support\Str::limit($gedung->aturan, 500, $end='...') }}</td>
                     <td><img width="60px" name="gambar" src="{{asset('Gambar/Gedung')}}/{{ $gedung->gambar }}" alt=" gambar"></td>
                     <td><img width="60px" name="gambar1" src="{{asset('Gambar/Gedung')}}/{{ $gedung->gambar1 }}" alt=" gambar1"></td>
                     <td>
@@ -136,6 +140,16 @@
                                    <td>Deskripsi</td>
                                    <td>:</td>
                                    <td>{{ $gedung->deskripsi }}</td>
+                               </tr>
+                               <tr>
+                                   <td>Jam Operasional</td>
+                                   <td>:</td>
+                                   <td>{{ $gedung->jamoperasional }}</td>
+                               </tr>
+                               <tr>
+                                   <td>Aturan</td>
+                                   <td>:</td>
+                                   <td>{{ $gedung->aturan }}</td>
                                </tr>
                            </table>
                        </div>
