@@ -146,12 +146,12 @@ Route::get('/AdminTransportasi/ubah/{id}', [App\Http\Controllers\ParkirandanTran
 Route::post('/AdminTransportasi/update/{id}', [App\Http\Controllers\ParkirandanTransportasiController::class, 'update2'])->name('profil')->middleware('auth');
 
 
-Route::get('/AdminHiburanOlahraga', [App\Http\Controllers\AdminHiburanOlahragaController::class, 'tampil'])->name('profil')->middleware('auth');
-Route::get('/AdminHiburanOlahraga/tambah', [App\Http\Controllers\AdminHiburanOlahragaController::class, 'create'])->name('profil')->middleware('auth');
-Route::post('/AdminHiburanOlahraga/simpan', [App\Http\Controllers\AdminHiburanOlahragaController::class, 'store'])->name('profil')->middleware('auth');
-Route::get('/AdminHiburanOlahraga/hapus/{id}', [App\Http\Controllers\AdminHiburanOlahragaController::class, 'destroy'])->name('profil')->middleware('auth');
-Route::get('/AdminHiburanOlahraga/ubah/{id}', [App\Http\Controllers\AdminHiburanOlahragaController::class, 'edit'])->name('profil')->middleware('auth');
-Route::post('/AdminHiburanOlahraga/update/{id}', [App\Http\Controllers\AdminHiburanOlahragaController::class, 'update'])->name('profil')->middleware('auth');
+Route::get('/AdminHiburanOlahraga', [App\Http\Controllers\HiburandanOlahragaController::class, 'tampil'])->name('profil')->middleware('auth');
+Route::get('/AdminHiburanOlahraga/tambah', [App\Http\Controllers\HiburandanOlahragaController::class, 'create'])->name('profil')->middleware('auth');
+Route::post('/AdminHiburanOlahraga/simpan', [App\Http\Controllers\HiburandanOlahragaController::class, 'store'])->name('profil')->middleware('auth');
+Route::get('/AdminHiburanOlahraga/hapus/{id}', [App\Http\Controllers\HiburandanOlahragaController::class, 'destroy'])->name('profil')->middleware('auth');
+Route::get('/AdminHiburanOlahraga/ubah/{id}', [App\Http\Controllers\HiburandanOlahragaController::class, 'edit'])->name('profil')->middleware('auth');
+Route::post('/AdminHiburanOlahraga/update/{id}', [App\Http\Controllers\HiburandanOlahragaController::class, 'update'])->name('profil')->middleware('auth');
 
 Route::get('/AdminAudiotorium', [App\Http\Controllers\AuditController::class, 'tampil'])->name('profil')->middleware('auth');
 Route::get('/AdminAudiotorium/tambah', [App\Http\Controllers\AuditController::class, 'create'])->name('profil')->middleware('auth');
@@ -188,12 +188,12 @@ Route::get('/AdminDenah/hapus/{id}', [App\Http\Controllers\DenahController::clas
 Route::get('/AdminDenah/ubah/{id}', [App\Http\Controllers\DenahController::class, 'edit'])->name('profil')->middleware('auth');
 Route::post('/AdminDenah/update/{id}', [App\Http\Controllers\DenahController::class, 'update'])->name('profil')->middleware('auth');
 
-Route::get('/AdminPerkembangan', [App\Http\Controllers\AdminPerkembanganController::class, 'tampil'])->name('profil')->middleware('auth');
-Route::get('/AdminPerkembangan/tambah', [App\Http\Controllers\AdminPerkembanganController::class, 'create'])->name('profil')->middleware('auth');
-Route::post('/AdminPerkembangan/simpan', [App\Http\Controllers\AdminPerkembanganController::class, 'store'])->name('profil')->middleware('auth');
-Route::get('/AdminPerkembangan/hapus/{id}', [App\Http\Controllers\AdminPerkembanganController::class, 'destroy'])->name('profil')->middleware('auth');
-Route::get('/AdminPerkembangan/ubah/{id}', [App\Http\Controllers\AdminPerkembanganController::class, 'edit'])->name('profil')->middleware('auth');
-Route::post('/AdminPerkembangan/update/{id}', [App\Http\Controllers\AdminPerkembanganController::class, 'update'])->name('profil')->middleware('auth');
+Route::get('/AdminPerkembangan', [App\Http\Controllers\PerkembanganController::class, 'tampil'])->name('profil')->middleware('auth');
+Route::get('/AdminPerkembangan/tambah', [App\Http\Controllers\PerkembanganController::class, 'create'])->name('profil')->middleware('auth');
+Route::post('/AdminPerkembangan/simpan', [App\Http\Controllers\PerkembanganController::class, 'store'])->name('profil')->middleware('auth');
+Route::get('/AdminPerkembangan/hapus/{id}', [App\Http\Controllers\PerkembanganController::class, 'destroy'])->name('profil')->middleware('auth');
+Route::get('/AdminPerkembangan/ubah/{id}', [App\Http\Controllers\PerkembanganController::class, 'edit'])->name('profil')->middleware('auth');
+Route::post('/AdminPerkembangan/update/{id}', [App\Http\Controllers\PerkembanganController::class, 'update'])->name('profil')->middleware('auth');
 
 Route::get('/datasaran', 'App\Http\Controllers\SaranController@tampil')->name('profil')->middleware('auth');
 Route::get('/datasaran/tambah', [App\Http\Controllers\SaranController::class, 'create'])->name('profil')->middleware('auth');

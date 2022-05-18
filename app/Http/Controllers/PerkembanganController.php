@@ -17,7 +17,21 @@ class PerkembanganController extends Controller
             $perkembangan = perkembangan::all();
             return view('Perkembangan.perkembangan',['perkembangan' => $perkembangan]);
         }
-    
+
+
+        public function tampil(Request $request)
+        {
+            if($request->has('cari')) {
+                $data = perkembangan::where('id', 'LIKE', '%'.$request->cari.'%')
+                ->orWhere('perkembangan', 'LIKE', '%'.$request->cari.'%')
+
+
+                ->paginate(5);
+            } else {
+                $data = perkembangan::paginate(5);
+            }
+            return view('AdminPerkembangan.index', ['data'=>$data]);
+        }
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +40,7 @@ class PerkembanganController extends Controller
      */
     public function create()
     {
-        //
+        return view('AdminPerkembangan.tambah');
     }
 
     /**
@@ -37,7 +51,21 @@ class PerkembanganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'perkembangan'=>'required',
+            'deskripsi'=>'required',
+            // 'status'=>'required',
+        ]);
+
+
+            perkembangan::create([
+                'perkembangan'=>$request->perkembangan,
+                'deskripsi'=>$request->deskripsi,
+                'status' =>$request->status
+            ]);
+
+        alert()->success('Sukses','Data Berhasil Ditambahkan!');
+        return redirect('/AdminPerkembangan');
     }
 
     /**
@@ -59,9 +87,9 @@ class PerkembanganController extends Controller
      */
     public function edit($id)
     {
-        //
+        $perkembangan = perkembangan::find($id);
+        return view('AdminPerkembangan.ubah', ['perkembangan' => $perkembangan]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -71,7 +99,26 @@ class PerkembanganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'perkembangan'=>'required',
+            'deskripsi'=>'required',
+            // 'status'=>'required',
+        ]);
+
+
+            $perkembangan = perkembangan::find($id);
+            $perkembangan->id = $request->id;
+            $perkembangan->perkembangan = $request->perkembangan;
+            $perkembangan->deskripsi = $request->deskripsi;
+            $perkembangan->status = $request->status;
+
+            $perkembangan->save();
+            alert()->success('Sukses','Data Berhasil Diubah!');
+            return redirect('/AdminPerkembangan');
+
+
+        alert()->success('Sukses','Data Berhasil Diubah!');
+        return redirect('/AdminPerkembangan');
     }
 
     /**
@@ -82,6 +129,10 @@ class PerkembanganController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $perkembangan = perkembangan::find($id);
+        $perkembangan->delete();
+
+        return back();
     }
+
 }

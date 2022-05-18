@@ -23,9 +23,24 @@ class HiburandanOlahragaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function tampil(Request $request)
+    {
+        if($request->has('cari')) {
+            $judul = hiburan::where('id', 'LIKE', '%'.$request->cari.'%')
+            ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
+
+
+            ->paginate(5);
+        } else {
+            $data = hiburan::paginate(5);
+        }
+        return view('AdminHiburanOlahraga.index', ['data'=>$data]);
+    }
+
+
     public function create()
     {
-        //
+        return view('AdminHiburanOlahraga.tambah');
     }
 
     /**
@@ -36,7 +51,34 @@ class HiburandanOlahragaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'judul'=>'required',
+            'deskripsi'=>'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            hiburan::create([
+                'judul'=>$request->judul,
+                'deskripsi'=>$request->deskripsi,
+                'gambar' =>$request->gambar
+            ]);
+        } else {
+            $judul = $request->judul;
+            $deskripsi = $request->deskripsi;
+
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/Hiburan'),$NamaGambar);
+
+            $hiburan = new hiburan();
+            $hiburan->judul = $judul;
+            $hiburan->deskripsi = $deskripsi;
+            $hiburan->gambar = $gambar;
+            $hiburan->save();
+        }
+        alert()->success('Sukses','Data Berhasil Ditambahkan!');
+        return redirect('/AdminHiburanOlahraga');
     }
 
     /**
@@ -58,9 +100,9 @@ class HiburandanOlahragaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $hiburan = hiburan::find($id);
+        return view('AdminHiburanOlahraga.ubah', ['hiburan' => $hiburan]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -70,7 +112,46 @@ class HiburandanOlahragaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'judul'=>'required',
+            'deskripsi'=>'required',
+        ]);
+
+        if ($request->file('gambar')==NULL) {
+            $hiburan = hiburan::find($id);
+            $hiburan->id = $request->id;
+            $hiburan->judul = $request->judul;
+            $hiburan->deskripsi = $request->deskripsi;
+            $gambar = $request->gambar;
+
+            $hiburan->save();
+            alert()->success('Sukses','Data Berhasil Diubah!');
+            return redirect('/AdminHiburanOlahraga');
+
+        } else {
+            $request->validate([
+                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+            ]);
+
+            $gambar = $request->file('gambar');
+            $NamaGambar = time().'.'.$gambar->extension();
+            $gambar->move(public_path('Gambar/Hiburan'), $NamaGambar);
+
+            $id = $request->id;
+            $judul = $request->judul;
+            $deskripsi = $request->deskripsi;
+
+            $hiburan = hiburan::find($id);
+            $hiburan->judul = $request->judul;
+            $hiburan->deskripsi = $request->deskripsi;
+
+            $hiburan->gambar = $NamaGambar;
+
+            $hiburan->save();
+
+        }
+        alert()->success('Sukses','Data Berhasil Diubah!');
+        return redirect('/AdminHiburanOlahraga');
     }
 
     /**
@@ -81,6 +162,9 @@ class HiburandanOlahragaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hiburan = hiburan::find($id);
+        $hiburan->delete();
+
+        return back();
     }
 }

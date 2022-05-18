@@ -173,7 +173,7 @@ display: block;
 
 
           <li>
-            <a class="dropdown-item" href="{{ url('/AdminParkiranOlahraga')}}">
+            <a class="dropdown-item" href="{{ url('/AdminHiburanOlahraga')}}">
             <b>  Hiburan dan Olahraga</b>
             </a>
           </li>

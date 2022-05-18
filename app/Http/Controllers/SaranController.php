@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\saran;
-use App\Models\Message;
-use Pusher\Pusher;
 use Auth;
 
 class SaranController extends Controller
@@ -45,38 +43,6 @@ class SaranController extends Controller
      */
     public function store(Request $request)
     {
-        // $saran = new saran;
-        // $saran->nama = $request['nama'];
-        // $saran->saran = $request['saran'];
-        // $nama = $request->nama;
-
-        // $message = new Message;
-        // // $message->from = $nama;
-        // // $id = $message->from;
-        // $message->message = $nama;
-        // $message->message = $saran;
-        // $message->save();
-
-        // $options = array(
-        //     'cluster' => 'ap1',
-        //     'useTLS' => true
-        // );
-
-        // $pusher = new Pusher(
-        //     env('PUSHER_APP_KEY'),
-        //     env('PUSHER_APP_SECRET'),
-        //     env('PUSHER_APP_ID'),
-        // );
-
-
-        // $data = ['nama' => $nama];
-        // $pusher->trigger('my-channel', 'my-event', $data);
-
-
-        // if($saran->save()) {
-        //     return response()->json(['status' => true, 'message'
-        //     => 'Task Added Successfully']);
-        // }
 
         $request->validate([
             'nama' => 'required',
