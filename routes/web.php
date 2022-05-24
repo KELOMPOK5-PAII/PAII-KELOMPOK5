@@ -50,11 +50,6 @@ Route::get('/f', function () {
 
 
 /*Admin */
-// Route::get('/login', [LoginController::class, 'login'])->name('login');
-// Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
-
-// Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
-
 Route::get('login', [App\Http\Controllers\UserController::class, 'login'])->name('login');
 Route::post('login', [App\Http\Controllers\UserController::class, 'login_action'])->name('login.action');
 Route::get('password', [App\Http\Controllers\UserController::class, 'password'])->name('password');

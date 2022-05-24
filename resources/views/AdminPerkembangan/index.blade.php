@@ -74,7 +74,7 @@
             </thead>
             <tbody>
             <?php $i=0 ?>
-         
+
                 @foreach ($data as $perkembangan)
                 <tr id="test">
                     <td>{{ $data->firstItem() + $i }}</td>
@@ -89,10 +89,10 @@
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="#" class="delete" data-id="{{ $perkembangan->id }}" data-judul="{{ $perkembangan->deskripsi}}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
                     </td>
                 </tr>
-               
+
                 <?php $i++ ?>
               @endforeach
-            
+
             </tbody>
         </table>
 
@@ -220,7 +220,7 @@
     })
   })
 </script>
-@livewireScripts
+
   </body>
 
 </html>
