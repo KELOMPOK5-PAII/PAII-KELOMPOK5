@@ -1,3 +1,0 @@
-
-ALTER TABLE `klinik`
-  ADD PRIMARY KEY (`id`);
