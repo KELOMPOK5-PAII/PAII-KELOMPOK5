@@ -19,13 +19,13 @@
             <div class="p-3 border" style= "background: #26231B; margin-bottom:50px;">
                 <div class="row">
                     <div class="col-1 text-light" style= "margin-left:50px;">
-                        <img class= "rounded" src="{{  asset('Gambar/PostSatpam/20220416_112016.jpg') }}" width="500" height="300" ><br><br> 
-                        <img class= "rounded" style= "margin-left:100px;" src="{{ asset('Gambar/PostSatpam/20220416_112109.jpg') }}" width="300" height="200" >
+                        <img class= "rounded" src="{{  asset('Gambar/PosSatpam/20220416_100438.jpg') }}" width="500" height="300" ><br><br> 
+                        <img class= "rounded" style= "margin-left:100px;" src="{{ asset('Gambar/PosSatpam/20220416_100927.jpg') }}" width="300" height="200" >
                     </div>
                     <div class="col-10 text-light" style= "margin-top:200px; padding-left:450px">
                         <H2>Pos Satpam</H2>
                         <hr class="my-4"> 
-                        <p style= "font-size: 20px; ">Institut Teknologi Del menyediakan fasilitas Post Satpam yang dapat bertugas memberikan keamanan bagi seluruh dosen dan staf maupun mahasiswa Institut Teknologi Del.</p>
+                        <p style= "font-size: 20px; ">Institut Teknologi Del menyediakan fasilitas Pos Satpam yang dapat bertugas memberikan keamanan bagi seluruh dosen dan staf maupun mahasiswa Institut Teknologi Del.</p>
                     </div>
                 </div>
 
@@ -36,11 +36,11 @@
         </div>
 
         <div class="container px-4">
-        <img src="{{ asset('Gambar/PostSatpam/20220416_112012.jpg') }}" class="img-fluid" alt="..." style="width: 100%;
+        <img src="{{ asset('Gambar/PosSatpam/20220416_112647.jpg') }}" class="img-fluid" alt="..." style="width: 100%;
             height: 700px;">
             <center>
         <div class="card" style="width: 30rem; height: 3rem; color: white; border-style: outset; background: #26231B; margin-top:-30px;" >
-                <p class="card-text" style= "font-size: 20px;">Tampak Depan Post Satpam Institut Teknologi Del</p>
+                <p class="card-text" style= "font-size: 20px;">Tampak Depan Pos Satpam Institut Teknologi Del</p>
         </div>
         </center>
 </div>
@@ -77,7 +77,7 @@
                     <div class="col-9 text-dark" style= "margin-top:0px; padding-left:350px"> 
                     <p>
                     <ul class="list-unstyled" style= "font-size: 20px; ">
-                    <li>Tujuan didirikan post satpam ini adalah untuk memberikan keamanan kepada dosen, mahasiswa, pengawai del yang berada di sekitar Institut Teknologi Del.</li>
+                    <li>Tujuan didirikan Pos satpam ini adalah untuk memberikan keamanan kepada dosen, mahasiswa, pengawai del yang berada di sekitar Institut Teknologi Del.</li>
                     
                     <!--<li>Untuk membuat dosen, mahasiswa, pegawai, dan masyarakat yang di Institut Teknologi Del merasa puas atas layanan klinik maka Institut Teknologi Del menyediakan :
                         <ul>
