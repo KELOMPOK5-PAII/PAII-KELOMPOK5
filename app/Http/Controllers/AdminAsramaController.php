@@ -48,11 +48,11 @@ class AdminAsramaController extends Controller
     {
         $request->validate([
             'namaasrama'=>'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
             'lokasi'=>'required',
             'jenisasrama'=>'required',
             'fasilitas'=>'required',
-            'gambar1'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+            'gambar1'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
             'deskripsi'=>'required',
         ]);
 
@@ -158,7 +158,7 @@ class AdminAsramaController extends Controller
 
         } else {
             $request->validate([
-                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
             ]);
 
             $gambar = $request->file('gambar');

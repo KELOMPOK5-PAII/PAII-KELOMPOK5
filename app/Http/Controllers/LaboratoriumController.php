@@ -53,8 +53,8 @@ class LaboratoriumController extends Controller
         $request->validate([
             'namalab'=>'required',
             'deskripsi'=>'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
-            'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+            'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
         if ($request->file('gambar')==NULL) {
@@ -137,7 +137,7 @@ class LaboratoriumController extends Controller
 
         } else {
             $request->validate([
-                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
             ]);
 
             $gambar = $request->file('gambar');

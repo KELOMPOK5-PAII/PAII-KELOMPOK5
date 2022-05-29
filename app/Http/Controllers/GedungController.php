@@ -59,8 +59,8 @@ class GedungController extends Controller
             'deskripsi'=>'required',
             'jamoperasional' =>'required',
             'aturan' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
-            'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+            'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
         if ($request->file('gambar')==NULL) {
@@ -153,7 +153,7 @@ class GedungController extends Controller
 
         } else {
             $request->validate([
-                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
             ]);
 
             $gambar = $request->file('gambar');

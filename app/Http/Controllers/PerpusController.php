@@ -61,7 +61,7 @@ class PerpusController extends Controller
         $request->validate([
             'judul'=>'required',
             'deskripsi'=>'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
         if ($request->file('gambar')==NULL) {
@@ -137,7 +137,7 @@ class PerpusController extends Controller
 
         } else {
             $request->validate([
-                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
             ]);
 
             $gambar = $request->file('gambar');

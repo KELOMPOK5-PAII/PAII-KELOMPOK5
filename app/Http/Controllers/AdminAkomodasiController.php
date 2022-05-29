@@ -47,7 +47,7 @@ class AdminAkomodasiController extends Controller
         $request->validate([
             'judul'=>'required',
             'link'=>'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
         if ($request->file('foto')==NULL) {
@@ -120,7 +120,7 @@ class AdminAkomodasiController extends Controller
 
         } else {
            $request->validate([
-                'foto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:200000',
+                'foto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2000',
             ]);
 
             $foto = $request->file('foto');
