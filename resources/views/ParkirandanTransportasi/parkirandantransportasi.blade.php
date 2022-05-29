@@ -101,7 +101,7 @@
                     {{ $p->deskripsi }}
                     </div>
                     <div class="col"  style= "padding-top:10px; padding-bottom:30px;">
-                    <img class="img-fluib" src="{{asset('Gambar/Perpus')}}/{{ $p->gambar }}" width="600" height="300" alt="{{ $p->judul }}">
+                    <img class="img-fluib" src="{{asset('Gambar/Parkiran')}}/{{ $p->gambar }}" width="600" height="300" alt="{{ $p->judul }}">
                     <center>
                         <div class="card" style="width: 30rem; height: 3rem; color: white; border-style: outset; background: #26231B; margin-top:-20px;" >
                                 <p class="card-text" style= "font-size: 20px;">{{ $p->judul }}</p>
@@ -121,7 +121,7 @@
                     {{ $t->deskripsi }}
                     </div>
                     <div class="col"  style= "padding-top:10px; padding-bottom:30px;">
-                    <img class="img-fluib" src="{{asset('Gambar/Perpus')}}/{{ $t->gambar }}" width="600" height="300" alt="{{ $t->judul }}">
+                    <img class="img-fluib" src="{{asset('Gambar/Parkiran')}}/{{ $t->gambar }}" width="600" height="300" alt="{{ $t->judul }}">
                     <center>
                         <div class="card" style="width: 30rem; height: 3rem; color: white; border-style: outset; background: #26231B; margin-top:-20px;" >
                                 <p class="card-text" style= "font-size: 20px;">{{ $t->judul }}</p>
