@@ -56,7 +56,7 @@
         </div>
 
 
-        <table class="table rounded-3 table-striped">
+        <table class="table rounded-3 table-striped table-hover">
        <thead>
 
                 <tr id="top">
@@ -74,7 +74,7 @@
                     <td>{{ $data->firstItem() + $i }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($transportasi->judul, 1000, $end='...') }}</td>
                     <td> {{ \Illuminate\Support\Str::limit($transportasi->deskripsi, 1000, $end='...') }}</td>
-                    <td><img width="60px" name="gambar" src="{{asset('Gambar/Transportasi')}}/{{ $transportasi->gambar }}" alt=" gambar"></td>
+                    <td><img width="60px" name="gambar" src="{{asset('Gambar/Parkiran')}}/{{ $transportasi->gambar }}" alt=" gambar"></td>
                     <td>
                         <a href="/AdminTransportasi/detail/{{ $transportasi->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalTransportasi{{ $transportasi->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a><br><br>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminTransportasi/ubah/{{ $transportasi->id }}"><i class="far fa-edit btn btn-success"></i></a><br><br>
@@ -113,7 +113,7 @@
                    </div>
                    <div class="modal-body row">
                        <div id="img-hover-zoom" class="col-md-4 img-dtl">
-                           <img width="100%" src="{{asset('Gambar/Transportasi')}}/{{ $transportasi->gambar }}" alt="not found">
+                           <img width="100%" src="{{asset('Gambar/Parkiran')}}/{{ $transportasi->gambar }}" alt="not found">
                        </div>
                        <div class="col-md-8 rounded-2">
                            <table id="tengah" class="table table-light table-hover">

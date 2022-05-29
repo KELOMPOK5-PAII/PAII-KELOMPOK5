@@ -135,4 +135,24 @@ class PerkembanganController extends Controller
         return back();
     }
 
+    public function completed(perkembangan $perkembangan)
+    {
+        if($perkembangan->completed == false)
+        {
+            $perkembangan->completed = true;
+            $perkembangan->update([
+                'completed' => $perkembangan->completed
+                ]);
+                 return redirect()->back();
+        }
+        else
+        {
+            $perkembangan->completed=false;
+            $perkembangan->update([
+                'completed' => $perkembangan->completed
+                ]);
+                return redirect()->back();
+        }
+    }
+
 }

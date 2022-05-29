@@ -189,6 +189,7 @@ Route::post('/AdminPerkembangan/simpan', [App\Http\Controllers\PerkembanganContr
 Route::get('/AdminPerkembangan/hapus/{id}', [App\Http\Controllers\PerkembanganController::class, 'destroy'])->name('profil')->middleware('auth');
 Route::get('/AdminPerkembangan/ubah/{id}', [App\Http\Controllers\PerkembanganController::class, 'edit'])->name('profil')->middleware('auth');
 Route::post('/AdminPerkembangan/update/{id}', [App\Http\Controllers\PerkembanganController::class, 'update'])->name('profil')->middleware('auth');
+Route::patch('AdminPerkembangan/{id}/completed', [App\Http\Controllers\PerkembanganController::class, 'completed'])->name('profil')->middleware('auth');
 
 Route::get('/datasaran', 'App\Http\Controllers\SaranController@tampil')->name('profil')->middleware('auth');
 Route::get('/datasaran/tambah', [App\Http\Controllers\SaranController::class, 'create'])->name('profil')->middleware('auth');

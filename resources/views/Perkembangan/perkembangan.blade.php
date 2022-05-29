@@ -32,7 +32,7 @@
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$p->perkembangan}}</td>
                     <td>{{$p->deskripsi}}</td>
-                    <td>{{$p->status}}</td>
+                    <td>{{$p->status ? 'checked' : '' }}</td>
                   </tr>
                   @endforeach
                 </tbody>

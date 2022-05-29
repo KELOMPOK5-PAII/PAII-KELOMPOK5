@@ -62,7 +62,7 @@
             </form>
         </div>
 
-        <table class="table rounded-3 table-striped">
+        <table class="table rounded-3 table-striped table-hover">
        <thead>
 
                 <tr id="top">

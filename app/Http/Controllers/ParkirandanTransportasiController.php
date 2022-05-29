@@ -210,7 +210,7 @@ class ParkirandanTransportasiController extends Controller
 
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
-            $gambar->move(public_path('Gambar/Transportasi'),$NamaGambar);
+            $gambar->move(public_path('Gambar/Parkiran'),$NamaGambar);
 
             $transportasi = new transportasi();
             $transportasi->judul = $judul;
@@ -276,7 +276,7 @@ class ParkirandanTransportasiController extends Controller
 
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
-            $gambar->move(public_path('Gambar/Transportasi'), $NamaGambar);
+            $gambar->move(public_path('Gambar/Parkiran'), $NamaGambar);
 
             $id = $request->id;
             $judul = $request->judul;

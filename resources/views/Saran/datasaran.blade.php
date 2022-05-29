@@ -52,7 +52,7 @@
 <br>
 <div class="container" >
     <H1>Data Saran</H1>
-              <table class="table table-bordered" style="text-align:center">
+              <table class="table table-bordered table-hover" style="text-align:center">
                 <thead class="table-dark">
                     <tr>
                         <th scope="col">No.</th>

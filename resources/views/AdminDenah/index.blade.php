@@ -56,8 +56,13 @@
             </form>
         </div>
 
+        <div>
 
-        <table class="table rounded-3 table-striped">
+        <button data-bs-toggle="modal" data-bs-target="#Modal">Lihat Denah</button>
+
+        </div>
+
+        <table class="table rounded-3 table-striped table-hover">
        <thead>
 
                 <tr id="top">
@@ -141,6 +146,24 @@
 
 
        @endforeach
+
+
+
+
+       <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabelBuku" aria-hidden="true">
+           <div class="modal-dialog modal-dialog-centered modal-lg">
+               <div class="modal-content">
+                   <div class="modal-body row">
+                       <div  class="col-md-12 img-dtl">
+                       <div>
+                           <img width="100%" src="{{asset('Gambar/denah IT Del rgs.png')}}" alt="not found"></div>
+                       </div>
+               </div>
+           </div>
+       </div>
+       </div>
+
+
 
 
 

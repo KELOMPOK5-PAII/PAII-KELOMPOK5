@@ -25,8 +25,6 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
-<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <style type="text/css">
             #test{
                 text-align:center;
@@ -39,7 +37,10 @@
             }
 
         </style>
-        @livewireStyles
+
+
+
+
 </head>
 @section('title','Perkembangan | Home')
 
@@ -61,7 +62,7 @@
         </div>
 
 
-        <table class="table rounded-3 table-striped">
+        <table class="table rounded-3 table-striped table-hover">
        <thead>
 
                 <tr id="top">
@@ -81,12 +82,14 @@
                     <td>{{ \Illuminate\Support\Str::limit($perkembangan->perkembangan, 1000, $end='...') }}</td>
                     <td> {{ \Illuminate\Support\Str::limit($perkembangan->deskripsi, 1000, $end='...') }}</td>
                     <td>
-                        <input data-id="{{$perkembangan->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Selesai" data-off="Proses" {{ $perkembangan->status ? 'checked' : '' }}>
+                        <!-- <input data-id="{{$perkembangan->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Selesai" data-off="Proses" {{ $perkembangan->status ? 'checked' : '' }}> -->
+                    {{ $perkembangan->completed == false ? 'Proses' : 'Selesai'}}
                      </td>
                     <td>
                         <a href="/AdminPerkembangan/detail/{{ $perkembangan->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalPerkembangan{{ $perkembangan->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminPerkembangan/ubah/{{ $perkembangan->id }}"><i class="far fa-edit btn btn-success"></i></a>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="#" class="delete" data-id="{{ $perkembangan->id }}" data-judul="{{ $perkembangan->deskripsi}}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
+                        <button type="submit" class="btn btn-xs btn-white">{{$perkembangan->completed == true ? 'Tandai Proses' : 'Tandai Selesai'}}</button>
                     </td>
                 </tr>
 
@@ -202,24 +205,6 @@
 
    </script>
 
-<script>
-  $(function() {
-    $('.toggle-class').change(function() {
-        var status = $(this).prop('checked') == true ? 1 : 0;
-        var perkembangan_id = $(this).data('id');
-
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: '/store',
-            data: {'status': status, 'perkembangan_id': perkembangan_id},
-            success: function(data){
-              console.log(data.success)
-            }
-        });
-    })
-  })
-</script>
 
   </body>
 
