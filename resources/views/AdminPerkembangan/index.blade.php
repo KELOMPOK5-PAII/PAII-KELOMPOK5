@@ -38,10 +38,10 @@
 
         </style>
 
-
-
-
 </head>
+
+
+
 @section('title','Perkembangan | Home')
 
 @section('content')
@@ -81,15 +81,15 @@
                     <td>{{ $data->firstItem() + $i }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($perkembangan->perkembangan, 1000, $end='...') }}</td>
                     <td> {{ \Illuminate\Support\Str::limit($perkembangan->deskripsi, 1000, $end='...') }}</td>
-                    <td>
-                        <!-- <input data-id="{{$perkembangan->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Selesai" data-off="Proses" {{ $perkembangan->status ? 'checked' : '' }}> -->
-                    {{ $perkembangan->completed == false ? 'Proses' : 'Selesai'}}
-                     </td>
+                    @if($perkembangan->status==1)
+                    <td>Proses</td>
+                    @else
+                    <td>Selesai</td>
+                    @endif
                     <td>
                         <a href="/AdminPerkembangan/detail/{{ $perkembangan->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalPerkembangan{{ $perkembangan->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminPerkembangan/ubah/{{ $perkembangan->id }}"><i class="far fa-edit btn btn-success"></i></a>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="#" class="delete" data-id="{{ $perkembangan->id }}" data-judul="{{ $perkembangan->deskripsi}}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
-                        <button type="submit" class="btn btn-xs btn-white">{{$perkembangan->completed == true ? 'Tandai Proses' : 'Tandai Selesai'}}</button>
                     </td>
                 </tr>
 
@@ -122,7 +122,7 @@
            <div class="modal-dialog modal-dialog-centered modal-lg">
                <div class="modal-content">
                    <div class="modal-header">
-                       <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">Detail {{ $perkembangan->deskripsi }}</h3>
+                       <h3 class="modal-title fw-bold" id="exampleModalLabelBuku">Detail {{ $perkembangan->perkembangan }}</h3>
                    </div>
                    <div class="modal-body row">
 
@@ -146,7 +146,11 @@
                                <tr>
                                    <td>Status</td>
                                    <td>:</td>
-                                   <td>{{ $perkembangan->status }}</td>
+                                   @if($perkembangan->status==1)
+                                    <td>Proses</td>
+                                    @else
+                                    <td>Selesai</td>
+                                    @endif
                                </tr>
                            </table>
                        </div>
@@ -205,8 +209,17 @@
 
    </script>
 
+<script>
+function DoSubmit(sel)
+{
+     if(sel.val()!='0') this.form.submit();
+}
+
+</script>
 
   </body>
 
 </html>
+
+
 @endsection
