@@ -33,6 +33,21 @@
                         @enderror
                     </div>
 
+                    <div class="form-group mt-3">
+                      <label for="status">Status</label>
+                      <select class="form-control" name="status" value="{{ $perkembangan->perkembangan }}">
+                      @if($perkembangan->status==1)
+                        <option value=1>Proses</option>
+                        <option value=2>Selesai</option>
+                        @else
+                        <option value=2>Selesai</option>
+                        <option value=1>Proses</option>
+
+                    @endif
+
+                      </select>
+                    </div>
+
 
                     <div class="form-group mt-3">
                     <br><br>

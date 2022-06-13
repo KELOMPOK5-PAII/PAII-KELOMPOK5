@@ -54,7 +54,7 @@ class PerkembanganController extends Controller
         $request->validate([
             'perkembangan'=>'required',
             'deskripsi'=>'required',
-            // 'status'=>'required',
+            'status'=>'required',
         ]);
 
 
@@ -102,7 +102,7 @@ class PerkembanganController extends Controller
         $request->validate([
             'perkembangan'=>'required',
             'deskripsi'=>'required',
-            // 'status'=>'required',
+            'status'=>'required',
         ]);
 
 

@@ -29,8 +29,9 @@ class DashboardController extends Controller
     {
         $fasilitas = fasilitas::count();
         $saran = saran::count();
+        $perkembangan = perkembangan::count();
 
-        return view('dashboard', compact('fasilitas', 'saran'));
+        return view('dashboard', compact('fasilitas', 'saran', 'perkembangan'));
     }
 
 

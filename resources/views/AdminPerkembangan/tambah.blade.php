@@ -36,6 +36,13 @@
                 </div>
 
 
+                <div class="form-group mt-3">
+                      <label>Status</label>
+                      <select class="form-control" name="status">
+                        <option value=1>Proses</option>
+                        <option value=2>Selesai</option>
+                      </select>
+                    </div>
 
                 <br><br>
                     <button type="submit" class="btn btn-success">Tambah</button>
