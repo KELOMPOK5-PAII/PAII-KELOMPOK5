@@ -24,6 +24,11 @@ li a:hover {
   color: #000000;
 }
 
+#footer .referens a {
+  text-decoration: none;
+  color: #ffff;
+}
+
 
 
 .table thead th {
