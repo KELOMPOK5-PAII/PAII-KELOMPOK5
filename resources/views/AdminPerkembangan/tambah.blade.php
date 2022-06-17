@@ -40,7 +40,8 @@
                       <label>Status</label>
                       <select class="form-control" name="status">
                         <option value=1>Proses</option>
-                        <option value=2>Selesai</option>
+                        <option value=2>Rencana</option>
+                        <option value=3>Selesai</option>
                       </select>
                     </div>
 

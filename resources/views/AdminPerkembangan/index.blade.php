@@ -83,6 +83,8 @@
                     <td> {{ \Illuminate\Support\Str::limit($perkembangan->deskripsi, 1000, $end='...') }}</td>
                     @if($perkembangan->status==1)
                     <td>Proses</td>
+                    @elseif($perkembangan->status==2)
+                    <td>Rencana</td>
                     @else
                     <td>Selesai</td>
                     @endif
@@ -148,6 +150,8 @@
                                    <td>:</td>
                                    @if($perkembangan->status==1)
                                     <td>Proses</td>
+                                    @elseif($perkembangan->status==2)
+                                    <td>Rencana</td>
                                     @else
                                     <td>Selesai</td>
                                     @endif
