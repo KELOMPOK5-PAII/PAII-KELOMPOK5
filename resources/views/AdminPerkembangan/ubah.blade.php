@@ -38,10 +38,16 @@
                       <select class="form-control" name="status" value="{{ $perkembangan->perkembangan }}">
                       @if($perkembangan->status==1)
                         <option value=1>Proses</option>
-                        <option value=2>Selesai</option>
-                        @else
-                        <option value=2>Selesai</option>
+                        <option value=2>Rencana</option>
+                        <option value=3>Selesai</option>
+                        @elseif($perkembangan->status==2)
+                        <option value=2>Rencana</option>
                         <option value=1>Proses</option>
+                        <option value=3>Selesai</option>
+                        @else
+                        <option value=3>Selesai</option>
+                        <option value=1>Proses</option>
+                        <option value=2>Rencana</option>
 
                     @endif
 
