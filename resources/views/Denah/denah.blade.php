@@ -56,6 +56,7 @@
               
               <br>
 
+              <!--
               <div class="row">
                 <div class="col">
                   <div class="card" style="width: 8rem; background:#f7c9a9;">
@@ -98,7 +99,7 @@
                   FB ( Fakultas Bioteknologi )
                 </div>
               </div> 
-
+-->
               <br>
 
                 </div>
