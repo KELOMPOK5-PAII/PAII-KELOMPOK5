@@ -89,6 +89,7 @@
             <div class="referens">
             <h2 style="color:darkcyan">Link Terkait</h2><br>
             <h5><a href="https://www.del.ac.id/">Institut Teknologi Del</a></h5>
+            <h5><a href="http://spmbapp.del.ac.id/">Penerimaan Mahasiswa Baru</a></h5>
             </div>
             </div>
 
