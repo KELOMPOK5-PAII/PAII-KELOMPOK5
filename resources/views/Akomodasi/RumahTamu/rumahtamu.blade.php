@@ -37,8 +37,8 @@
         </div>
 
         <div class="container px-4">
-        <img src="{{ asset('Gambar/RumahTamu/GuestHouse .jpg') }}" class="img-fluid" alt="..." style="width: 100%;
-            height: 700px;">
+        <!-- <img src="{{ asset('Gambar/RumahTamu/GuestHouse .jpg') }}" class="img-fluid" alt="..." style="width: 100%;
+            height: 700px;"> -->
             <center>
         <div class="card" style="width: 30rem; height: 3rem; color: white; border-style: outset; background: #26231B; margin-top:-30px;" >
                 <p class="card-text" style= "font-size: 20px;">Tampak Depan Rumah Tamu</p>
