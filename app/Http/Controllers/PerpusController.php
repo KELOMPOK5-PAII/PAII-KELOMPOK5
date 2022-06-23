@@ -64,7 +64,7 @@ class PerpusController extends Controller
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
-        if ($request->file('gambar')==NULL) {
+        if ($request->file('gambar')->getClientOriginalName()==NULL) {
             Perpus::create([
                 'judul'=>$request->judul,
                 'deskripsi'=>$request->deskripsi,
@@ -81,7 +81,7 @@ class PerpusController extends Controller
             $perpus = new Perpus();
             $perpus->judul = $judul;
             $perpus->deskripsi = $deskripsi;
-            $perpus->gambar = $gambar;
+            $perpus->gambar = $gambar->getClientOriginalName();
             $perpus->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');

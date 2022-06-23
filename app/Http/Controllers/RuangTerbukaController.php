@@ -59,7 +59,7 @@ class RuangTerbukaController extends Controller
             'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
-        if ($request->file('gambar')==NULL) {
+        if ($request->file('gambar')->getClientOriginalName()==NULL) {
             ruangterbuka::create([
                 'namart'=>$request->namart,
                 'deskripsi'=>$request->deskripsi,
@@ -81,8 +81,8 @@ class RuangTerbukaController extends Controller
             $ruangterbuka = new ruangterbuka();
             $ruangterbuka->namart = $namart;
             $ruangterbuka->deskripsi = $deskripsi;
-            $ruangterbuka->gambar = $gambar;
-            $ruangterbuka->gambar1 = $gambar1;
+            $ruangterbuka->gambar = $gambar->getClientOriginalName();
+            $ruangterbuka->gambar1 = $gambar1->getClientOriginalName();
             $ruangterbuka->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -137,7 +137,21 @@ class RuangTerbukaController extends Controller
             alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminRuangTerbuka');
 
-        } else {
+        }
+        else if ($request->file('gambar1')==NULL) {
+            $ruangterbuka = ruangterbuka::find($id);
+            $ruangterbuka->id = $request->id;
+            $ruangterbuka->namart = $request->namart;
+            $ruangterbuka->deskripsi = $request->deskripsi;
+            $gambar = $request->gambar;
+            $gambar1 = $request->gambar1;
+
+            $ruangterbuka->save();
+            alert()->success('Sukses','Data Berhasil Diubah!');
+            return redirect('/AdminRuangTerbuka');
+
+        }
+        else {
             $request->validate([
                 'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
             ]);

@@ -58,7 +58,7 @@ class ParkirandanTransportasiController extends Controller
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
-        if ($request->file('gambar')==NULL) {
+        if ($request->file('gambar')->getClientOriginalName()==NULL) {
             parkiran::create([
                 'judul'=>$request->judul,
                 'deskripsi'=>$request->deskripsi,
@@ -75,7 +75,7 @@ class ParkirandanTransportasiController extends Controller
             $parkiran = new parkiran();
             $parkiran->judul = $judul;
             $parkiran->deskripsi = $deskripsi;
-            $parkiran->gambar = $gambar;
+            $parkiran->gambar = $gambar->getClientOriginalName();
             $parkiran->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -198,7 +198,7 @@ class ParkirandanTransportasiController extends Controller
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
-        if ($request->file('gambar')==NULL) {
+        if ($request->file('gambar')->getClientOriginalName()==NULL) {
             transportasi::create([
                 'judul'=>$request->judul,
                 'deskripsi'=>$request->deskripsi,
@@ -215,7 +215,7 @@ class ParkirandanTransportasiController extends Controller
             $transportasi = new transportasi();
             $transportasi->judul = $judul;
             $transportasi->deskripsi = $deskripsi;
-            $transportasi->gambar = $gambar;
+            $transportasi->gambar = $gambar->getClientOriginalName();
             $transportasi->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');

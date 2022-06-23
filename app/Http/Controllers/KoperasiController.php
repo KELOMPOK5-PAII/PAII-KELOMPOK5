@@ -58,7 +58,7 @@ class KoperasiController extends Controller
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
-        if ($request->file('gambar')==NULL) {
+        if ($request->file('gambar')->getClientOriginalName()==NULL) {
             koperasi::create([
                 'judul'=>$request->judul,
                 'deskripsi'=>$request->deskripsi,
@@ -75,7 +75,7 @@ class KoperasiController extends Controller
             $koperasi = new koperasi();
             $koperasi->judul = $judul;
             $koperasi->deskripsi = $deskripsi;
-            $koperasi->gambar = $gambar;
+            $koperasi->gambar = $gambar->getClientOriginalName();
             $koperasi->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');

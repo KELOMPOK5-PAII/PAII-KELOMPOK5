@@ -89,8 +89,8 @@
                     <td>Selesai</td>
                     @endif
                     <td>
-                        <a href="/AdminPerkembangan/detail/{{ $perkembangan->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalPerkembangan{{ $perkembangan->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a>
-                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminPerkembangan/ubah/{{ $perkembangan->id }}"><i class="far fa-edit btn btn-success"></i></a>
+                        <a href="/AdminPerkembangan/detail/{{ $perkembangan->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalPerkembangan{{ $perkembangan->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a><br><br>
+                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminPerkembangan/ubah/{{ $perkembangan->id }}"><i class="far fa-edit btn btn-success"></i></a><br><br>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="#" class="delete" data-id="{{ $perkembangan->id }}" data-judul="{{ $perkembangan->deskripsi}}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
                     </td>
                 </tr>

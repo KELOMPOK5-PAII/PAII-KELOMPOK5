@@ -56,7 +56,7 @@ class AdminAsramaController extends Controller
             'deskripsi'=>'required',
         ]);
 
-        if ($request->file('foto')==NULL) {
+        if ($request->file('gambar')->getClientOriginalName()==NULL) {
             AdminAsrama::create([
                 'namaasrama' => $request->namaasrama,
                 'gambar' => $request->foto,
@@ -79,20 +79,20 @@ class AdminAsramaController extends Controller
 
             $fasilitas = $request->fasilitas;
 
-            $gambar = $request->file('gambar1');
-            $NamaGambar = time().'.'.$gambar->extension();
-            $gambar->move(public_path('Gambar/Asrama'),$NamaGambar);
+            $gambar1 = $request->file('gambar1');
+            $NamaGambar = time().'.'.$gambar1->extension();
+            $gambar1->move(public_path('Gambar/Asrama'),$NamaGambar);
 
             $deskripsi = $request->deskripsi;
 
 
             $AdminAsrama = new AdminAsrama();
             $AdminAsrama->namaasrama = $namaasrama;
-            $AdminAsrama->gambar = $NamaFoto;
+            $AdminAsrama->gambar = $gambar->getClientOriginalName();
             $AdminAsrama->lokasi = $lokasi;
             $AdminAsrama->jenisasrama = $jenisasrama;
             $AdminAsrama->fasilitas = $fasilitas;
-            $AdminAsrama->gambar1 = $NamaGambar;
+            $AdminAsrama->gambar1 = $gambar1->getClientOriginalName();
             $AdminAsrama->deskripsi = $deskripsi;
             $AdminAsrama->save();
         }

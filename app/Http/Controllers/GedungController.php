@@ -63,7 +63,7 @@ class GedungController extends Controller
             'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
-        if ($request->file('gambar')==NULL) {
+        if ($request->file('gambar')->getClientOriginalName()==NULL) {
             gedung::create([
                 'namagedung'=>$request->namagedung,
                 'deskripsi'=>$request->deskripsi,
@@ -91,8 +91,8 @@ class GedungController extends Controller
             $gedung->deskripsi = $deskripsi;
             $gedung->jamoperasional = $jamoperasional;
             $gedung->aturan = $aturan;
-            $gedung->gambar = $gambar;
-            $gedung->gambar1 = $gambar1;
+            $gedung->gambar = $gambar->getClientOriginalName();
+            $gedung->gambar1 = $gambar1->getClientOriginalName();
             $gedung->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -142,8 +142,8 @@ class GedungController extends Controller
             $gedung->id = $request->id;
             $gedung->namagedung = $request->namagedung;
             $gedung->deskripsi = $request->deskripsi;
-            $gedung->jamoperasional = $jamoperasional;
-            $gedung->aturan = $aturan;
+            $gedung->jamoperasional = $request->jamoperasional;
+            $gedung->aturan = $request->aturan;
             $gambar = $request->gambar;
             $gambar1 = $request->gambar1;
 
@@ -151,7 +151,25 @@ class GedungController extends Controller
             alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminGedung');
 
-        } else {
+        }
+
+        else if ($request->file('gambar1')==NULL) {
+            $gedung = gedung::find($id);
+            $gedung->id = $request->id;
+            $gedung->namagedung = $request->namagedung;
+            $gedung->deskripsi = $request->deskripsi;
+            $gedung->jamoperasional = $request->jamoperasional;
+            $gedung->aturan = $request->aturan;
+            $gambar = $request->gambar;
+            $gambar1 = $request->gambar1;
+
+            $gedung->save();
+            alert()->success('Sukses','Data Berhasil Diubah!');
+            return redirect('/AdminGedung');
+
+        }
+
+        else {
             $request->validate([
                 'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
             ]);

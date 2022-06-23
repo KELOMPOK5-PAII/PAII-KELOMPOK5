@@ -57,7 +57,7 @@ class HiburandanOlahragaController extends Controller
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
-        if ($request->file('gambar')==NULL) {
+        if ($request->file('gambar')->getClientOriginalName()==NULL) {
             hiburan::create([
                 'judul'=>$request->judul,
                 'deskripsi'=>$request->deskripsi,
@@ -74,7 +74,7 @@ class HiburandanOlahragaController extends Controller
             $hiburan = new hiburan();
             $hiburan->judul = $judul;
             $hiburan->deskripsi = $deskripsi;
-            $hiburan->gambar = $gambar;
+            $hiburan->gambar = $gambar->getClientOriginalName();
             $hiburan->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');

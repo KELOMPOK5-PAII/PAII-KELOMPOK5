@@ -58,7 +58,7 @@ class KlinikController extends Controller
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
-        if ($request->file('gambar')==NULL) {
+        if ($request->file('gambar')->getClientOriginalName()==NULL) {
             klinik::create([
                 'judul'=>$request->judul,
                 'deskripsi'=>$request->deskripsi,
@@ -75,7 +75,7 @@ class KlinikController extends Controller
             $klinik = new klinik();
             $klinik->judul = $judul;
             $klinik->deskripsi = $deskripsi;
-            $klinik->gambar = $gambar;
+            $klinik->gambar = $gambar->getClientOriginalName();
             $klinik->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
