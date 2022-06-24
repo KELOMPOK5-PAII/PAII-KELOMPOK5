@@ -58,7 +58,7 @@ class AuditController extends Controller
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
-        if ($request->file('gambar')->getClientOriginalName()==NULL) {
+        if ($request->file('gambar')==NULL) {
             audit::create([
                 'judul'=>$request->judul,
                 'deskripsi'=>$request->deskripsi,
@@ -75,11 +75,11 @@ class AuditController extends Controller
             $audit = new audit();
             $audit->judul = $judul;
             $audit->deskripsi = $deskripsi;
-            $audit->gambar = $gambar->getClientOriginalName();
+            $audit->gambar = $gambar;
             $audit->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
-        return redirect('/AdminAudiotorium');
+        return redirect('/AdminAuditorium');
     }
 
     /**
@@ -118,7 +118,7 @@ class AuditController extends Controller
             'deskripsi'=>'required',
         ]);
 
-        if ($request->file('gambar')->getClientOriginalName()==NULL) {
+        if ($request->file('gambar')==NULL) {
             $audit = audit::find($id);
             $audit->id = $request->id;
             $audit->judul = $request->judul;

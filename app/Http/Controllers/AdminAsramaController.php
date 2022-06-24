@@ -148,18 +148,37 @@ class AdminAsramaController extends Controller
             $AdminAsrama->fasilitas = $request->fasilitas;
             $AdminAsrama->deskripsi = $request->deskripsi;
 
-            $gambar = $request->gambar;
-            $gambar1 = $request->gambar1;
+
+            // $gambar1 = $request->gambar1->;
 
 
             $AdminAsrama->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminAsrama');
 
-        } else {
-            $request->validate([
-                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
-            ]);
+        }
+
+        else if ($request->file('gambar1')==NULL) {
+            $AdminAsrama = AdminAsrama::find($id);
+            $AdminAsrama->id = $request->id;
+            $AdminAsrama->namaasrama = $request->namaasrama;
+            $AdminAsrama->lokasi = $request->lokasi;
+            $AdminAsrama->jenisasrama = $request->jenisasrama;
+            $AdminAsrama->fasilitas = $request->fasilitas;
+            $AdminAsrama->deskripsi = $request->deskripsi;
+
+
+            // $gambar1 = $request->gambar1;
+
+
+            $AdminAsrama->save();
+            alert()->success('Sukses','Data Berhasil Diubah!');
+            return redirect('/AdminAsrama');
+
+        }
+
+        else {
+
 
             $gambar = $request->file('gambar');
             $NamaFoto = time().'.'.$gambar->extension();
@@ -183,13 +202,14 @@ class AdminAsramaController extends Controller
             $AdminAsrama->jenisasrama = $request->jenisasrama;
             $AdminAsrama->fasilitas = $request->fasilitas;
             $AdminAsrama->deskripsi = $request->deskripsi;
-            $AdminAsrama->gambar = $NamaFoto;
-            $AdminAsrama->gambar1 = $NamaGambar;
+            $AdminAsrama->gambar = $gambar->getClientOriginalName();
+            $AdminAsrama->gambar1 = $gambar1->getClientOriginalName();
 
             $AdminAsrama->save();
+
+        }
             alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminAsrama');
-        }
     }
 
     /**
