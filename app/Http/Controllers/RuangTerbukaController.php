@@ -125,7 +125,7 @@ class RuangTerbukaController extends Controller
             'deskripsi'=>'required',
         ]);
 
-        if ($request->file('gambar')==NULL) {
+        if ($request->file('gambar')->getClientOriginalName()==NULL) {
             $ruangterbuka = ruangterbuka::find($id);
             $ruangterbuka->id = $request->id;
             $ruangterbuka->namart = $request->namart;
@@ -138,22 +138,12 @@ class RuangTerbukaController extends Controller
             return redirect('/AdminRuangTerbuka');
 
         }
-        else if ($request->file('gambar1')==NULL) {
-            $ruangterbuka = ruangterbuka::find($id);
-            $ruangterbuka->id = $request->id;
-            $ruangterbuka->namart = $request->namart;
-            $ruangterbuka->deskripsi = $request->deskripsi;
-            $gambar = $request->gambar;
-            $gambar1 = $request->gambar1;
 
-            $ruangterbuka->save();
-            alert()->success('Sukses','Data Berhasil Diubah!');
-            return redirect('/AdminRuangTerbuka');
-
-        }
         else {
             $request->validate([
                 'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+                'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+
             ]);
 
             $gambar = $request->file('gambar');
@@ -172,14 +162,14 @@ class RuangTerbukaController extends Controller
             $ruangterbuka->namart = $request->namart;
             $ruangterbuka->deskripsi = $request->deskripsi;
 
-            $ruangterbuka->gambar = $NamaGambar;
-            $ruangterbuka->gambar1 = $NamaGambar1;
+            $ruangterbuka->gambar = $gambar->getClientOriginalName();
+            $ruangterbuka->gambar1 = $gambar1->getClientOriginalName();
 
             $ruangterbuka->save();
+            alert()->success('Sukses','Data Berhasil Diubah!');
+            return redirect('/AdminRuangTerbuka');
 
         }
-        alert()->success('Sukses','Data Berhasil Diubah!');
-        return redirect('/AdminRuangTerbuka');
     }
 
     /**

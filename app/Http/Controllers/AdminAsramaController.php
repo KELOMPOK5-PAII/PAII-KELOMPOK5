@@ -139,7 +139,7 @@ class AdminAsramaController extends Controller
             'deskripsi'=>'required',
         ]);
 
-        if ($request->file('gambar')==NULL) {
+        if ($request->file('gambar')->getClientOriginalName()==NULL) {
             $AdminAsrama = AdminAsrama::find($id);
             $AdminAsrama->id = $request->id;
             $AdminAsrama->namaasrama = $request->namaasrama;
@@ -148,27 +148,8 @@ class AdminAsramaController extends Controller
             $AdminAsrama->fasilitas = $request->fasilitas;
             $AdminAsrama->deskripsi = $request->deskripsi;
 
-
-            // $gambar1 = $request->gambar1->;
-
-
-            $AdminAsrama->save();
-            alert()->success('Sukses','Data Berhasil Diubah!');
-            return redirect('/AdminAsrama');
-
-        }
-
-        else if ($request->file('gambar1')==NULL) {
-            $AdminAsrama = AdminAsrama::find($id);
-            $AdminAsrama->id = $request->id;
-            $AdminAsrama->namaasrama = $request->namaasrama;
-            $AdminAsrama->lokasi = $request->lokasi;
-            $AdminAsrama->jenisasrama = $request->jenisasrama;
-            $AdminAsrama->fasilitas = $request->fasilitas;
-            $AdminAsrama->deskripsi = $request->deskripsi;
-
-
-            // $gambar1 = $request->gambar1;
+            $AdminAsrama->gambar = $gambar->getClientOriginalName();
+            $AdminAsrama->gambar1 = $gambar1->getClientOriginalName();
 
 
             $AdminAsrama->save();
@@ -178,14 +159,18 @@ class AdminAsramaController extends Controller
         }
 
         else {
+            $request->validate([
+                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+                'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
 
+            ]);
 
             $gambar = $request->file('gambar');
             $NamaFoto = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/Asrama'), $NamaFoto);
 
             $gambar1 = $request->file('gambar1');
-            $NamaGambar = time().'.'.$gambar->extension();
+            $NamaGambar = time().'.'.$gambar1->extension();
             $gambar1->move(public_path('Gambar/Asrama'), $NamaGambar);
 
             $id = $request->id;
@@ -206,10 +191,10 @@ class AdminAsramaController extends Controller
             $AdminAsrama->gambar1 = $gambar1->getClientOriginalName();
 
             $AdminAsrama->save();
-
-        }
             alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminAsrama');
+        }
+
     }
 
     /**

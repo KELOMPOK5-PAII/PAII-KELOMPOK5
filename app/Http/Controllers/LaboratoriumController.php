@@ -123,13 +123,13 @@ class LaboratoriumController extends Controller
             'deskripsi'=>'required',
         ]);
 
-        if ($request->file('gambar')==NULL) {
+        if ($request->file('gambar')->getClientOriginalName()==NULL) {
             $laboratorium = laboratorium::find($id);
             $laboratorium->id = $request->id;
             $laboratorium->namalab = $request->namalab;
             $laboratorium->deskripsi = $request->deskripsi;
-            $gambar = $request->gambar;
-            $gambar1 = $request->gambar1;
+            $gambar = $request->gambar->getClientOriginalName();
+            $gambar1 = $request->gambar1->getClientOriginalName();
 
             $laboratorium->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
@@ -138,6 +138,8 @@ class LaboratoriumController extends Controller
         } else {
             $request->validate([
                 'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+                'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+
             ]);
 
             $gambar = $request->file('gambar');
@@ -156,14 +158,14 @@ class LaboratoriumController extends Controller
             $laboratorium->namalab = $request->namalab;
             $laboratorium->deskripsi = $request->deskripsi;
 
-            $laboratorium->gambar = $NamaGambar;
-            $laboratorium->gambar1 = $NamaGambar1;
+            $laboratorium->gambar = $gambar->getClientOriginalName();
+            $laboratorium->gambar1 = $gambar1->getClientOriginalName();
 
             $laboratorium->save();
+            alert()->success('Sukses','Data Berhasil Diubah!');
+            return redirect('/AdminLaboratorium');
 
         }
-        alert()->success('Sukses','Data Berhasil Diubah!');
-        return redirect('/AdminLaboratorium');
     }
 
     /**
