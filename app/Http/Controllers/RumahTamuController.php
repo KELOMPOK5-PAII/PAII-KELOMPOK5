@@ -74,7 +74,7 @@ class RumahTamuController extends Controller
             $rumahtamu = new rumahtamu();
             $rumahtamu->judul = $judul;
             $rumahtamu->deskripsi = $deskripsi;
-            $rumahtamu->gambar = $gambar;
+            $rumahtamu->gambar = $NamaGambar;
             $rumahtamu->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');

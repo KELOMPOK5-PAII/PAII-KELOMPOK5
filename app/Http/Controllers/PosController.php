@@ -69,12 +69,12 @@ class PosController extends Controller
 
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
-            $gambar->move(public_path('Gambar/Pos'),$NamaGambar);
+            $gambar->move(public_path('Gambar/PosSatpam'),$NamaGambar);
 
             $pos = new pos();
             $pos->judul = $judul;
             $pos->deskripsi = $deskripsi;
-            $pos->gambar = $gambar;
+            $pos->gambar = $NamaGambar;
             $pos->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -135,7 +135,7 @@ class PosController extends Controller
 
             $gambar = $request->file('gambar');
             $NamaGambar = time().'.'.$gambar->extension();
-            $gambar->move(public_path('Gambar/Pos'), $NamaGambar);
+            $gambar->move(public_path('Gambar/PosSatpam'), $NamaGambar);
 
             $id = $request->id;
             $judul = $request->judul;

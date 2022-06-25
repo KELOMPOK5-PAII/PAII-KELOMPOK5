@@ -58,13 +58,13 @@
                     @enderror
                 </div>
 
-                <div class="form-group mt-3">
+                <!-- <div class="form-group mt-3">
                     <label>Gambar 2</label><br>
                     <input type="file" name="gambar1"  value="{{ old('gambar1') }}" autocomplete="off">
                     @error('gambar1')
                             <div class="alert-danger mt-1">{{  $message }}</div>
                     @enderror
-                </div>
+                </div> -->
 
                 <div class="form-group mt-3">
                     <label>Deskripsi</label>

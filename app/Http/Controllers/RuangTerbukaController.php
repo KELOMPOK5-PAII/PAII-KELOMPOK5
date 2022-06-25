@@ -81,8 +81,8 @@ class RuangTerbukaController extends Controller
             $ruangterbuka = new ruangterbuka();
             $ruangterbuka->namart = $namart;
             $ruangterbuka->deskripsi = $deskripsi;
-            $ruangterbuka->gambar = $gambar;
-            $ruangterbuka->gambar1 = $gambar1;
+            $ruangterbuka->gambar = $NamaGambar;
+            $ruangterbuka->gambar1 = $NamaGambar1;
             $ruangterbuka->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -130,16 +130,21 @@ class RuangTerbukaController extends Controller
             $ruangterbuka->id = $request->id;
             $ruangterbuka->namart = $request->namart;
             $ruangterbuka->deskripsi = $request->deskripsi;
-            $gambar = $request->gambar;
-            $gambar1 = $request->gambar1;
+            $gambar = $request->$NamaGambar;
+            $gambar1 = $request->$NamaGambar1;
+
 
             $ruangterbuka->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminRuangTerbuka');
 
-        } else {
+        }
+
+        else {
             $request->validate([
                 'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+                'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+
             ]);
 
             $gambar = $request->file('gambar');
@@ -162,10 +167,10 @@ class RuangTerbukaController extends Controller
             $ruangterbuka->gambar1 = $NamaGambar1;
 
             $ruangterbuka->save();
+            alert()->success('Sukses','Data Berhasil Diubah!');
+            return redirect('/AdminRuangTerbuka');
 
         }
-        alert()->success('Sukses','Data Berhasil Diubah!');
-        return redirect('/AdminRuangTerbuka');
     }
 
     /**

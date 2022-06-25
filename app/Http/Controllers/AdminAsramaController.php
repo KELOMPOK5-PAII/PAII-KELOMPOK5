@@ -48,7 +48,7 @@ class AdminAsramaController extends Controller
     {
         $request->validate([
             'namaasrama'=>'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+            'gambar'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
             'lokasi'=>'required',
             'jenisasrama'=>'required',
             'fasilitas'=>'required',
@@ -56,14 +56,14 @@ class AdminAsramaController extends Controller
             'deskripsi'=>'required',
         ]);
 
-        if ($request->file('foto')==NULL) {
+        if (($request->file('gambar')==NULL) || ($request->file('gambar1')==NULL) ){
             AdminAsrama::create([
                 'namaasrama' => $request->namaasrama,
-                'gambar' => $request->foto,
+                'gambar' => $request->gambar,
                 'lokasi' => $request->lokasi,
                 'jenisasrama' => $request->jenisasrama,
                 'fasilitas' => $request->fasilitas,
-                'gambar1' => $request->gambar,
+                'gambar1' => $request->gambar1,
                 'deskripsi' => $request->deskripsi
             ]);
         } else {
@@ -79,9 +79,9 @@ class AdminAsramaController extends Controller
 
             $fasilitas = $request->fasilitas;
 
-            $gambar = $request->file('gambar1');
-            $NamaGambar = time().'.'.$gambar->extension();
-            $gambar->move(public_path('Gambar/Asrama'),$NamaGambar);
+            $gambar1 = $request->file('gambar1');
+            $NamaGambar = time().'.'.$gambar1->extension();
+            $gambar1->move(public_path('Gambar/Asrama'),$NamaGambar);
 
             $deskripsi = $request->deskripsi;
 
@@ -94,6 +94,11 @@ class AdminAsramaController extends Controller
             $AdminAsrama->fasilitas = $fasilitas;
             $AdminAsrama->gambar1 = $NamaGambar;
             $AdminAsrama->deskripsi = $deskripsi;
+
+            if (AdminAsrama::make($gambar)->width() > 720) {
+                $AdminAsrama->resize(720, null, function ($constraint) {$constraint->aspectRatio();});
+          }
+
             $AdminAsrama->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -148,17 +153,21 @@ class AdminAsramaController extends Controller
             $AdminAsrama->fasilitas = $request->fasilitas;
             $AdminAsrama->deskripsi = $request->deskripsi;
 
-            $gambar = $request->gambar;
-            $gambar1 = $request->gambar1;
+            $AdminAsrama->gambar = $NamaFoto;
+            $AdminAsrama->gambar1 = $NamaGambar;
 
 
             $AdminAsrama->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminAsrama');
 
-        } else {
+        }
+
+        else {
             $request->validate([
                 'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+                'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+
             ]);
 
             $gambar = $request->file('gambar');
@@ -166,7 +175,7 @@ class AdminAsramaController extends Controller
             $gambar->move(public_path('Gambar/Asrama'), $NamaFoto);
 
             $gambar1 = $request->file('gambar1');
-            $NamaGambar = time().'.'.$gambar->extension();
+            $NamaGambar = time().'.'.$gambar1->extension();
             $gambar1->move(public_path('Gambar/Asrama'), $NamaGambar);
 
             $id = $request->id;
@@ -183,13 +192,14 @@ class AdminAsramaController extends Controller
             $AdminAsrama->jenisasrama = $request->jenisasrama;
             $AdminAsrama->fasilitas = $request->fasilitas;
             $AdminAsrama->deskripsi = $request->deskripsi;
+
             $AdminAsrama->gambar = $NamaFoto;
             $AdminAsrama->gambar1 = $NamaGambar;
-
             $AdminAsrama->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminAsrama');
         }
+
     }
 
     /**

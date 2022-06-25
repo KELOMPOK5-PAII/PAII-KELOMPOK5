@@ -75,7 +75,7 @@ class RumahDosenController extends Controller
             $rumahdosen = new rumahdosen();
             $rumahdosen->namarumahdosen = $namarumahdosen;
             $rumahdosen->deskripsi = $deskripsi;
-            $rumahdosen->gambar = $gambar;
+            $rumahdosen->gambar = $NamaGambar;
             $rumahdosen->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');

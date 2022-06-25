@@ -75,7 +75,7 @@ class KoperasiController extends Controller
             $koperasi = new koperasi();
             $koperasi->judul = $judul;
             $koperasi->deskripsi = $deskripsi;
-            $koperasi->gambar = $gambar;
+            $koperasi->gambar = $NamaGambar;
             $koperasi->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');

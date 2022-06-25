@@ -74,7 +74,7 @@
                     <td>{{ $data->firstItem() + $i }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($pos->judul, 1000, $end='...') }}</td>
                     <td> {{ \Illuminate\Support\Str::limit($pos->deskripsi, 1000, $end='...') }}</td>
-                    <td><img width="60px" name="gambar" src="{{asset('Gambar/Pos')}}/{{ $pos->gambar }}" alt=" gambar"></td>
+                    <td><img width="60px" name="gambar" src="{{asset('Gambar/PosSatpam')}}/{{ $pos->gambar }}" alt=" gambar"></td>
                     <td>
                         <a href="/AdminPosSatpam/detail/{{ $pos->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalPos{{ $pos->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a><br><br>
                         <a data-bs-toggle="tooltip" data-bs-placement="top" title="Ubah Data" href="/AdminPosSatpam/ubah/{{ $pos->id }}"><i class="far fa-edit btn btn-success"></i></a><br><br>
@@ -113,7 +113,7 @@
                    </div>
                    <div class="modal-body row">
                        <div id="img-hover-zoom" class="col-md-4 img-dtl">
-                           <img width="100%" src="{{asset('Gambar/Pos')}}/{{ $pos->gambar }}" alt="not found">
+                           <img width="100%" src="{{asset('Gambar/PosSatpam')}}/{{ $pos->gambar }}" alt="not found">
                        </div>
                        <div class="col-md-8 rounded-2">
                            <table id="tengah" class="table table-light table-hover">

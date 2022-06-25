@@ -75,7 +75,7 @@ class ParkirandanTransportasiController extends Controller
             $parkiran = new parkiran();
             $parkiran->judul = $judul;
             $parkiran->deskripsi = $deskripsi;
-            $parkiran->gambar = $gambar;
+            $parkiran->gambar = $NamaGambar;
             $parkiran->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -215,7 +215,7 @@ class ParkirandanTransportasiController extends Controller
             $transportasi = new transportasi();
             $transportasi->judul = $judul;
             $transportasi->deskripsi = $deskripsi;
-            $transportasi->gambar = $gambar;
+            $transportasi->gambar = $NamaGambar;
             $transportasi->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');

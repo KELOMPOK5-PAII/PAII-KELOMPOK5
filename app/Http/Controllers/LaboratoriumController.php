@@ -77,10 +77,10 @@ class LaboratoriumController extends Controller
             $gambar1->move(public_path('Gambar/Lab'),$NamaGambar1);
 
             $laboratorium = new laboratorium();
-            $laboratorium->laboratorium = $laboratorium;
+            $laboratorium->namalab = $namalab;
             $laboratorium->deskripsi = $deskripsi;
-            $laboratorium->gambar = $gambar;
-            $laboratorium->gambar1 = $gambar1;
+            $laboratorium->gambar = $NamaGambar;
+            $laboratorium->gambar1 = $NamaGambar1;
             $laboratorium->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -126,10 +126,10 @@ class LaboratoriumController extends Controller
         if ($request->file('gambar')==NULL) {
             $laboratorium = laboratorium::find($id);
             $laboratorium->id = $request->id;
-            $laboratorium->namalab = $request->laboratorium;
-            $laboratorium->deskripsi = $request->laboratorium;
-            $gambar = $request->gambar;
-            $gambar1 = $request->gambar1;
+            $laboratorium->namalab = $request->namalab;
+            $laboratorium->deskripsi = $request->deskripsi;
+            $gambar = $request->NamaGambar;
+            $gambar1 = $request->NamaGambar1;
 
             $laboratorium->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
@@ -138,6 +138,8 @@ class LaboratoriumController extends Controller
         } else {
             $request->validate([
                 'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+                'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+
             ]);
 
             $gambar = $request->file('gambar');
@@ -160,10 +162,10 @@ class LaboratoriumController extends Controller
             $laboratorium->gambar1 = $NamaGambar1;
 
             $laboratorium->save();
+            alert()->success('Sukses','Data Berhasil Diubah!');
+            return redirect('/AdminLaboratorium');
 
         }
-        alert()->success('Sukses','Data Berhasil Diubah!');
-        return redirect('/AdminLaboratorium');
     }
 
     /**

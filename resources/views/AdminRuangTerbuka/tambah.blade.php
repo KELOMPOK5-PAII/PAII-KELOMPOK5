@@ -37,20 +37,20 @@
 
 
                 <div class="form-group mt-3">
-                    <label>Gambar 1</label><br>
+                    <label>Gambar</label><br>
                     <input type="file" name="gambar"  value="{{ old('gambar') }}" autocomplete="off">
                     @error('gambar')
                             <div class="alert-danger mt-1">{{  $message }}</div>
                     @enderror
                 </div>
 
-                <div class="form-group mt-3">
+                <!-- <div class="form-group mt-3">
                     <label>Gambar 2</label><br>
                     <input type="file" name="gambar1"  value="{{ old('gambar1') }}" autocomplete="off">
                     @error('gambar1')
                             <div class="alert-danger mt-1">{{  $message }}</div>
                     @enderror
-                </div>
+                </div> -->
                 <br><br>
                     <button type="submit" class="btn btn-success">Tambah</button>
                 </div>

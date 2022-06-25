@@ -74,7 +74,7 @@ class HiburandanOlahragaController extends Controller
             $hiburan = new hiburan();
             $hiburan->judul = $judul;
             $hiburan->deskripsi = $deskripsi;
-            $hiburan->gambar = $gambar;
+            $hiburan->gambar = $NamaGambar;
             $hiburan->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');

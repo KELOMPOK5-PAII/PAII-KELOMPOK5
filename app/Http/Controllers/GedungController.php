@@ -91,8 +91,8 @@ class GedungController extends Controller
             $gedung->deskripsi = $deskripsi;
             $gedung->jamoperasional = $jamoperasional;
             $gedung->aturan = $aturan;
-            $gedung->gambar = $gambar;
-            $gedung->gambar1 = $gambar1;
+            $gedung->gambar = $NamaGambar;
+            $gedung->gambar1 = $NamaGambar1;
             $gedung->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -142,18 +142,22 @@ class GedungController extends Controller
             $gedung->id = $request->id;
             $gedung->namagedung = $request->namagedung;
             $gedung->deskripsi = $request->deskripsi;
-            $gedung->jamoperasional = $jamoperasional;
-            $gedung->aturan = $aturan;
-            $gambar = $request->gambar;
-            $gambar1 = $request->gambar1;
+            $gedung->jamoperasional = $request->jamoperasional;
+            $gedung->aturan = $request->aturan;
+            $gedung->gambar = $NamaGambar;
+            $gedung->gambar1 = $NamaGambar1;
 
             $gedung->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminGedung');
 
-        } else {
+        }
+
+        else {
             $request->validate([
                 'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+                'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+
             ]);
 
             $gambar = $request->file('gambar');
@@ -180,10 +184,10 @@ class GedungController extends Controller
             $gedung->gambar1 = $NamaGambar1;
 
             $gedung->save();
-
+            alert()->success('Sukses','Data Berhasil Diubah!');
+            return redirect('/AdminGedung');
         }
-        alert()->success('Sukses','Data Berhasil Diubah!');
-        return redirect('/AdminGedung');
+
     }
 
     /**

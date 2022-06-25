@@ -81,7 +81,7 @@ class PerpusController extends Controller
             $perpus = new Perpus();
             $perpus->judul = $judul;
             $perpus->deskripsi = $deskripsi;
-            $perpus->gambar = $gambar;
+            $perpus->gambar = $NamaGambar;
             $perpus->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');

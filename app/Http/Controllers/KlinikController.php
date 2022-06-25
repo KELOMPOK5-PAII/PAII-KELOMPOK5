@@ -75,7 +75,7 @@ class KlinikController extends Controller
             $klinik = new klinik();
             $klinik->judul = $judul;
             $klinik->deskripsi = $deskripsi;
-            $klinik->gambar = $gambar;
+            $klinik->gambar = $NamaGambar;
             $klinik->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
