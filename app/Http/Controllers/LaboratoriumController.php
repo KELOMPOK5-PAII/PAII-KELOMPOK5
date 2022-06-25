@@ -159,7 +159,7 @@ class LaboratoriumController extends Controller
             $laboratorium->deskripsi = $request->deskripsi;
 
             $laboratorium->gambar = $NamaGambar;
-            $laboratorium->gambar1 = $NamaGambar;
+            $laboratorium->gambar1 = $NamaGambar1;
 
             $laboratorium->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
