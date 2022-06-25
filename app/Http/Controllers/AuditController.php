@@ -75,11 +75,11 @@ class AuditController extends Controller
             $audit = new audit();
             $audit->judul = $judul;
             $audit->deskripsi = $deskripsi;
-            $audit->gambar = $gambar;
+            $audit->gambar = $NamaGambar;
             $audit->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
-        return redirect('/AdminAuditorium');
+        return redirect('/AdminAudiotorium');
     }
 
     /**

@@ -63,7 +63,7 @@ class GedungController extends Controller
             'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
-        if ($request->file('gambar')->getClientOriginalName()==NULL) {
+        if ($request->file('gambar')==NULL) {
             gedung::create([
                 'namagedung'=>$request->namagedung,
                 'deskripsi'=>$request->deskripsi,
@@ -91,8 +91,8 @@ class GedungController extends Controller
             $gedung->deskripsi = $deskripsi;
             $gedung->jamoperasional = $jamoperasional;
             $gedung->aturan = $aturan;
-            $gedung->gambar = $gambar->getClientOriginalName();
-            $gedung->gambar1 = $gambar1->getClientOriginalName();
+            $gedung->gambar = $NamaGambar;
+            $gedung->gambar1 = $NamaGambar1;
             $gedung->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -137,15 +137,15 @@ class GedungController extends Controller
             'aturan' => 'required',
         ]);
 
-        if ($request->file('gambar')->getClientOriginalName()==NULL) {
+        if ($request->file('gambar')==NULL) {
             $gedung = gedung::find($id);
             $gedung->id = $request->id;
             $gedung->namagedung = $request->namagedung;
             $gedung->deskripsi = $request->deskripsi;
             $gedung->jamoperasional = $request->jamoperasional;
             $gedung->aturan = $request->aturan;
-            $gambar = $request->gambar;
-            $gambar1 = $request->gambar1;
+            $gedung->gambar = $NamaGambar;
+            $gedung->gambar1 = $NamaGambar1;
 
             $gedung->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
@@ -180,8 +180,8 @@ class GedungController extends Controller
             $gedung->jamoperasional = $request->jamoperasional;
             $gedung->aturan = $request->aturan;
 
-            $gedung->gambar = $gambar->getClientOriginalName();
-            $gedung->gambar1 = $gambar1->getClientOriginalName();
+            $gedung->gambar = $NamaGambar;
+            $gedung->gambar1 = $NamaGambar1;
 
             $gedung->save();
             alert()->success('Sukses','Data Berhasil Diubah!');

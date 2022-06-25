@@ -57,7 +57,7 @@ class PosController extends Controller
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
-        if ($request->file('gambar')->getClientOriginalName()==NULL) {
+        if ($request->file('gambar')==NULL) {
             pos::create([
                 'judul'=>$request->judul,
                 'deskripsi'=>$request->deskripsi,
@@ -74,7 +74,7 @@ class PosController extends Controller
             $pos = new pos();
             $pos->judul = $judul;
             $pos->deskripsi = $deskripsi;
-            $pos->gambar = $gambar->getClientOriginalName();
+            $pos->gambar = $NamaGambar;
             $pos->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');

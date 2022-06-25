@@ -57,7 +57,7 @@ class LaboratoriumController extends Controller
             'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
-        if ($request->file('gambar')->getClientOriginalName()==NULL) {
+        if ($request->file('gambar')==NULL) {
             laboratorium::create([
                 'namalab'=>$request->namalab,
                 'deskripsi'=>$request->deskripsi,
@@ -79,8 +79,8 @@ class LaboratoriumController extends Controller
             $laboratorium = new laboratorium();
             $laboratorium->namalab = $namalab;
             $laboratorium->deskripsi = $deskripsi;
-            $laboratorium->gambar = $gambar->getClientOriginalName();
-            $laboratorium->gambar1 = $gambar1->getClientOriginalName();
+            $laboratorium->gambar = $NamaGambar;
+            $laboratorium->gambar1 = $NamaGambar1;
             $laboratorium->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -123,13 +123,13 @@ class LaboratoriumController extends Controller
             'deskripsi'=>'required',
         ]);
 
-        if ($request->file('gambar')->getClientOriginalName()==NULL) {
+        if ($request->file('gambar')==NULL) {
             $laboratorium = laboratorium::find($id);
             $laboratorium->id = $request->id;
             $laboratorium->namalab = $request->namalab;
             $laboratorium->deskripsi = $request->deskripsi;
-            $gambar = $request->gambar->getClientOriginalName();
-            $gambar1 = $request->gambar1->getClientOriginalName();
+            $gambar = $request->NamaGambar;
+            $gambar1 = $request->NamaGambar1;
 
             $laboratorium->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
@@ -158,8 +158,8 @@ class LaboratoriumController extends Controller
             $laboratorium->namalab = $request->namalab;
             $laboratorium->deskripsi = $request->deskripsi;
 
-            $laboratorium->gambar = $gambar->getClientOriginalName();
-            $laboratorium->gambar1 = $gambar1->getClientOriginalName();
+            $laboratorium->gambar = $NamaGambar;
+            $laboratorium->gambar1 = $NamaGambar;
 
             $laboratorium->save();
             alert()->success('Sukses','Data Berhasil Diubah!');

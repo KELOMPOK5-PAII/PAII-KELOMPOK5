@@ -56,14 +56,14 @@ class AdminAsramaController extends Controller
             'deskripsi'=>'required',
         ]);
 
-        if ($request->file('gambar')->getClientOriginalName()==NULL) {
+        if ($request->file('gambar')==NULL) {
             AdminAsrama::create([
                 'namaasrama' => $request->namaasrama,
-                'gambar' => $request->foto,
+                'gambar' => $request->gambar,
                 'lokasi' => $request->lokasi,
                 'jenisasrama' => $request->jenisasrama,
                 'fasilitas' => $request->fasilitas,
-                'gambar1' => $request->gambar,
+                'gambar1' => $request->gambar1,
                 'deskripsi' => $request->deskripsi
             ]);
         } else {
@@ -88,11 +88,11 @@ class AdminAsramaController extends Controller
 
             $AdminAsrama = new AdminAsrama();
             $AdminAsrama->namaasrama = $namaasrama;
-            $AdminAsrama->gambar = $gambar->getClientOriginalName();
+            $AdminAsrama->gambar = $NamaFoto;
             $AdminAsrama->lokasi = $lokasi;
             $AdminAsrama->jenisasrama = $jenisasrama;
             $AdminAsrama->fasilitas = $fasilitas;
-            $AdminAsrama->gambar1 = $gambar1->getClientOriginalName();
+            $AdminAsrama->gambar1 = $NamaGambar;
             $AdminAsrama->deskripsi = $deskripsi;
             $AdminAsrama->save();
         }
@@ -139,7 +139,7 @@ class AdminAsramaController extends Controller
             'deskripsi'=>'required',
         ]);
 
-        if ($request->file('gambar')->getClientOriginalName()==NULL) {
+        if ($request->file('gambar')==NULL) {
             $AdminAsrama = AdminAsrama::find($id);
             $AdminAsrama->id = $request->id;
             $AdminAsrama->namaasrama = $request->namaasrama;
@@ -148,8 +148,8 @@ class AdminAsramaController extends Controller
             $AdminAsrama->fasilitas = $request->fasilitas;
             $AdminAsrama->deskripsi = $request->deskripsi;
 
-            $AdminAsrama->gambar = $gambar->getClientOriginalName();
-            $AdminAsrama->gambar1 = $gambar1->getClientOriginalName();
+            $AdminAsrama->gambar = $NamaFoto;
+            $AdminAsrama->gambar1 = $NamaGambar;
 
 
             $AdminAsrama->save();
@@ -187,9 +187,9 @@ class AdminAsramaController extends Controller
             $AdminAsrama->jenisasrama = $request->jenisasrama;
             $AdminAsrama->fasilitas = $request->fasilitas;
             $AdminAsrama->deskripsi = $request->deskripsi;
-            $AdminAsrama->gambar = $gambar->getClientOriginalName();
-            $AdminAsrama->gambar1 = $gambar1->getClientOriginalName();
 
+            $AdminAsrama->gambar = $NamaFoto;
+            $AdminAsrama->gambar1 = $NamaGambar;
             $AdminAsrama->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminAsrama');

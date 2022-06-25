@@ -55,7 +55,7 @@ class AdminKantinController extends Controller
             'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
-        if ($request->file('gambar')->getClientOriginalName()==NULL) {
+        if ($request->file('gambar')==NULL) {
             AdminKantin::create([
                 'namakantin'=>$request->namakantin,
                 'jammakan'=>$request->jammakan,
@@ -86,8 +86,8 @@ class AdminKantinController extends Controller
             $AdminKantin->perlengkapan = $perlengkapan;
             $AdminKantin->peraturan = $peraturan;
             $AdminKantin->deskripsi = $deskripsi;
-            $AdminKantin->gambar = $gambar->getClientOriginalName();
-            $AdminKantin->gambar1 = $gambar1->getClientOriginalName();
+            $AdminKantin->gambar = $NamaGambar;
+            $AdminKantin->gambar1 = $NamaGambar1;
             $AdminKantin->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -133,7 +133,7 @@ class AdminKantinController extends Controller
             'deskripsi'=>'required',
         ]);
 
-        if ($request->file('gambar')->getClientOriginalName()==NULL) {
+        if ($request->file('gambar')==NULL) {
             $AdminKantin = AdminKantin::find($id);
             $AdminKantin->id = $request->id;
             $AdminKantin->namakantin = $request->namakantin;
@@ -141,8 +141,8 @@ class AdminKantinController extends Controller
             $AdminKantin->perlengkapan = $request->perlengkapan;
             $AdminKantin->peraturan = $request->peraturan;
             $AdminKantin->deskripsi = $request->deskripsi;
-            $gambar = $request->gambar;
-            $gambar1 = $request->gambar1;
+            $AdminKantin->gambar = $NamaGambar;
+            $AdminKantin->gambar1 = $NamaGambar1;
 
 
             $AdminKantin->save();
@@ -180,8 +180,8 @@ class AdminKantinController extends Controller
             $AdminKantin->peraturan = $request->peraturan;
             $AdminKantin->deskripsi = $request->deskripsi;
 
-            $AdminKantin->gambar = $gambar->getClientOriginalName();
-            $AdminKantin->gambar1 = $gambar1->getClientOriginalName();
+            $AdminKantin->gambar = $NamaGambar;
+            $AdminKantin->gambar1 = $NamaGambar1;
 
             $AdminKantin->save();
             alert()->success('Sukses','Data Berhasil Diubah!');

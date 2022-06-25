@@ -58,7 +58,7 @@ class RumahDosenController extends Controller
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
-        if ($request->file('gambar')->getClientOriginalName()==NULL) {
+        if ($request->file('gambar')==NULL) {
             rumahdosen::create([
                 'namarumahdosen'=>$request->namarumahdosen,
                 'deskripsi'=>$request->deskripsi,
@@ -75,7 +75,7 @@ class RumahDosenController extends Controller
             $rumahdosen = new rumahdosen();
             $rumahdosen->namarumahdosen = $namarumahdosen;
             $rumahdosen->deskripsi = $deskripsi;
-            $rumahdosen->gambar = $gambar->getClientOriginalName();
+            $rumahdosen->gambar = $NamaGambar;
             $rumahdosen->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
