@@ -19,12 +19,12 @@
             <div class="p-3 border" style= "background: #26231B; margin-bottom:50px;">
                 <div class="row">
                     <div class="col-1 text-light" style= "margin-left:50px;">
-                        <img class= "rounded" src="{{  asset('Gambar/PosSatpam/20220416_100438.jpg') }}" width="500" height="300" ><br><br> 
+                        <img class= "rounded" src="{{  asset('Gambar/PosSatpam/20220416_100438.jpg') }}" width="500" height="300" ><br><br>
                         <img class= "rounded" style= "margin-left:100px;" src="{{ asset('Gambar/PosSatpam/20220416_100927.jpg') }}" width="300" height="200" >
                     </div>
                     <div class="col-10 text-light" style= "margin-top:200px; padding-left:450px">
                         <H2>Pos Satpam</H2>
-                        <hr class="my-4"> 
+                        <hr class="my-4">
                         <p style= "font-size: 20px; ">Institut Teknologi Del menyediakan fasilitas Pos Satpam yang dapat bertugas memberikan keamanan bagi seluruh dosen dan staf maupun mahasiswa Institut Teknologi Del.</p>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
             <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="tentang" role="tabpanel" aria-labelledby="tentang-tab">
                 <div class="row">
-                <H1>Tentang</H1> 
+                <H1>Tentang</H1>
                     <div class="col-1 text-dark" style= "margin-left:100px;">
                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="400" height="400" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><path fill="currentColor" fill-rule="evenodd" d="M13.5 10.097C13.5 7.774 24 6 24 6s10.5 1.774 10.5 4.097c0 3.097-1.91 4.403-1.91 4.403H15.41s-1.91-1.306-1.91-4.403Zm12 .403a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0Zm6.314 7.78c1.39-1.085 1.174-2.28 1.174-2.28H15.012s-.217 1.195 1.174 2.28a8 8 0 1 0 15.629 0ZM24 20c2.721 0 4.623-.314 5.952-.766a6 6 0 1 1-11.903 0c1.328.452 3.23.766 5.951.766Zm1.5 10a1 1 0 0 1 1 1v1.382a1 1 0 0 1-.553.894l-.447.224l.577 2.885l4.24-6.36c.29 0 .56.002.804.004C36.526 31.262 42 33.776 42 37.558V42H6v-4.442c0-3.782 5.713-6.325 11.118-7.558c-.019.004.184.007.555.01l4.284 6.425l.543-2.935l-.447-.224a1 1 0 0 1-.553-.894V31a1 1 0 0 1 1-1h3Zm9.5 5.333s-1.333-.666-2-1.333c-.667.667-2 1.333-2 1.333S31.698 38 33 38s2-2.667 2-2.667Z" clip-rule="evenodd"/></svg>
                     </div>
@@ -70,11 +70,11 @@
             <div class="tab-pane fade" id="tujuan" role="tabpanel" aria-labelledby="tujuan-tab">
 
             <div class="row">
-            <H1>Tujuan</H1> 
+            <H1>Tujuan</H1>
                     <div class="col-1 text-dark" style= "margin-left:100px;">
                     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="400" height="400" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><path fill="currentColor" fill-rule="evenodd" d="M13.5 10.097C13.5 7.774 24 6 24 6s10.5 1.774 10.5 4.097c0 3.097-1.91 4.403-1.91 4.403H15.41s-1.91-1.306-1.91-4.403Zm12 .403a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0Zm6.314 7.78c1.39-1.085 1.174-2.28 1.174-2.28H15.012s-.217 1.195 1.174 2.28a8 8 0 1 0 15.629 0ZM24 20c2.721 0 4.623-.314 5.952-.766a6 6 0 1 1-11.903 0c1.328.452 3.23.766 5.951.766Zm1.5 10a1 1 0 0 1 1 1v1.382a1 1 0 0 1-.553.894l-.447.224l.577 2.885l4.24-6.36c.29 0 .56.002.804.004C36.526 31.262 42 33.776 42 37.558V42H6v-4.442c0-3.782 5.713-6.325 11.118-7.558c-.019.004.184.007.555.01l4.284 6.425l.543-2.935l-.447-.224a1 1 0 0 1-.553-.894V31a1 1 0 0 1 1-1h3Zm9.5 5.333s-1.333-.666-2-1.333c-.667.667-2 1.333-2 1.333S31.698 38 33 38s2-2.667 2-2.667Z" clip-rule="evenodd"/></svg>
                     </div>
-                    <div class="col-9 text-dark" style= "margin-top:0px; padding-left:350px"> 
+                    <div class="col-9 text-dark" style= "margin-top:0px; padding-left:350px">
                     <p>
                     <ul class="list-unstyled" style= "font-size: 20px; ">
                     <li>Tujuan didirikan Pos satpam ini adalah untuk memberikan keamanan kepada dosen, mahasiswa, pengawai del yang berada di sekitar Institut Teknologi Del.</li>
@@ -87,7 +87,7 @@
         </div>
 
         <br><br><br>
-        @foreach( $pos as $p) 
+        @foreach( $pos as $p)
             <div class="container">
                 <div class="row">
                     <div class="col" style= "padding-top:60px;" >
