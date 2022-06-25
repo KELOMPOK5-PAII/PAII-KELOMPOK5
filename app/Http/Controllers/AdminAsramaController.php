@@ -52,18 +52,18 @@ class AdminAsramaController extends Controller
             'lokasi'=>'required',
             'jenisasrama'=>'required',
             'fasilitas'=>'required',
-            'gambar1'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+            // 'gambar1'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
             'deskripsi'=>'required',
         ]);
 
-        if (($request->file('gambar')==NULL) || ($request->file('gambar1')==NULL) ){
+        if ($request->file('gambar')==NULL){
             AdminAsrama::create([
                 'namaasrama' => $request->namaasrama,
                 'gambar' => $request->gambar,
                 'lokasi' => $request->lokasi,
                 'jenisasrama' => $request->jenisasrama,
                 'fasilitas' => $request->fasilitas,
-                'gambar1' => $request->gambar1,
+                // 'gambar1' => $request->gambar1,
                 'deskripsi' => $request->deskripsi
             ]);
         } else {
@@ -79,9 +79,9 @@ class AdminAsramaController extends Controller
 
             $fasilitas = $request->fasilitas;
 
-            $gambar1 = $request->file('gambar1');
-            $NamaGambar = time().'.'.$gambar1->extension();
-            $gambar1->move(public_path('Gambar/Asrama'),$NamaGambar);
+            // $gambar1 = $request->file('gambar1');
+            // $NamaGambar = time().'.'.$gambar1->extension();
+            // $gambar1->move(public_path('Gambar/Asrama'),$NamaGambar);
 
             $deskripsi = $request->deskripsi;
 
@@ -92,12 +92,12 @@ class AdminAsramaController extends Controller
             $AdminAsrama->lokasi = $lokasi;
             $AdminAsrama->jenisasrama = $jenisasrama;
             $AdminAsrama->fasilitas = $fasilitas;
-            $AdminAsrama->gambar1 = $NamaGambar;
+            // $AdminAsrama->gambar1 = $NamaGambar;
             $AdminAsrama->deskripsi = $deskripsi;
 
-            if (AdminAsrama::make($gambar)->width() > 720) {
-                $AdminAsrama->resize(720, null, function ($constraint) {$constraint->aspectRatio();});
-          }
+        //     if (AdminAsrama::make($gambar)->width() > 720) {
+        //         $AdminAsrama->resize(720, null, function ($constraint) {$constraint->aspectRatio();});
+        //   }
 
             $AdminAsrama->save();
         }
@@ -154,7 +154,7 @@ class AdminAsramaController extends Controller
             $AdminAsrama->deskripsi = $request->deskripsi;
 
             $AdminAsrama->gambar = $NamaFoto;
-            $AdminAsrama->gambar1 = $NamaGambar;
+            // $AdminAsrama->gambar1 = $NamaGambar;
 
 
             $AdminAsrama->save();
@@ -166,7 +166,7 @@ class AdminAsramaController extends Controller
         else {
             $request->validate([
                 'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
-                'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+                // 'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
 
             ]);
 
@@ -174,9 +174,9 @@ class AdminAsramaController extends Controller
             $NamaFoto = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/Asrama'), $NamaFoto);
 
-            $gambar1 = $request->file('gambar1');
-            $NamaGambar = time().'.'.$gambar1->extension();
-            $gambar1->move(public_path('Gambar/Asrama'), $NamaGambar);
+            // $gambar1 = $request->file('gambar1');
+            // $NamaGambar = time().'.'.$gambar1->extension();
+            // $gambar1->move(public_path('Gambar/Asrama'), $NamaGambar);
 
             $id = $request->id;
             $namaasrama = $request->namaasrama;
@@ -194,7 +194,7 @@ class AdminAsramaController extends Controller
             $AdminAsrama->deskripsi = $request->deskripsi;
 
             $AdminAsrama->gambar = $NamaFoto;
-            $AdminAsrama->gambar1 = $NamaGambar;
+            // $AdminAsrama->gambar1 = $NamaGambar;
             $AdminAsrama->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
             return redirect('/AdminAsrama');

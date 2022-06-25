@@ -60,7 +60,7 @@ class GedungController extends Controller
             'jamoperasional' =>'required',
             'aturan' => 'required',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
-            'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+            // 'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
         if ($request->file('gambar')==NULL) {
@@ -70,7 +70,7 @@ class GedungController extends Controller
                 'jamoperasional' =>$request->jamoperasional,
                 'aturan' => $request->aturan,
                 'gambar' =>$request->gambar,
-                'gambar1' =>$request->gambar1
+                // 'gambar1' =>$request->gambar1
             ]);
         } else {
             $namagedung = $request->namagedung;
@@ -82,9 +82,9 @@ class GedungController extends Controller
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/Gedung'),$NamaGambar);
 
-            $gambar1 = $request->file('gambar1');
-            $NamaGambar1= time().'.'.$gambar1->extension();
-            $gambar1->move(public_path('Gambar/Gedung'),$NamaGambar1);
+            // $gambar1 = $request->file('gambar1');
+            // $NamaGambar1= time().'.'.$gambar1->extension();
+            // $gambar1->move(public_path('Gambar/Gedung'),$NamaGambar1);
 
             $gedung = new gedung();
             $gedung->namagedung = $namagedung;
@@ -92,7 +92,7 @@ class GedungController extends Controller
             $gedung->jamoperasional = $jamoperasional;
             $gedung->aturan = $aturan;
             $gedung->gambar = $NamaGambar;
-            $gedung->gambar1 = $NamaGambar1;
+            // $gedung->gambar1 = $NamaGambar1;
             $gedung->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -145,7 +145,7 @@ class GedungController extends Controller
             $gedung->jamoperasional = $request->jamoperasional;
             $gedung->aturan = $request->aturan;
             $gedung->gambar = $NamaGambar;
-            $gedung->gambar1 = $NamaGambar1;
+            // $gedung->gambar1 = $NamaGambar1;
 
             $gedung->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
@@ -156,7 +156,7 @@ class GedungController extends Controller
         else {
             $request->validate([
                 'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
-                'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+                // 'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
 
             ]);
 
@@ -164,9 +164,9 @@ class GedungController extends Controller
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/Gedung'), $NamaGambar);
 
-            $gambar1 = $request->file('gambar1');
-            $NamaGambar1 = time().'.'.$gambar1->extension();
-            $gambar1->move(public_path('Gambar/Gedung'), $NamaGambar1);
+            // $gambar1 = $request->file('gambar1');
+            // $NamaGambar1 = time().'.'.$gambar1->extension();
+            // $gambar1->move(public_path('Gambar/Gedung'), $NamaGambar1);
 
             $id = $request->id;
             $namagedung = $request->namagedung;
@@ -181,7 +181,7 @@ class GedungController extends Controller
             $gedung->aturan = $request->aturan;
 
             $gedung->gambar = $NamaGambar;
-            $gedung->gambar1 = $NamaGambar1;
+            // $gedung->gambar1 = $NamaGambar1;
 
             $gedung->save();
             alert()->success('Sukses','Data Berhasil Diubah!');

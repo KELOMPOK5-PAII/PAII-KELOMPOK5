@@ -52,7 +52,7 @@ class AdminKantinController extends Controller
             'peraturan'=>'required',
             'deskripsi'=>'required',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
-            'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+            // 'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
         if ($request->file('gambar')==NULL) {
@@ -63,7 +63,7 @@ class AdminKantinController extends Controller
                 'peraturan'=>$request->peraturan,
                 'deskripsi'=>$request->deskripsi,
                 'gambar' =>$request->gambar,
-                'gambar1' =>$request->gambar1
+                // 'gambar1' =>$request->gambar1
             ]);
         } else {
             $namakantin = $request->namakantin;
@@ -76,9 +76,9 @@ class AdminKantinController extends Controller
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/Kantin'),$NamaGambar);
 
-            $gambar1 = $request->file('gambar1');
-            $NamaGambar1 = time().'.'.$gambar1->extension();
-            $gambar1->move(public_path('Gambar/Kantin'),$NamaGambar1);
+            // $gambar1 = $request->file('gambar1');
+            // $NamaGambar1 = time().'.'.$gambar1->extension();
+            // $gambar1->move(public_path('Gambar/Kantin'),$NamaGambar1);
 
             $AdminKantin = new AdminKantin();
             $AdminKantin->namakantin = $namakantin;
@@ -87,7 +87,7 @@ class AdminKantinController extends Controller
             $AdminKantin->peraturan = $peraturan;
             $AdminKantin->deskripsi = $deskripsi;
             $AdminKantin->gambar = $NamaGambar;
-            $AdminKantin->gambar1 = $NamaGambar1;
+            // $AdminKantin->gambar1 = $NamaGambar1;
             $AdminKantin->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -142,7 +142,7 @@ class AdminKantinController extends Controller
             $AdminKantin->peraturan = $request->peraturan;
             $AdminKantin->deskripsi = $request->deskripsi;
             $AdminKantin->gambar = $NamaGambar;
-            $AdminKantin->gambar1 = $NamaGambar1;
+            // $AdminKantin->gambar1 = $NamaGambar1;
 
 
             $AdminKantin->save();
@@ -154,7 +154,7 @@ class AdminKantinController extends Controller
 
             $request->validate([
                 'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
-                'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+                // 'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
 
             ]);
 
@@ -162,9 +162,9 @@ class AdminKantinController extends Controller
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/Kantin'), $NamaGambar);
 
-            $gambar1 = $request->file('gambar1');
-            $NamaGambar1 = time().'.'.$gambar1->extension();
-            $gambar1->move(public_path('Gambar/Kantin'), $NamaGambar1);
+            // $gambar1 = $request->file('gambar1');
+            // $NamaGambar1 = time().'.'.$gambar1->extension();
+            // $gambar1->move(public_path('Gambar/Kantin'), $NamaGambar1);
 
             $id = $request->id;
             $namakantin = $request->namakantin;
@@ -181,7 +181,7 @@ class AdminKantinController extends Controller
             $AdminKantin->deskripsi = $request->deskripsi;
 
             $AdminKantin->gambar = $NamaGambar;
-            $AdminKantin->gambar1 = $NamaGambar1;
+            // $AdminKantin->gambar1 = $NamaGambar1;
 
             $AdminKantin->save();
             alert()->success('Sukses','Data Berhasil Diubah!');

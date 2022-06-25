@@ -56,7 +56,7 @@ class RuangTerbukaController extends Controller
             'namart'=>'required',
             'deskripsi'=>'required',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
-            'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+            // 'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
         if ($request->file('gambar')==NULL) {
@@ -64,7 +64,7 @@ class RuangTerbukaController extends Controller
                 'namart'=>$request->namart,
                 'deskripsi'=>$request->deskripsi,
                 'gambar' =>$request->gambar,
-                'gambar1' =>$request->gambar1
+                // 'gambar1' =>$request->gambar1
             ]);
         } else {
             $namart = $request->namart;
@@ -74,15 +74,15 @@ class RuangTerbukaController extends Controller
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/Ruangan Terbuka'),$NamaGambar);
 
-            $gambar1 = $request->file('gambar1');
-            $NamaGambar1= time().'.'.$gambar1->extension();
-            $gambar1->move(public_path('Gambar/Ruangan Terbuka'),$NamaGambar1);
+            // $gambar1 = $request->file('gambar1');
+            // $NamaGambar1= time().'.'.$gambar1->extension();
+            // $gambar1->move(public_path('Gambar/Ruangan Terbuka'),$NamaGambar1);
 
             $ruangterbuka = new ruangterbuka();
             $ruangterbuka->namart = $namart;
             $ruangterbuka->deskripsi = $deskripsi;
             $ruangterbuka->gambar = $NamaGambar;
-            $ruangterbuka->gambar1 = $NamaGambar1;
+            // $ruangterbuka->gambar1 = $NamaGambar1;
             $ruangterbuka->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -131,7 +131,7 @@ class RuangTerbukaController extends Controller
             $ruangterbuka->namart = $request->namart;
             $ruangterbuka->deskripsi = $request->deskripsi;
             $gambar = $request->$NamaGambar;
-            $gambar1 = $request->$NamaGambar1;
+            // $gambar1 = $request->$NamaGambar1;
 
 
             $ruangterbuka->save();
@@ -143,7 +143,7 @@ class RuangTerbukaController extends Controller
         else {
             $request->validate([
                 'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
-                'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+                // 'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
 
             ]);
 
@@ -151,9 +151,9 @@ class RuangTerbukaController extends Controller
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/Ruangan Terbuka'), $NamaGambar);
 
-            $gambar1 = $request->file('gambar1');
-            $NamaGambar1 = time().'.'.$gambar1->extension();
-            $gambar1->move(public_path('Gambar/Ruangan Terbuka'), $NamaGambar1);
+            // $gambar1 = $request->file('gambar1');
+            // $NamaGambar1 = time().'.'.$gambar1->extension();
+            // $gambar1->move(public_path('Gambar/Ruangan Terbuka'), $NamaGambar1);
 
             $id = $request->id;
             $namart = $request->namart;
@@ -164,7 +164,7 @@ class RuangTerbukaController extends Controller
             $ruangterbuka->deskripsi = $request->deskripsi;
 
             $ruangterbuka->gambar = $NamaGambar;
-            $ruangterbuka->gambar1 = $NamaGambar1;
+            // $ruangterbuka->gambar1 = $NamaGambar1;
 
             $ruangterbuka->save();
             alert()->success('Sukses','Data Berhasil Diubah!');

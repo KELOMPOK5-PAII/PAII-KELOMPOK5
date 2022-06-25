@@ -54,7 +54,7 @@ class LaboratoriumController extends Controller
             'namalab'=>'required',
             'deskripsi'=>'required',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
-            'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+            // 'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
         ]);
 
         if ($request->file('gambar')==NULL) {
@@ -62,7 +62,7 @@ class LaboratoriumController extends Controller
                 'namalab'=>$request->namalab,
                 'deskripsi'=>$request->deskripsi,
                 'gambar' =>$request->gambar,
-                'gambar1' =>$request->gambar1
+                // 'gambar1' =>$request->gambar1
             ]);
         } else {
             $namalab = $request->namalab;
@@ -72,15 +72,15 @@ class LaboratoriumController extends Controller
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/Lab'),$NamaGambar);
 
-            $gambar1 = $request->file('gambar1');
-            $NamaGambar1= time().'.'.$gambar1->extension();
-            $gambar1->move(public_path('Gambar/Lab'),$NamaGambar1);
+            // $gambar1 = $request->file('gambar1');
+            // $NamaGambar1= time().'.'.$gambar1->extension();
+            // $gambar1->move(public_path('Gambar/Lab'),$NamaGambar1);
 
             $laboratorium = new laboratorium();
             $laboratorium->namalab = $namalab;
             $laboratorium->deskripsi = $deskripsi;
             $laboratorium->gambar = $NamaGambar;
-            $laboratorium->gambar1 = $NamaGambar1;
+            // $laboratorium->gambar1 = $NamaGambar1;
             $laboratorium->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');
@@ -129,7 +129,7 @@ class LaboratoriumController extends Controller
             $laboratorium->namalab = $request->namalab;
             $laboratorium->deskripsi = $request->deskripsi;
             $gambar = $request->NamaGambar;
-            $gambar1 = $request->NamaGambar1;
+            // $gambar1 = $request->NamaGambar1;
 
             $laboratorium->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
@@ -138,7 +138,7 @@ class LaboratoriumController extends Controller
         } else {
             $request->validate([
                 'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
-                'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+                // 'gambar1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
 
             ]);
 
@@ -146,9 +146,9 @@ class LaboratoriumController extends Controller
             $NamaGambar = time().'.'.$gambar->extension();
             $gambar->move(public_path('Gambar/Lab'), $NamaGambar);
 
-            $gambar1 = $request->file('gambar1');
-            $NamaGambar1 = time().'.'.$gambar1->extension();
-            $gambar1->move(public_path('Gambar/Lab'), $NamaGambar1);
+            // $gambar1 = $request->file('gambar1');
+            // $NamaGambar1 = time().'.'.$gambar1->extension();
+            // $gambar1->move(public_path('Gambar/Lab'), $NamaGambar1);
 
             $id = $request->id;
             $namalab = $request->namalab;
@@ -159,7 +159,7 @@ class LaboratoriumController extends Controller
             $laboratorium->deskripsi = $request->deskripsi;
 
             $laboratorium->gambar = $NamaGambar;
-            $laboratorium->gambar1 = $NamaGambar1;
+            // $laboratorium->gambar1 = $NamaGambar1;
 
             $laboratorium->save();
             alert()->success('Sukses','Data Berhasil Diubah!');
