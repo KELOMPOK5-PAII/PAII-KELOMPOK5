@@ -48,7 +48,7 @@ class AdminAsramaController extends Controller
     {
         $request->validate([
             'namaasrama'=>'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+            'gambar'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
             'lokasi'=>'required',
             'jenisasrama'=>'required',
             'fasilitas'=>'required',
@@ -56,7 +56,7 @@ class AdminAsramaController extends Controller
             'deskripsi'=>'required',
         ]);
 
-        if ($request->file('gambar')==NULL) {
+        if (($request->file('gambar')==NULL) || ($request->file('gambar1')==NULL) ){
             AdminAsrama::create([
                 'namaasrama' => $request->namaasrama,
                 'gambar' => $request->gambar,
@@ -94,6 +94,11 @@ class AdminAsramaController extends Controller
             $AdminAsrama->fasilitas = $fasilitas;
             $AdminAsrama->gambar1 = $NamaGambar;
             $AdminAsrama->deskripsi = $deskripsi;
+
+            if (AdminAsrama::make($gambar)->width() > 720) {
+                $AdminAsrama->resize(720, null, function ($constraint) {$constraint->aspectRatio();});
+          }
+
             $AdminAsrama->save();
         }
         alert()->success('Sukses','Data Berhasil Ditambahkan!');

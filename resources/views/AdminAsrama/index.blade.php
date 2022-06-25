@@ -68,11 +68,11 @@
                 <tr id="top">
                     <th>ID</th>
                     <th>Nama</th>
-                    <th>Gambar 1</th>
+                    <th>Gambar</th>
                     <th>Lokasi</th>
                     <th>Jenis</th>
                     <th>Fasilitas</th>
-                    <th>Gambar 2</th>
+                    <!-- <th>Gambar 2</th> -->
                     <th>Deskripsi</th>
                     <th>Aksi</th>
                 </tr>
@@ -87,7 +87,7 @@
                     <td>{{ \Illuminate\Support\Str::limit($asrama->lokasi, 130, $end='...') }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($asrama->jenisasrama, 130, $end='...') }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($asrama->fasilitas, 130, $end='...') }}</td>
-                    <td><img width="60px" name="gambar1" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar1 }}" alt=" gambar1"></td>
+                    <!-- <td><img width="60px" name="gambar1" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar1 }}" alt=" gambar1"></td> -->
                     <td>{{ \Illuminate\Support\Str::limit($asrama->deskripsi, 130, $end='...') }}</td>
                     <td>
                         <a href="/AdminAsrama/detail/{{ $asrama->id }}" title="Lihat Detail" class="bg-info" data-bs-toggle="modal" data-bs-target="#ModalAsrama{{ $asrama->id }}"><i class="fa fa-eye btn btn-info" aria-hidden="true"></i></a><br><br>
@@ -129,8 +129,8 @@
                         <div class="col-md-4 img-dtl">
                         <div id="img-hover-zoom">
                             <img width="100%" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar }}" alt="not found"></div>
-                            <div id="img-hover-zoom">
-                            <img width="100%" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar1 }}" alt="not found"></div>
+                            <!-- <div id="img-hover-zoom">
+                            <img width="100%" src="{{asset('Gambar/Asrama')}}/{{ $asrama->gambar1 }}" alt="not found"></div> -->
                         </div>
 
                         <div class="col-md-8 rounded-2">

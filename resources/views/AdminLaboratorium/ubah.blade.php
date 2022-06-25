@@ -36,19 +36,19 @@
 
 
                     <div class="form-group mt-3">
-                        <label>Gambar 1</label><br>
+                        <label>Gambar</label><br>
                         <img src="{{asset('Gambar/Lab')}}/{{ $laboratorium->gambar }}" alt="Gambar laboratorium" style="max-width:100px; margin-top:20px;"><br>
                         <input type="file" name="gambar"  value=" {{ $laboratorium->gambar }}">
 
                     </div>
 
 
-                    <div class="form-group mt-3">
+                    <!-- <div class="form-group mt-3">
                         <label>Gambar 2</label><br>
                         <img src="{{asset('Gambar/Lab')}}/{{ $laboratorium->gambar1 }}" alt="Gambar laboratorium" style="max-width:100px; margin-top:20px;"><br>
                         <input type="file" name="gambar1"  value=" {{ $laboratorium->gambar1 }}">
 
-                    </div>
+                    </div> -->
 
                     <div class="form-group mt-3">
                     <br><br>

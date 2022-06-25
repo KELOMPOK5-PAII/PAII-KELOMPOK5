@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="form-group mt-3">
-                        <label>Gambar 1</label><br>
+                        <label>Gambar</label><br>
                         <img src="{{asset('Gambar/Asrama')}}/{{ $AdminAsrama->gambar }}" alt="Gambar asrama" style="max-width:100px; margin-top:20px;"><br>
                         <input type="file" name="gambar"  value=" {{ $AdminAsrama->gambar }}">
                     </div>
@@ -55,11 +55,11 @@
                         @enderror
                     </div>
 
-                    <div class="form-group mt-3">
+                    <!-- <div class="form-group mt-3">
                         <label>Gambar 2</label><br>
                         <img src="{{asset('Gambar/Asrama')}}/{{ $AdminAsrama->gambar1 }}" alt="Gambar asrama" style="max-width:100px; margin-top:20px;"><br>
                         <input type="file" name="gambar1"  value=" {{ $AdminAsrama->gambar1 }}">
-                    </div>
+                    </div> -->
 
                     <div class="form-group mt-3">
                         <label for="deskripsi">Deskripsi</label>
