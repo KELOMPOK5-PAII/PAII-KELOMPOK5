@@ -34,6 +34,8 @@
                     <td>{{$p->deskripsi}}</td>
                     @if($p->status==1)
                     <td>Proses</td>
+                    @elseif($p->status==2)
+                    <td>Rencana</td>
                     @else
                     <td>Selesai</td>
                     @endif
