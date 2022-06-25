@@ -130,8 +130,8 @@ class RuangTerbukaController extends Controller
             $ruangterbuka->id = $request->id;
             $ruangterbuka->namart = $request->namart;
             $ruangterbuka->deskripsi = $request->deskripsi;
-            $ruangterbuka->gambar = $NamaGambar;
-            $ruangterbuka->gambar1 = $NamaGambar1;
+            $gambar = $request->$NamaGambar;
+            $gambar1 = $request->$NamaGambar1;
 
 
             $ruangterbuka->save();
