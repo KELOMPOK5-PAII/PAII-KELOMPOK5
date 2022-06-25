@@ -52,7 +52,7 @@
                     <div class="modal-body" style="text-align: left;">
                       <table class="table table-hover" cellpadding="10" >
                          <tr>
-                         <img src="{{asset('Gambar/Kantin')}}/{{ $k->gambar1 }}" class="rounded" width="460" height="250" style= "margin-bottom:30px;" >
+                         <!--<img src="{{asset('Gambar/Kantin')}}/{{ $k->gambar1 }}" class="rounded" width="460" height="250" style= "margin-bottom:30px;" >-->
                         </tr>
 
                          <tr>

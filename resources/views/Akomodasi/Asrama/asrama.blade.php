@@ -48,7 +48,7 @@
                     <div class="modal-body" style="text-align: justify;">
                       <table class="table table-hover" cellpadding="10" >
                          <tr>
-                            <center><img src="{{asset('Gambar/Asrama')}}/{{ $a->gambar1 }}" class="rounded" width="400" height="250" style= "margin-bottom:30px;" ></center>
+                            <!--<center><img src="{{asset('Gambar/Asrama')}}/{{ $a->gambar1 }}" class="rounded" width="400" height="250" style= "margin-bottom:30px;" ></center>-->
                          </tr>
                          <tr>
                             <td>Nama Asrama</td>
