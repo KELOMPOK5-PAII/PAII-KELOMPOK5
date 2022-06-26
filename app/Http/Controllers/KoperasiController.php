@@ -27,7 +27,7 @@ class KoperasiController extends Controller
     public function tampil(Request $request)
     {
         if($request->has('cari')) {
-            $judul = koperasi::where('id', 'LIKE', '%'.$request->cari.'%')
+            $data = koperasi::where('id', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
 
 

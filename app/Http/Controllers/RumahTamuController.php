@@ -21,7 +21,7 @@ class RumahTamuController extends Controller
     public function tampil(Request $request)
     {
         if($request->has('cari')) {
-            $judul = rumahtamu::where('id', 'LIKE', '%'.$request->cari.'%')
+            $data = rumahtamu::where('id', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
 
 

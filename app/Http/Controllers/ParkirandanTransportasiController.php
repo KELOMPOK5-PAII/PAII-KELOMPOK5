@@ -28,7 +28,7 @@ class ParkirandanTransportasiController extends Controller
     public function tampil(Request $request)
     {
         if($request->has('cari')) {
-            $judul = parkiran::where('id', 'LIKE', '%'.$request->cari.'%')
+            $data = parkiran::where('id', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
 
 
@@ -168,7 +168,7 @@ class ParkirandanTransportasiController extends Controller
     public function tampil2(Request $request)
     {
         if($request->has('cari')) {
-            $judul = transportasi::where('id', 'LIKE', '%'.$request->cari.'%')
+            $data = transportasi::where('id', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
 
 

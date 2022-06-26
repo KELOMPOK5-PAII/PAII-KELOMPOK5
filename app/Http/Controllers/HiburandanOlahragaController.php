@@ -26,7 +26,7 @@ class HiburandanOlahragaController extends Controller
     public function tampil(Request $request)
     {
         if($request->has('cari')) {
-            $judul = hiburan::where('id', 'LIKE', '%'.$request->cari.'%')
+            $data = hiburan::where('id', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
 
 

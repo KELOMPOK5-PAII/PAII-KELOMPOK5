@@ -23,7 +23,7 @@ class KlinikController extends Controller
     public function tampil(Request $request)
     {
         if($request->has('cari')) {
-            $judul = klinik::where('id', 'LIKE', '%'.$request->cari.'%')
+            $data = klinik::where('id', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
 
 

@@ -28,7 +28,7 @@ class AuditController extends Controller
     public function tampil(Request $request)
     {
         if($request->has('cari')) {
-            $judul = audit::where('id', 'LIKE', '%'.$request->cari.'%')
+            $data = audit::where('id', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
 
 

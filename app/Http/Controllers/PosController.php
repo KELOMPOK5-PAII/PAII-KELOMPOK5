@@ -27,7 +27,7 @@ class PosController extends Controller
     public function tampil(Request $request)
     {
         if($request->has('cari')) {
-            $judul = pos::where('id', 'LIKE', '%'.$request->cari.'%')
+            $data = pos::where('id', 'LIKE', '%'.$request->cari.'%')
             ->orWhere('judul', 'LIKE', '%'.$request->cari.'%')
 
 
