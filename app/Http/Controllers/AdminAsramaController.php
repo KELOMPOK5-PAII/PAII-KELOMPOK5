@@ -67,6 +67,10 @@ class AdminAsramaController extends Controller
                 'deskripsi' => $request->deskripsi
             ]);
         } else {
+            // $request->validate([
+            //     'gambar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+            // ]);
+
             $namaasrama = $request->namaasrama;
 
             $gambar = $request->file('gambar');
@@ -153,7 +157,7 @@ class AdminAsramaController extends Controller
             $AdminAsrama->fasilitas = $request->fasilitas;
             $AdminAsrama->deskripsi = $request->deskripsi;
 
-            $AdminAsrama->gambar = $NamaFoto;
+            $gambar = $request->gambar;
             // $AdminAsrama->gambar1 = $NamaGambar;
 
 

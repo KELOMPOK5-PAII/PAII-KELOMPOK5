@@ -130,7 +130,7 @@ class RuangTerbukaController extends Controller
             $ruangterbuka->id = $request->id;
             $ruangterbuka->namart = $request->namart;
             $ruangterbuka->deskripsi = $request->deskripsi;
-            $gambar = $request->$NamaGambar;
+            $gambar = $request->gambar;
             // $gambar1 = $request->$NamaGambar1;
 
 

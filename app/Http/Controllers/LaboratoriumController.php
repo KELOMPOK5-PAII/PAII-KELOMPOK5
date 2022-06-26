@@ -128,7 +128,7 @@ class LaboratoriumController extends Controller
             $laboratorium->id = $request->id;
             $laboratorium->namalab = $request->namalab;
             $laboratorium->deskripsi = $request->deskripsi;
-            $gambar = $request->NamaGambar;
+            $gambar = $request->gambar;
             // $gambar1 = $request->NamaGambar1;
 
             $laboratorium->save();

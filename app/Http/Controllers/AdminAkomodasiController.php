@@ -112,7 +112,7 @@ class AdminAkomodasiController extends Controller
             $AdminAkomodasi = AdminAkomodasi::find($id);
             $AdminAkomodasi->id = $request->id;
             $AdminAkomodasi->judul = $request->judul;
-            $foto = $request->foto;
+            $AdminAkomodasi->foto  = $request->foto;
 
             $AdminAkomodasi->save();
             alert()->success('Sukses','Data Berhasil Diubah!');

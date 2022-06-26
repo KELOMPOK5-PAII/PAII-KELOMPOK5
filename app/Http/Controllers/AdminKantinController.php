@@ -141,7 +141,7 @@ class AdminKantinController extends Controller
             $AdminKantin->perlengkapan = $request->perlengkapan;
             $AdminKantin->peraturan = $request->peraturan;
             $AdminKantin->deskripsi = $request->deskripsi;
-            $AdminKantin->gambar = $NamaGambar;
+            $gambar = $request->gambar;
             // $AdminKantin->gambar1 = $NamaGambar1;
 
 

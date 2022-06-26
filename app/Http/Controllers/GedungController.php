@@ -144,7 +144,7 @@ class GedungController extends Controller
             $gedung->deskripsi = $request->deskripsi;
             $gedung->jamoperasional = $request->jamoperasional;
             $gedung->aturan = $request->aturan;
-            $gedung->gambar = $NamaGambar;
+            $gambar = $request->gambar;
             // $gedung->gambar1 = $NamaGambar1;
 
             $gedung->save();
