@@ -109,7 +109,7 @@ display: block;
         </a>
         <ul  class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <li>
-            <a class="dropdown-item" href="{{ url('/AdminAkomodasi')}}">
+            <a class="dropdown-item" href="#">
               <b> Akomodasi &raquo; </b>
             </a>
             <ul class="dropdown-menu dropdown-submenu">
