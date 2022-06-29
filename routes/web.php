@@ -40,6 +40,7 @@ Route::get('/perkembangan','App\Http\Controllers\PerkembanganController@index');
 //tampil untuk admin index untuk pengguna
 //tampil untuk pengguna index untuk admin OT
 Route::get('/saran', 'App\Http\Controllers\SaranController@index');
+Route::get('/daftarsaran', 'App\Http\Controllers\SaranController@tampilkan');
 Route::post('/saran/simpan', 'App\Http\Controllers\SaranController@store');
 
 

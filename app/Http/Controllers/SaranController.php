@@ -19,6 +19,12 @@ class SaranController extends Controller
         return view('Saran.saran',['saran' => $saran]);
     }
 
+    public function tampilkan()
+    {
+        $saran = saran::all();
+        return view('Saran.daftarsaran',['saran' => $saran]);
+    }
+
     public function tampil()
     {
         $saran = saran::all();

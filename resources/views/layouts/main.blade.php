@@ -62,8 +62,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{asset('/denah')}}">Denah</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{asset('/saran')}}">Saran</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" href="#">Saran</a>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{asset('/saran')}}">Beri Saran</a></li>
+                        <li><a class="dropdown-item" href="{{asset('/daftarsaran')}}">Daftar Saran</a></li>
+                    </ul>
             </li>
 
             <li class="nav-item">
