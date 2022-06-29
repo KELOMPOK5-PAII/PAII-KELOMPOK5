@@ -18,10 +18,12 @@
 
        @foreach($saran as $d)
         <div class="card">
+        @if($d->verify==1)
         <div class="card-header">{{$d->nama}}</div>
         <div class="card-body">
             <p class="card-text">{{$d->saran}}</p>
         </div>
+        @endif
         </div><br>
         @endforeach
 
