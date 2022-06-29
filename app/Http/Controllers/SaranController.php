@@ -31,6 +31,12 @@ class SaranController extends Controller
         return view('Saran.datasaran',['saran' => $saran]);
     }
 
+    public function tampil2()
+    {
+        $saran = saran::all();
+        return view('Saran.kelolasaran',['saran' => $saran]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -41,6 +47,11 @@ class SaranController extends Controller
         return view('Saran.datasaran');
     }
 
+
+    public function create2()
+    {
+        return view('Saran.kelolasaran');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -59,8 +70,17 @@ class SaranController extends Controller
             'nama' => $request->nama,
             'saran' => $request->saran
         ]);
-        alert()->success('Sukses','Saran Berhasil Dikirim');
+        alert()->success('Sukses','Admin akan mereview saran Anda');
         return redirect('/saran');
+    }
+
+    public function verify($id){
+        $saran = saran::where('verify', 0);
+        // $this->pushNotif('Transaksi Dibatalkan', "Transasi produk ".$transaksi->details[0]->produk->name." berhsil dibatalkan", $transaksi->user->fcm);
+        $saran->update([
+            'verify' => 1
+        ]);
+        return redirect('/kelolasaran');
     }
 
     /**

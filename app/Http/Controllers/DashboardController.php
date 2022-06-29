@@ -28,10 +28,11 @@ class DashboardController extends Controller
     public function index()
     {
         $fasilitas = fasilitas::count();
-        $saran = saran::count();
+        $saran = saran::where('verify', 1)->count();
+        $reqsaran = saran::where('verify', 0)->count();
         $perkembangan = perkembangan::count();
 
-        return view('dashboard', compact('fasilitas', 'saran', 'perkembangan'));
+        return view('dashboard', compact('fasilitas', 'saran', 'perkembangan', 'reqsaran'));
     }
 
 

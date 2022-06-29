@@ -196,3 +196,8 @@ Route::get('/datasaran', 'App\Http\Controllers\SaranController@tampil')->name('p
 Route::get('/datasaran/tambah', [App\Http\Controllers\SaranController::class, 'create'])->name('profil')->middleware('auth');
 Route::post('/datasaran/simpan', [App\Http\Controllers\SaranController::class, 'store'])->name('profil')->middleware('auth');
 Route::get('/datasaran/hapus/{id}', [App\Http\Controllers\SaranController::class, 'destroy'])->name('profil')->middleware('auth');
+
+
+Route::get('/kelolasaran', 'App\Http\Controllers\SaranController@tampil2')->name('profil')->middleware('auth');
+Route::get('/kelolasaran/tambah', [App\Http\Controllers\SaranController::class, 'create2'])->name('profil')->middleware('auth');
+Route::get('kelolasaran/{id}', [App\Http\Controllers\SaranController::class, 'verify']);

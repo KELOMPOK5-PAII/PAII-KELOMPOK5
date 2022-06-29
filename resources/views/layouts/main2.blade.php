@@ -215,12 +215,28 @@ display: block;
                     <span><b>Perkembangan Fasilitas di IT Del</b></span></a>
             </li>
 
-            <li class="nav-item">
+
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="{{ url('/datasaran')}}" id="navbarDropdownMenuLink" role="button"
+          data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa fa-comments" aria-hidden="true"></i>
+          <span><b>Saran</b></span>
+        </a>
+        <ul  class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <li>
+            <a class="dropdown-item" href="{{ url('/kelolasaran')}}">
+            <b>     Permintaan Saran</b>
+            </a>
+          </li>
+
+            </ul>
+
+
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="{{ url('/datasaran')}}">
                 <i class="fa fa-comments" aria-hidden="true"></i>
                     <span><b>Saran</span></b></a>
-            </li>
-
+            </li> -->
+<br><br>
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

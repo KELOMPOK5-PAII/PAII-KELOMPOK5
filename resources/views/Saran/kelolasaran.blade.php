@@ -51,7 +51,7 @@
 
 <br>
 <div class="container" >
-    <H1>Data Saran</H1>
+    <H1>Permintaan Saran</H1>
               <table class="table table-bordered table-hover" style="text-align:center">
                 <thead class="table-dark">
                     <tr>
@@ -64,15 +64,22 @@
                 <tbody>
                 <?php $no = 0;?>
                     @foreach($saran as $s)
-                    @if($s->verify==1)
 
+                    @if($s->verify==0)
                     <?php $no++ ;?>
                     <tr>
                     <td>{{ $no }}</td>
+
                         <td>{{ $s->nama }}</td>
                         <td>{{ $s->saran }}</td>
                         <td>
-                            <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="#" class="delete" data-id="{{ $s->id }}" data-nama="{{ $s->nama}}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
+                        <!-- <a href="/kelolasaran/{{$s->id}}">
+                                      <button type="button" class="btn btn-block btn-success btn-xs">Kirim</button></form>
+                                  </a> -->
+                        <a name="toggleBtn" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tampilkan saran" href="/kelolasaran/{{$s->id}}" class="delete" data-id="{{ $s->id }}" data-nama="{{ $s->nama}}"><i class="fas fa-check-square"></i></i></a>
+
+                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data" href="#" class="delete" data-id="{{ $s->id }}" data-nama="{{ $s->nama}}"><i class="fas fa-trash-alt btn btn-danger"></i></a>
+
 
                         </td>
                     </tr>
@@ -124,5 +131,6 @@
        });
 
    </script>
+
 
 @endsection
